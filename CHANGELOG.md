@@ -2,6 +2,13 @@
 
 All notable changes to the paper-writing skill.
 
+## [Unreleased] — 2026-10-10 — Venue examples become a drafting gate
+
+- Principle 10 ("read 3–5 recent accepted papers at the target venue") now appears in the ordered
+  steps: a Stage 3 gate (once per writing session, before any draft) and step 4 of "Help me write
+  section X". It previously lived only in `editorial_principles.md`, so an agent following the
+  checklists step by step skipped it and drafted from rules alone.
+
 ## [v3.2.0] — 2026-11-04 — Story mode, usage guide, synthetic examples
 
 ### Added
