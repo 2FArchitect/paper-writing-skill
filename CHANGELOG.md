@@ -2,6 +2,13 @@
 
 All notable changes to the paper-writing skill.
 
+## [Unreleased] — 2026-10-10 — Venue examples become a drafting gate
+
+- Principle 10 ("read 3–5 recent accepted papers at the target venue") now appears in the ordered
+  steps: a Stage 3 gate (once per writing session, before any draft) and step 4 of "Help me write
+  section X". It previously lived only in `editorial_principles.md`, so an agent following the
+  checklists step by step skipped it and drafted from rules alone.
+
 ## [v3.0.1] — 2026-07-20 — Fix-level provenance in the audit ledger
 
 - The independent red-team's findings and the `/loop` audit ledger now **require citing the exact

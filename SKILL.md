@@ -196,6 +196,8 @@ Output a structured table:
 
 ### Stage 3: Section Drafts
 
+**Gate (once per writing session, before drafting anything)**: read 3–5 recent research articles from the target venue (Principle 10). They are the model for register, section structure and heading style, which the rules in `author_profile/` describe but do not show. Read the articles themselves, not a summary of them. If the paper's working directory holds none yet, ask the user to supply them and do not draft until they arrive. Read them once per session, not on every edit.
+
 **Enforced order**: Draft 0 Introduction → Evaluation → Design/Method → Background → Related Work → Final Introduction → Abstract.
 
 The introduction is written **twice**. This is the most impactful principle in the entire system (Principle 1).
@@ -319,10 +321,11 @@ Fix what can be fixed automatically (e.g., adding `~` before `\cite`). Flag what
 1. Load the paper's `project_context.md`
 2. Read all `author_profile/` files
 3. Read the section's rhetorical moves from `section_rhetorical_moves/`
-4. Identify which stage the paper is in — enforce introduction-twice ordering (Draft 0 intro → Evaluation → Design → Background → Related Work → Final intro → Abstract)
-5. Write topic sentences first; verify they form a coherent argument before filling paragraphs
-6. Generate the draft following the move sequence
-7. Run the section checklist and flag violations with severity levels
+4. If this session has not yet read the venue example articles, read them now (Stage 3 gate, Principle 10)
+5. Identify which stage the paper is in — enforce introduction-twice ordering (Draft 0 intro → Evaluation → Design → Background → Related Work → Final intro → Abstract)
+6. Write topic sentences first; verify they form a coherent argument before filling paragraphs
+7. Generate the draft following the move sequence
+8. Run the section checklist and flag violations with severity levels
 
 ### "Review / critique this draft"
 1. Load `project_context.md`
