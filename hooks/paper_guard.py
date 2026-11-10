@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enforcement hooks for the paper-writing skill (see README.md, "Enforced rules").
+"""Enforcement hooks for the paper-writing skill.
 
 One script, one subcommand per hook event. Claude Code passes the event as JSON on stdin.
 

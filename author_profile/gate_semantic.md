@@ -115,9 +115,9 @@ improved accuracy." Check every leading `-ing`/`-ed` phrase points at the subjec
 **S15. Mappability: no orphan numbers (CRITICAL).** Every number, table cell, and empirical claim
 maps to a committed analysis script → a committed raw result file → (for reproduced prior-work
 metrics) the source it reproduces. Maintain a provenance note (claim → value → script → raw
-output). Maintain a provenance note (claim → value → script → raw output). Numbers from the paper's 
-own data reach the text only through script-generated macros (SKILL.md, Stage 3); a data number 
-typed into the prose is a finding. New analysis code is committed to the correct repository, not a 
+output). Numbers from the paper's
+own data reach the text only through script-generated macros (SKILL.md, Stage 3); a data number
+typed into the prose is a finding. New analysis code is committed to the correct repository, not a
 scratch dir. If a number cannot be mapped, cut it or generate the mapping.
 
 **S16. Ground critiques in numbers, not assertions (MAJOR).** "Prior work X is not enough" is weak
