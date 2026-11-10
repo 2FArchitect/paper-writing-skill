@@ -35,6 +35,7 @@ the start of every iteration.
    c. CRAFT — check the changed prose against `author_profile/craft_reference.md` (the register's
       positive rules).
    d. INDEPENDENT RED-TEAM — spawn a FRESH reviewer (subagent) that did NOT write the text; it returns findings.
+      The S29 lens passes are part of this step (`red_team_protocol.md`, gate 3).
 4. FIX every finding in the section's text.
 5. Re-run the gates on the fixed text. Zero surviving findings → mark the section `CLEAN`; else `FINDINGS(n)`.
 6. Update `notes/AUDIT_LEDGER.md` (grep counts, **rule IDs fixed** (`M#`/`S#`), findings, status).
@@ -42,7 +43,7 @@ the start of every iteration.
 7. Emit a one-line iteration summary (section, rule IDs fixed, findings count, status).
 
 ## Stop condition (the loop ends itself)
-End when EVERY in-scope section is `CLEAN` through all three gates (ledger all green): report the final
+End when EVERY in-scope section is `CLEAN` through all three gates (ledger all green) and the final closure reviewer has signed off (`author_profile/gate_semantic.md` S31): report the final
 ledger and stop. If two consecutive iterations make no progress (the same findings survive), STOP and
 surface the blocker instead of spinning.
 

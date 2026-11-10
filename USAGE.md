@@ -56,7 +56,7 @@ claude
 ## 5. Iterating well
 
 - **Ask for findings, then decide.** A review returns numbered findings; you choose which to apply. Ask *"show before and after for each change"* when cutting or rewording.
-- **Loop mode** processes one section per iteration, records findings in the ledger, and stops when every section in scope is clean. Scope it ("audit sections 2 and 3") to save time. To resume after a break, start the same `/loop` command; it reads the ledger. To stop, interrupt it.
+- **Loop mode** processes one section per iteration, records findings in the ledger, and stops when every section in scope is clean and a final reviewer has signed off on the whole paper (`gate_semantic.md` S31). Scope it ("audit sections 2 and 3") to save time. To resume after a break, start the same `/loop` command; it reads the ledger. To stop, interrupt it.
 - **Fresh eyes.** The red-team runs as a separate agent that did not write the text. If it keeps finding the same issue, rewrite the paragraph's structure or change the rule in your fork (section 7); rewording the same sentence again will not clear it.
 - **Check facts yourself.** The skill improves structure and prose; it cannot know whether a number or a citation is right. Verify every result and reference against your data and the papers.
 
