@@ -61,7 +61,7 @@ PYEOF
 mkdir -p "$SKILL_DIR/examples"
 cp -r "$SCRIPT_DIR/examples/"* "$SKILL_DIR/examples/"
 
-# Enforcement hooks (see README "Enforced rules"). The skill's own frontmatter hook marks a
+# Enforcement hooks. The skill's own frontmatter hook marks a
 # session as a /paper-writing session; these settings hooks enforce the rules in marked sessions,
 # including their subagents (skill-frontmatter hooks do not run inside subagents).
 SETTINGS="$HOME/.claude/settings.json"
