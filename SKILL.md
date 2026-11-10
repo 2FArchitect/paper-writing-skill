@@ -1,6 +1,13 @@
 ---
 name: paper-writing
 description: "Research paper writing assistant that enforces the SNL lab's editorial principles and voice profile (customizable) and a staged writing workflow. MANDATORY TRIGGERS: Use this skill whenever the user mentions writing a paper, drafting a section, revising a section, editing a paper, reviewing a draft, rewriting an introduction, writing an evaluation, polishing prose, compressing text, or any task involving .tex files, Overleaf, conference submissions, or paper deadlines. Also trigger when the user names their paper in a writing context. This skill should activate for ANY research writing task — sections, abstracts, rebuttals, camera-ready edits, cover letters, or response to reviewers."
+hooks:
+  PreToolUse:
+    - matcher: "*"
+      hooks:
+        - type: command
+          command: test -f "__PAPER_GUARD__" && python3 "__PAPER_GUARD__" mark || true
+          once: true
 ---
 
 # Paper Writing Skill
@@ -203,7 +210,7 @@ Output a structured table:
 
 ### Stage 3: Section Drafts
 
-**Gate (once per writing session, before drafting anything)**: read 3–5 recent research articles from the target venue (Principle 10). They are the model for register, section structure and heading style, which the rules in `author_profile/` describe but do not show. Read the articles themselves, not a summary of them. If the paper's working directory holds none yet, ask the user to supply them and do not draft until they arrive. Read them once per session, not on every edit.
+**Gate (once per writing session, before drafting anything)**: read 3–5 recent research articles from the target venue (Principle 10). They are the model for register, section structure and heading style, which the rules in `author_profile/` describe but do not show. Read the articles themselves, not a summary of them, in full, with the Read tool. They live in `style-examples/` in the paper's working directory; if it holds none yet, ask the user to supply them and do not draft until they arrive. Read them once per session, not on every edit.
 
 **Enforced order**: Draft 0 Introduction → Evaluation → Design/Method → Background → Related Work → Final Introduction → Abstract.
 
@@ -230,6 +237,8 @@ The introduction is written **twice**. This is the most impactful principle in t
 ```
 
 Each comment is a contract: the paragraph that follows must deliver on it. If a paragraph doesn't fit any comment, either the paragraph doesn't belong or a comment is missing.
+
+**Numbers from data**: every number computed from the paper's own data enters the text through a macro written by the analysis script that computes it (for example, the script writes `generated/<script>.tex` with one `\defval{name}{value}` per value, and the text writes `\val{name}`). Never type such a number by hand; the script does the rounding and formatting. Numbers quoted from sources stay literal, with their citations. When a script run changes a value, re-read every sentence that uses it before committing: the number updates itself, the words around it do not.
 
 **Per-section audit**: After generating a draft, read and run the appropriate checklist. Flag every violation with severity level before presenting the draft.
 

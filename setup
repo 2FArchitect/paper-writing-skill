@@ -41,15 +41,80 @@ mkdir -p "$SKILL_DIR"
 
 # Copy all skill files (everything except setup, README, .git, examples)
 echo "Installing skill files..."
-for item in SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates; do
+for item in SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates hooks; do
     if [ -e "$SCRIPT_DIR/$item" ]; then
         cp -r "$SCRIPT_DIR/$item" "$SKILL_DIR/$item"
     fi
 done
 
+# Hook commands need an absolute path: Claude Code does not substitute ${CLAUDE_SKILL_DIR} in them.
+python3 - "$SKILL_DIR/SKILL.md" "$SKILL_DIR/hooks/paper_guard.py" <<'PYEOF'
+import sys
+path, guard = sys.argv[1], sys.argv[2]
+with open(path) as f:
+    text = f.read()
+with open(path, "w") as f:
+    f.write(text.replace("__PAPER_GUARD__", guard))
+PYEOF
+
 # Copy examples separately (students need the templates)
 mkdir -p "$SKILL_DIR/examples"
 cp -r "$SCRIPT_DIR/examples/"* "$SKILL_DIR/examples/"
+
+# Enforcement hooks (see README "Enforced rules"). The skill's own frontmatter hook marks a
+# session as a /paper-writing session; these settings hooks enforce the rules in marked sessions,
+# including their subagents (skill-frontmatter hooks do not run inside subagents).
+SETTINGS="$HOME/.claude/settings.json"
+echo "Installing enforcement hooks into $SETTINGS..."
+if [ -f "$SETTINGS" ]; then
+    cp "$SETTINGS" "$SETTINGS.bak-paper-writing-$(date +%Y%m%d-%H%M%S)"
+fi
+python3 - "$SETTINGS" "$SKILL_DIR/hooks/paper_guard.py" <<'PYEOF'
+import json, os, sys
+settings_path, guard = sys.argv[1], sys.argv[2]
+try:
+    with open(settings_path) as f:
+        settings = json.load(f)
+except FileNotFoundError:
+    settings = {}
+
+def ours(entry):
+    return any("paper_guard.py" in h.get("command", "") for h in entry.get("hooks", []))
+
+def hook(sub):
+    # A missing script makes python3 exit 2, which Claude Code treats as "block this tool call";
+    # the test keeps a removed skill from blocking every Bash and Edit call.
+    return {"type": "command", "command": f'test -f "{guard}" && python3 "{guard}" {sub} || true'}
+
+wanted = {
+    "PreToolUse": [
+        {"matcher": "Bash", "hooks": [hook("bash")]},
+        {"matcher": "Write|Edit|MultiEdit|NotebookEdit", "hooks": [hook("edit")]},
+    ],
+    "PostCompact": [{"hooks": [hook("compact")]}],
+}
+hooks = settings.setdefault("hooks", {})
+for event in list(hooks):  # drop entries from an earlier install, keep everything else
+    hooks[event] = [e for e in hooks[event] if not ours(e)]
+    if not hooks[event]:
+        del hooks[event]
+for event, entries in wanted.items():
+    hooks.setdefault(event, []).extend(entries)
+
+TAG = "[paper-writing]"
+rule = (f"{TAG} Writing or modifying .tex files through shell commands or scripts (redirects, "
+        "heredocs, tee, sed -i, perl -i, inline python/perl/node, or running a script that opens "
+        "a .tex file for writing). .tex files must be changed with the Write or Edit tools.")
+soft = settings.setdefault("autoMode", {}).setdefault("soft_deny", ["$defaults"])
+soft[:] = [r for r in soft if not r.startswith(TAG)] + [rule]
+
+os.makedirs(os.path.dirname(settings_path), exist_ok=True)
+tmp = settings_path + ".tmp"
+with open(tmp, "w") as f:
+    json.dump(settings, f, indent=2)
+    f.write("\n")
+os.replace(tmp, settings_path)
+PYEOF
 
 echo ""
 echo "Installed to $SKILL_DIR"
