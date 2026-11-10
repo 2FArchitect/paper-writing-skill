@@ -61,7 +61,8 @@ by mechanism:
 **The red-team.** After the author's audit, an *independent* reviewer that did not write the text
 re-runs the greps and applies the semantic gate with a fresh-reader lens, returning findings — not a
 yes/no. Run it iteratively via `/loop` (`loop_mode.md`), which keeps a disk-backed ledger and stops
-itself when every section is clean. See `red_team_protocol.md`.
+itself when every section is clean and the final closure reviewer has signed off (`gate_semantic.md`
+S31). See `red_team_protocol.md`.
 
 **Figure synthesis** (`figure_synthesis_guide.md`). A three-mode workflow (spec → generate →
 critique) for non-data figures — architecture diagrams, pipeline flows, concept illustrations — with

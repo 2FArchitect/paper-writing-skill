@@ -2,7 +2,7 @@
 
 ## Overview
 
-These 13 principles are distilled from systematic analysis of multiple paper revision histories across systems and ML venues. Each principle is supported by evidence from at least two independent paper revision cycles. They are ordered by their observed impact on acceptance outcomes.
+These 14 principles are distilled from systematic analysis of multiple paper revision histories across systems and ML venues. Each principle is supported by evidence from at least two independent paper revision cycles. They are ordered by their observed impact on acceptance outcomes.
 
 ---
 

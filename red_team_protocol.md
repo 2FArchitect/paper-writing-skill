@@ -26,6 +26,9 @@ audit, and BEFORE the text is shown to the user or committed.
      plus line and concrete fix. The rule ID is the provenance: it makes every fix traceable to the
      specific rule in the ledger.
 
+   This gate also includes the four lens passes of `author_profile/gate_semantic.md` S29, each run
+   by its own fresh reviewer in addition to the reviewer above.
+
 ## Evidence rule
 The grep output + the red-team findings ARE the audit record. A section is "clean" only when the red-team
 returns zero surviving findings WITH the pasted grep evidence. Never report clean on a mental pass.
