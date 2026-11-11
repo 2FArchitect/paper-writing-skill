@@ -27,7 +27,9 @@ audit, and BEFORE the text is shown to the user or committed.
      specific rule in the ledger.
 
    This gate also includes the four lens passes of `author_profile/gate_semantic.md` S29, each run
-   by its own fresh reviewer in addition to the reviewer above.
+   by its own fresh reviewer in addition to the reviewer above. When the project defines review agents
+   in `.claude/agents/`, the work of this gate is split across them instead: a facts reviewer and the
+   four lens reviewers, which together do everything listed above.
 
 ## Evidence rule
 The grep output + the red-team findings ARE the audit record. A section is "clean" only when the red-team
@@ -37,4 +39,17 @@ returns zero surviving findings WITH the pasted grep evidence. Never report clea
 Spawn a subagent (or a clearly separated reviewer persona) whose ONLY input is the drafted text + these
 checklists + the paper's controlling idea. It must NOT see the author's self-assessment. In a multi-agent
 workflow this is a distinct verify stage; interactively it is a fresh Agent that reviews and returns findings.
-The author then fixes every finding and the cycle repeats until the reviewer returns clean.
+The author then runs review rounds:
+1. Rebuild the paper, then launch fresh reviewers, Sonnet at high effort: every gate 3 reviewer.
+   Wait until all have reported before changing anything.
+2. Judge each finding: fix the ones that hold, and record why any is declined.
+3. Rebuild the paper, then tell each reviewer, for each of its findings, whether it was fixed and,
+   if not, why. Ask it to re-read only the changed parts of the text it reviewed. It checks only its
+   own findings.
+4. If a reviewer does not accept, return to step 2 for its findings.
+5. When all accept and a Sonnet round had any CRITICAL or MAJOR finding, start again at step 1.
+6. When a Sonnet round had none, run the same round with fresh Opus reviewers at high effort.
+7. When an Opus round has no CRITICAL or MAJOR finding, the review is done. If it has any, fix them
+   (steps 2–4), then ask the user whether to run a second Opus round.
+Report each round's token cost. The author may use Opus instead of Sonnet when Sonnet reviews waste
+time, and tells the user.
