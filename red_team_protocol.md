@@ -27,8 +27,8 @@ audit, and BEFORE the text is shown to the user or committed.
      specific rule in the ledger.
 
    This gate also includes the four lens passes of `author_profile/gate_semantic.md` S29, each run
-   by its own fresh reviewer in addition to the reviewer above. When the project defines review agents
-   in `.claude/agents/`, the work of this gate is split across them instead: a facts reviewer and the
+   by its own fresh reviewer in addition to the reviewer above. When the review agents are installed
+   in `~/.claude/agents/` (`setup` installs them), the work of this gate is split across them instead: a facts reviewer and the
    four lens reviewers, which together do everything listed above.
 
 ## Evidence rule

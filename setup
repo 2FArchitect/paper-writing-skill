@@ -61,6 +61,10 @@ PYEOF
 mkdir -p "$SKILL_DIR/examples"
 cp -r "$SCRIPT_DIR/examples/"* "$SKILL_DIR/examples/"
 
+# Review agents (red_team_protocol.md, gate 3). Claude Code reads user-level agents from here.
+mkdir -p "$HOME/.claude/agents"
+cp "$SCRIPT_DIR/agents/"*.md "$HOME/.claude/agents/"
+
 # Enforcement hooks. The skill's own frontmatter hook marks a
 # session as a /paper-writing session; these settings hooks enforce the rules in marked sessions,
 # including their subagents (skill-frontmatter hooks do not run inside subagents).
