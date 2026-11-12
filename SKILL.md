@@ -388,3 +388,25 @@ Read `story_mode.md` and run its ten steps (or the short path). Start with step 
 6. Run generate mode — assemble an AI prompt or TikZ code, produce the figure
 7. Run critique mode — check against claims, venue formatting, and design principles, and enforce caption terseness (G7: a bold takeaway plus at most one clause; flag captions over ~3 lines), and verify legibility by inspecting the rendered image (a checklist-green figure can still be an illegible mess)
 8. **NOTE**: Data figures (CDFs, scatter plots, bar charts, heatmaps) should go through `/viz`, not through figure synthesis
+
+---
+
+## Group 7 — Process: red-team lenses and the closure gate
+
+**S29. Distinct lenses, each an independent fresh reviewer.** Run as separate passes, none by the
+author: (a) de-AI / mechanical drift (re-run `gate_mechanical.md`), (b) accessibility for the
+target audience (Group 1), (c) recursive followability (S4/S5), (d) lexical + decomposition
+consistency (S8/S9). Cumulative creep is real: the mechanical gate passing once does not hold —
+re-hunt after every substantive batch, never report "done" from a single early grep.
+
+**S30. Calibrate the intro/abstract to the venue's review process.** Find how the venue actually
+reviews (e.g. some venues decide read-on vs. desk-reject from the abstract + introduction alone).
+Strengthen the section that gate depends on so it carries the contribution and the provocation in
+the first read.
+
+**S31. The closure gate — iterate to closure, never defer.** The loop is not done until a final
+independent closure reviewer reads the whole paper and returns zero CRITICAL/MAJOR findings across
+de-AI, accessibility, and coherence. Applying most findings and deferring "a few lower-priority
+items" is NOT closure. After every substantive change, re-run the relevant lens; do not hand off
+mid-iteration. Record per-section status in the audit ledger; "CLEAN" requires the closure
+reviewer's sign-off, not the author's.
