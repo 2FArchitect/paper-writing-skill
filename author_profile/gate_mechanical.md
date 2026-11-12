@@ -168,7 +168,7 @@ grep -rn "!" sections/*.tex
 grep -rnoiE "\bcomprised of\b|\bdata is\b|different than|\bvery unique\b|\bdue to\b|\bless (than )?[0-9]" sections/*.tex
 
 # ── Term/decomposition drift (see gate_semantic S8/S9): one name per concept ──
-#   (a) For each canonical term in the project_context term-map, show every surface form + location,
+#   (a) For each canonical term in the project's TERM_MAP.md, show every surface form + location,
 #       then converge. Replace the list with the paper's real synonym clusters.
 for t in "term A" "term A variant" "term B" "term B variant"; do
   echo "== $t =="; grep -rn "$t" sections/*.tex | grep -v '^\s*%'; done

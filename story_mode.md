@@ -158,7 +158,7 @@ Then: *"Write `story/spec.md`, a one-page calibration spec: the core contributio
 **Purpose.** Start Stage 2 from the story instead of starting over.
 
 **Request.**
-> Fill `project_context.md` from `examples/project_context.md` using the story files: identity from the step 6 paragraph; contributions from step 5, with step 8's experiments as evidence and status MISSING until results exist; section architecture from the step 7 page map; locked decisions and terms from `story/spec.md`.
+> Fill `project_context.md` from `examples/project_context.md` using the story files: identity from the step 6 paragraph; contributions from step 5, with step 8's experiments as evidence and status MISSING until results exist; section architecture from the step 7 page map; locked decisions from `story/spec.md`. Terms go into TERM_MAP.md.
 
 Stage 2 (Architecture) then refines the step 7 page map, and Stage 3 starts from the step 7 introduction as Draft 0. Contributions written with result placeholders satisfy Stage 1 until the results exist; replace each placeholder when its experiment finishes.
 
