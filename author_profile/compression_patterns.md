@@ -36,7 +36,7 @@ Late-stage compression is a universal part of the writing process. This document
 
 ---
 
-## Pattern 4: Removal of Tutorial Explanation
+## Pattern 4: Removal of Tutorial Explanation and Validation Detail
 
 **Operation**: Delete paragraphs that explain concepts the venue audience already knows.
 
@@ -45,6 +45,12 @@ Late-stage compression is a universal part of the writing process. This document
 **Quantitative signature**: The largest single deletions in any paper are tutorial material.
 
 **Principle**: If the venue's reviewers already know it, it doesn't belong. The only exception: when the paper redefines a known concept in a new way — then the redefinition IS the contribution.
+
+**Operation (validation detail)**: For each sentence of method or validation detail, ask: does the reader need this to trust the result or to repeat the work? If not, move it to the paper's companion artifact (the published data package, an appendix, or supplementary material) and keep one sentence that states the claim and cites the artifact for the detail.
+
+**Typical relocations**: Every way an edge case was detected, accuracy broken down by subgroup, anomalies on single units, checks that found nothing.
+
+**Principle**: Tutorial material goes nowhere, because the reader already has it. Validation detail goes to the companion artifact, because the rare reader who wants it can find it there and every other reader is spared it.
 
 ---
 

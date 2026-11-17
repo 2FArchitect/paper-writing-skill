@@ -196,6 +196,12 @@ findings as dense prose, move the per-item findings into a compact table and let
 it. Tables carry numbers more legibly than sentences and cut the wall of text. Give the table a
 self-contained caption and a legend for any color/format code at first use.
 
+**S33 Validation detail belongs in the companion artifact (MAJOR).** For a sentence that exists to
+pre-empt an objection, ask: does the reader need this to trust the result or to repeat the work? If
+not, flag it for relocation to the paper's companion artifact (the published data package, an
+appendix, or supplementary material), not for rewording. A finding under this item never asks for
+more detail in the article.
+
 ---
 
 ## Group 6 — Figures (verify by looking, not by checklist)
