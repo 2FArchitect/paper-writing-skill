@@ -23,8 +23,8 @@ audit, and BEFORE the text is shown to the user or committed.
    - hunts the four failure classes explicitly: AI-sounding, inaccessible, incoherent, illogical;
    - REFUSES to pass until clean, returning a findings list — not a yes/no. Each finding cites the
      exact **rule ID** it violates (`M#` from `gate_mechanical.md` or `S#` from `gate_semantic.md`),
-     plus line and concrete fix. The rule ID is the provenance: it makes every fix traceable to the
-     specific rule in the ledger.
+     plus line and why it matters to a reader; the author decides the fix. The rule ID is the
+     provenance: it makes every fix traceable to the specific rule in the ledger.
 
    This gate also includes the four lens passes of `author_profile/gate_semantic.md` S29, each run
    by its own fresh reviewer in addition to the reviewer above.
