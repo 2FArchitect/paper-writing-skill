@@ -2,6 +2,13 @@
 
 All notable changes to the paper-writing skill.
 
+## [Unreleased] — 2026-11-17 — Reviewers report problems; the author decides the fix
+
+- `gate_semantic.md` (header) and `red_team_protocol.md`: a reviewer's finding gives the line and
+  why it matters to a reader, no longer a concrete fix; the author decides the fix.
+- `gate_mechanical.md` Part C: the files to check are one variable, `F`, set to "the paper"; whoever
+  runs the script (author or independent reviewer) points it at the right files.
+
 ## [Unreleased] — 2026-11-17 — S33: validation detail belongs in the companion artifact
 
 - Added **S33** to `gate_semantic.md` (Group 5): validation detail the reader does not need to trust

@@ -4,7 +4,8 @@
 > ungrounded numbers, inconsistent naming, dishonest positioning. These are what reviewers
 > actually reject on. Run this in the red-team and `/loop` passes, with a FRESH-READER lens — a
 > reviewer who has not seen the paper and did not write the text. Each item returns findings
-> (category, line, concrete fix), not a yes/no. Severity: MAJOR = reviewer-visible confusion;
+> (category, line, why it matters to a reader), not a yes/no; the author decides the fix.
+> Severity: MAJOR = reviewer-visible confusion;
 > CRITICAL = structural or logical incoherence.
 
 Greppable checks live in `gate_mechanical.md`; positive drafting guidance in `craft_reference.md`.
