@@ -37,4 +37,6 @@ returns zero surviving findings WITH the pasted grep evidence. Never report clea
 Spawn a subagent (or a clearly separated reviewer persona) whose ONLY input is the drafted text + these
 checklists + the paper's controlling idea. It must NOT see the author's self-assessment. In a multi-agent
 workflow this is a distinct verify stage; interactively it is a fresh Agent that reviews and returns findings.
-The author then fixes every finding and the cycle repeats until the reviewer returns clean.
+The author then fixes every finding\* and the cycle repeats until the reviewer returns clean.
+
+\* A finding that asks for more detail gets one test: does the reader need this to trust the result or to repeat the work? If so, the detail goes into the article. If not, it goes into the paper's companion artifact (the published data package, an appendix, or supplementary material), and the article keeps one sentence that states the claim and cites the artifact for the detail.
