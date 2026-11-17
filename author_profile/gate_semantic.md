@@ -121,6 +121,8 @@ design-choice table; every requirement row has a design answer.
 contribution, not the limitations. State each limitation once, in proportion to its effect; put
 methodological lessons in a Discussion paragraph.
 
+**S21. Validation detail belongs in the companion artifact (MAJOR).** For a sentence that exists to pre-empt an objection, ask: does the reader need this to trust the result or to repeat the work? If not, flag it for relocation to the paper's companion artifact (the published data package, an appendix, or supplementary material), not for rewording. A finding under this item never asks for more detail in the article.
+
 **S22. Describe an enabling system by its capability (MAJOR).** When a system enables your work (a
 simulator, a dataset, a library), state concretely what it does (from one input it produces X, enforces Y,
 at scale Z) and why your contribution is infeasible without a system of that kind — do not describe
@@ -154,3 +156,4 @@ detailed conceptual figure belongs in the method section.
 data-viz checklist (aspect ratio, data-ink, no chartjunk). "Clean" requires a rendered-image
 inspection, not a checklist pass — a checklist-green figure can still be an illegible mess. See
 `figure_synthesis_guide.md`.
+
