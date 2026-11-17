@@ -46,15 +46,15 @@ Late-stage compression is a universal part of the writing process. This document
 
 **Principle**: If the venue's reviewers already know it, it doesn't belong. The only exception: when the paper redefines a known concept in a new way — then the redefinition IS the contribution.
 
-**Operation (validation detail)**: After the cuts (Principle 4: serves no claim; S10: repeats), ask of each remaining sentence of method or validation detail: does the reader need it in the article to trust the result? If yes, it stays. If no, it moves to the companion artifact (`project_context.md` names it), where it still serves whoever repeats the work, and the article keeps one sentence that states the claim and cites the artifact.
+**Operation (validation detail)**: Ask of each sentence of method or validation detail: does the reader need it in the article to trust the result? If yes, it stays. If no, it moves to the cut file.
 
 **The test**: Needed means cutting it would change the meaning of a printed number, remove a condition that bounds a claim, or leave a claim the reader cannot check. Not needed means its outcome moved no printed number beyond its uncertainty and changed no conclusion. Common cases: how an edge case was found (its effect stays), a breakdown no sentence concludes from (a Takeaway's breakdown stays), an anomaly already inside a reported count, a check that found nothing. The test decides, not the list.
 
 **Before**: "We checked every [unit] for [defect] by [method]; [k] of [N] failed and were excluded. [Metric] was [x] on [subgroup A], [y] on [subgroup B] and [z] on [subgroup C]. One [unit] showed [anomaly], which we attribute to [cause]. We also tested for [effect] and found none."
 
-**After**: "[Metric] is [x–z] across [subgroups] after excluding [k] [units] that failed [defect check]~\cite{[artifact]}."
+**After**: "[Metric] is [x–z] across [subgroups] after excluding [k] [units] that failed [defect check]." (The rest moves to the cut file.)
 
-**Principle**: Tutorial material goes nowhere, because the reader already has it. Validation detail that serves a claim goes to the artifact, where the rare reader who wants it can find it. Cuts come first so relocation never becomes the safe alternative to cutting.
+**Principle**: Tutorial material goes nowhere, because the reader already has it.
 
 ---
 
