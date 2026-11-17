@@ -16,7 +16,7 @@ audit, and BEFORE the text is shown to the user or committed.
 3. **INDEPENDENT RED-TEAM** — a SEPARATE reviewer that did NOT write the text. It:
    - re-runs the `gate_mechanical.md` greps itself (does not trust the author's report): em-dashes,
      antithesis, intensifiers, banned/pompous/fancy words, passive voice (zero tolerance), wordiness;
-   - applies `author_profile/gate_semantic.md` (S1–S31) with a FRESH-READER lens: "a venue reader
+   - applies every S-numbered item in `author_profile/gate_semantic.md` with a FRESH-READER lens: "a venue reader
      who has never seen this paper — flag every undefined term, every claim not tied to the thesis, every
      illogical jump" — plus lexical + decomposition consistency, non-duplication, mappability/grounding,
      honest positioning, and directness (deliver the noun);
@@ -39,7 +39,6 @@ checklists + the paper's controlling idea. It must NOT see the author's self-ass
 workflow this is a distinct verify stage; interactively it is a fresh Agent that reviews and returns findings.
 The author then fixes every finding and the cycle repeats until the reviewer returns clean.
 
-A finding that asks for more detail gets one test: does the reader need this to trust the result or to repeat
-the work? If so, the detail goes into the article. If not, it goes into the paper's companion artifact (the
-published data package, an appendix, or supplementary material), and the article keeps one sentence that
-states the claim and cites the artifact for the detail.
+A finding that asks for more detail gets the `gate_semantic.md` S33 test: does the reader need this in the
+article to trust the result? If so, the detail goes into the article. If not, it goes into the paper's
+companion artifact, and the article cites it.
