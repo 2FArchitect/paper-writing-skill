@@ -96,7 +96,7 @@ Claude MUST read these files from this skill's directory. They contain the detai
 | `author_profile/editorial_principles.md` | 14 cross-paper principles with evidence (introduction-twice, named-over-vague, what→why→so-what headings, compress-after-expanding, etc.) |
 | `author_profile/craft_reference.md` | **How to write (the positive layer).** Sentence-level style (~21-word mean, claim-first, active voice, named-over-vague, no filler), composition craft, and three registers: base/terse, conceptual/position, warm/narrative. Read while drafting a paragraph. |
 | `author_profile/gate_mechanical.md` | **The single mechanical grep gate (M1–M18).** Em-dashes, antithesis, intensifiers, banned + pompous + fancy verbs, throat-clearing, passive voice, wordiness, qualifiers, term-drift — one grep script. Run on every tex edit; the passive-voice scan also runs in the base gate. |
-| `author_profile/gate_semantic.md` | **The single reader-judgment gate (S1–S31).** Define-before-use, followability, parse-accessibility, thesis-tie, lexical + decomposition consistency, non-duplication, rigor/grounding, honest positioning, figures, and the **closure gate**. Runs in the red-team/loop pass. |
+| `author_profile/gate_semantic.md` | **The single reader-judgment gate (every S-numbered item in the file).** Define-before-use, followability, parse-accessibility, thesis-tie, lexical + decomposition consistency, non-duplication, rigor/grounding, honest positioning, figures, and the **closure gate**. Runs in the red-team/loop pass. |
 | `author_profile/gate_artifact.md` | **The rendered-artifact gate (A1–A9).** Compile + grep the `.log` (overfull boxes, undefined refs, missing assets), then render + inspect every changed page for clipped/overflowing floats, reused-float refit, legibility, color-as-only-channel, caption terseness, and placement. Catches what a source-only pass cannot see. Run on every edit that touches a float, caption, or table. |
 | `author_profile/compression_patterns.md` | 7 compression operations with before/after examples and quantitative benchmarks |
 | `author_profile/rhetorical_moves.md` | Cross-section move sequences for introduction (6 moves), design (5 moves), evaluation (6 moves), related work (3 moves) |
@@ -198,6 +198,8 @@ After brainstorming, generate a `project_context.md` file using the template in 
 
 **Gate**: Section outline with claim assignments, per-section narrative arcs, figure/table plan, evaluation structure, and page budget.
 
+**Companion artifact**: Decide where detail the article does not need will live (data package, supplementary material, or appendix) and record it in `project_context.md`. The decision can wait until the first relocation needs it.
+
 **Craft reference**: If the student has run a literature survey (using the [literature-survey-skill](https://github.com/SNL-UCSB/literature-survey-skill) or manually), check for Pass 3+ paper notes with writing craft extractions — introduction anatomy, evaluation architecture, design section structure, and figure design choices from the strongest papers in their area. Load these as reference material for the architecture. The section structure of the best paper at your target venue is a better starting point for your outline than a generic template. Reading and writing develop together: craft patterns extracted during deep reading feed directly into the architecture of your own paper.
 
 **Figure/table plan from visualization artifacts**: If the student has been working with the [data-visualization-skill](https://github.com/SNL-UCSB/data-visualization-skill), check for `plot_context.md` files and WALTER narrations. Each `plot_context.md` records the intent, variable mappings, plot type rationale, and design decisions for a figure — these are ready-made entries for the figure/table plan below. Each WALTER narration (Hypothesis → Axes → Look here → Trend → Exception → Result) maps directly to the evaluation prose that will accompany the figure. The iteration the student did in the viz skill — exploring what the data shows, forming predictions, confronting surprises — has already determined which figures carry the argument. The architecture should reflect that.
@@ -262,7 +264,7 @@ Read `author_profile/compression_patterns.md` for the 7 specific operations. App
 1. Sentence shortening (remove subordinate clauses, qualifiers, throat-clearing)
 2. Paragraph merging (multiple examples of same point → one best example)
 3. Generic adjective removal ("significant" → specific number or delete)
-4. Tutorial deletion (remove explanations the venue audience already knows)
+4. Tutorial deletion and validation-detail relocation (remove explanations the venue audience already knows; move validation detail the reader does not need to the companion artifact)
 5. Claim-first conversion (rewrite buried paragraphs so claim leads)
 6. Takeaway insertion (add synthesis paragraphs after experiment clusters)
 7. Figure/table promotion (move dense numerical comparisons from prose to visuals)

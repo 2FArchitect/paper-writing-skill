@@ -2,6 +2,16 @@
 
 All notable changes to the paper-writing skill.
 
+## [Unreleased] — 2026-11-17 — S33: validation detail belongs in the companion artifact
+
+- Added **S33** to `gate_semantic.md` (Group 5): validation detail the reader does not need to trust
+  the result moves to the companion artifact; the article keeps one sentence that cites it. Same
+  test in `compression_patterns.md` Pattern 4 (author side) and `red_team_protocol.md` (triage of
+  "add more detail" findings). S29 lens (d) carries S33.
+- `project_context.md` template gains a **Companion artifact** field.
+- Cross-references to the semantic gate say "every S-numbered item" instead of a numeric range,
+  which had drifted twice (S32 missing from two files, S33 from all).
+
 ## [Unreleased] — 2026-10-10 — Venue examples become a drafting gate
 
 - Principle 10 ("read 3–5 recent accepted papers at the target venue") now appears in the ordered

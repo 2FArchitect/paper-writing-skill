@@ -196,11 +196,12 @@ findings as dense prose, move the per-item findings into a compact table and let
 it. Tables carry numbers more legibly than sentences and cut the wall of text. Give the table a
 self-contained caption and a legend for any color/format code at first use.
 
-**S33 Validation detail belongs in the companion artifact (MAJOR).** For a sentence that exists to
-pre-empt an objection, ask: does the reader need this to trust the result or to repeat the work? If
-not, flag it for relocation to the paper's companion artifact (the published data package, an
-appendix, or supplementary material), not for rewording. A finding under this item never asks for
-more detail in the article.
+**S33. Validation detail belongs in the companion artifact (MAJOR).** After the cuts (Principle 4,
+S10), ask of each sentence of method or validation detail: does the reader need it in the article to
+trust the result? Needed means cutting it would change the meaning of a printed number, remove a
+condition that bounds a claim, or leave a claim the reader cannot check. If not, flag it for
+relocation to the companion artifact, not for rewording (common cases in `compression_patterns.md`
+Pattern 4).
 
 ---
 
@@ -228,8 +229,9 @@ inspection, not a checklist pass — a checklist-green figure can still be an il
 **S29. Distinct lenses, each an independent fresh reviewer.** Run as separate passes, none by the
 author: (a) de-AI / mechanical drift (re-run `gate_mechanical.md`), (b) accessibility for the
 target audience (Group 1), (c) recursive followability (S4/S5), (d) lexical + decomposition
-consistency (S8/S9). Cumulative creep is real: the mechanical gate passing once does not hold —
-re-hunt after every substantive batch, never report "done" from a single early grep.
+consistency (S8/S9) and validation detail that belongs in the artifact (S33). Cumulative creep is
+real: the mechanical gate passing once does not hold — re-hunt after every substantive batch, never
+report "done" from a single early grep.
 
 **S30. Calibrate the intro/abstract to the venue's review process.** Find how the venue actually
 reviews (e.g. some venues decide read-on vs. desk-reject from the abstract + introduction alone).
