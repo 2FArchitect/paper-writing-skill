@@ -22,7 +22,7 @@
 - **Deadline:** [e.g., January 31, 2027]
 - **Page limit:** [e.g., 12 pages + references]
 - **Format:** [Systems venue / ML venue / Workshop. Note venue conventions.]
-- **Companion artifact:** [Where detail the article does not need goes (compression Pattern 4, gate_semantic S33): a published data package (URL or repo path), supplementary material, or an appendix. Prefer a destination outside the PDF. May stay empty until the first relocation needs it.]
+- **Cut file:** [Path of the file for text cut from the article.]
 
 ## Contributions (as claims with evidence)
 

@@ -198,7 +198,7 @@ After brainstorming, generate a `project_context.md` file using the template in 
 
 **Gate**: Section outline with claim assignments, per-section narrative arcs, figure/table plan, evaluation structure, and page budget.
 
-**Companion artifact**: Decide where detail the article does not need will live (data package, supplementary material, or appendix) and record it in `project_context.md`. The decision can wait until the first relocation needs it.
+**Cut file**: Name a file for text cut from the article and record it in `project_context.md`.
 
 **Craft reference**: If the student has run a literature survey (using the [literature-survey-skill](https://github.com/SNL-UCSB/literature-survey-skill) or manually), check for Pass 3+ paper notes with writing craft extractions — introduction anatomy, evaluation architecture, design section structure, and figure design choices from the strongest papers in their area. Load these as reference material for the architecture. The section structure of the best paper at your target venue is a better starting point for your outline than a generic template. Reading and writing develop together: craft patterns extracted during deep reading feed directly into the architecture of your own paper.
 
@@ -264,7 +264,7 @@ Read `author_profile/compression_patterns.md` for the 7 specific operations. App
 1. Sentence shortening (remove subordinate clauses, qualifiers, throat-clearing)
 2. Paragraph merging (multiple examples of same point → one best example)
 3. Generic adjective removal ("significant" → specific number or delete)
-4. Tutorial deletion and validation-detail relocation (remove explanations the venue audience already knows; move validation detail the reader does not need to the companion artifact)
+4. Tutorial deletion and validation-detail relocation (remove explanations the venue audience already knows; move validation detail the reader does not need to the cut file)
 5. Claim-first conversion (rewrite buried paragraphs so claim leads)
 6. Takeaway insertion (add synthesis paragraphs after experiment clusters)
 7. Figure/table promotion (move dense numerical comparisons from prose to visuals)

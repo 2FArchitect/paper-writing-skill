@@ -34,7 +34,8 @@ abbreviated. Not every reader knows the short form, and new readers meet it fres
 paragraph → sentence → keyword: *"Given only what precedes this point, can the reader follow the
 current argument?"* Flag any layer that leans on a term, number, or claim before the reader was
 given what they need: forward references to unseen figures, terms used before their gloss, and
-"that number / this gap / the third metric" with an unresolvable antecedent.
+"that number / this gap / the third metric" with an unresolvable antecedent. Also flag a section
+whose order or grouping follows how the author worked rather than what the reader needs.
 
 **S5. Parse-accessibility (MAJOR).** A sentence can be all common words and still unparseable.
 Glossing every term is not enough. Hunt and fix:
@@ -119,7 +120,9 @@ metrics) the source it reproduces. Maintain a provenance note (claim → value �
 output). Numbers from the paper's
 own data reach the text only through script-generated macros (SKILL.md, Stage 3); a data number
 typed into the prose is a finding. New analysis code is committed to the correct repository, not a
-scratch dir. If a number cannot be mapped, cut it or generate the mapping.
+scratch dir. If a number cannot be mapped, cut it or generate the mapping. Every technical claim
+also carries a citation or a cross-reference to the section that cites it, and the cited source
+says what the claim says, counts included.
 
 **S16. Ground critiques in numbers, not assertions (MAJOR).** "Prior work X is not enough" is weak
 as an assertion. Make it a head-to-head: run the prior method's OWN metric on the cases it omitted
@@ -197,12 +200,10 @@ findings as dense prose, move the per-item findings into a compact table and let
 it. Tables carry numbers more legibly than sentences and cut the wall of text. Give the table a
 self-contained caption and a legend for any color/format code at first use.
 
-**S33. Validation detail belongs in the companion artifact (MAJOR).** After the cuts (Principle 4,
-S10), ask of each sentence of method or validation detail: does the reader need it in the article to
+**S33. Validation detail the reader does not need moves to the cut file (MAJOR).** Ask of each sentence of method or validation detail: does the reader need it in the article to
 trust the result? Needed means cutting it would change the meaning of a printed number, remove a
-condition that bounds a claim, or leave a claim the reader cannot check. If not, flag it for
-relocation to the companion artifact, not for rewording (common cases in `compression_patterns.md`
-Pattern 4).
+condition that bounds a claim, or leave a claim the reader cannot check. If not, flag it to be
+moved to the cut file, not reworded.
 
 ---
 

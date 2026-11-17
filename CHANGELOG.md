@@ -6,8 +6,13 @@ All notable changes to the paper-writing skill.
 
 - `gate_semantic.md` (header) and `red_team_protocol.md`: a reviewer's finding gives the line and
   why it matters to a reader, no longer a concrete fix; the author decides the fix.
-- `gate_mechanical.md` Part C: the files to check are one variable, `F`, set to "the paper"; whoever
-  runs the script (author or independent reviewer) points it at the right files.
+- `gate_mechanical.md` Part C: the greps name no files; whoever runs the script (author or
+  independent reviewer) runs them against the paper.
+- `gate_semantic.md`: S15 also asks for a citation or cross-reference on every technical claim
+  (Principle 14), and that the cited source says what the claim says, counts included; S4 also flags a section ordered the way the author worked rather than the way
+  the reader needs (Intervention Type 2). Both reach the independent reviewer this way.
+- S33 and its copies: detail the reader does not need moves to the cut file, not the companion
+  artifact.
 
 ## [Unreleased] — 2026-11-17 — S33: validation detail belongs in the companion artifact
 

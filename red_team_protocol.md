@@ -40,5 +40,4 @@ workflow this is a distinct verify stage; interactively it is a fresh Agent that
 The author then fixes every finding and the cycle repeats until the reviewer returns clean.
 
 A finding that asks for more detail gets the `gate_semantic.md` S33 test: does the reader need this in the
-article to trust the result? If so, the detail goes into the article. If not, it goes into the paper's
-companion artifact, and the article cites it.
+article to trust the result? If so, the detail goes into the article. If not, it moves to the cut file.
