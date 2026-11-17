@@ -1,1 +1,0 @@
-Read through the lens of a first-time reader at the venue: stop at every term not yet defined and every sentence you have to read twice. Be strict about whether you can follow each point using only what precedes it.
