@@ -1,6 +1,7 @@
 ---
 name: paper-writing
 description: "Research paper writing assistant that enforces the SNL lab's editorial principles and voice profile (customizable) and a staged writing workflow. MANDATORY TRIGGERS: Use this skill whenever the user mentions writing a paper, drafting a section, revising a section, editing a paper, reviewing a draft, rewriting an introduction, writing an evaluation, polishing prose, compressing text, or any task involving .tex files, Overleaf, conference submissions, or paper deadlines. Also trigger when the user names their paper in a writing context. This skill should activate for ANY research writing task — sections, abstracts, rebuttals, camera-ready edits, cover letters, or response to reviewers."
+arguments: [mode, step]
 hooks:
   PreToolUse:
     - matcher: "*"
@@ -56,24 +57,36 @@ The three skills create a closed loop: the literature survey reveals the gap and
 
 ## Modes
 
-Run as `/paper-writing <mode> [step]`. If the user gave no mode ask them, or select it yourself if it's obvious from their request or from the project status. Then read the mode's file(s) with the Read tool, in full, in the order given. Skip any file that does not exist: a missing file only means nothing has been written for that case yet and is not an error. If a mode file's text is no longer in context (for example after compaction), read it again.
+Run as `/paper-writing <mode> [step]`. If the user gave no mode ask them, or select it yourself if it's obvious from their request or from the project status, then invoke this skill again with that mode (and step).
 
-| Mode | What it is for | Files |
-|---|---|---|
-| `story` | The paper's ideas are spread across notes, drafts, code and related work: turn them into a story and outline (Stage 1) | `modes/story.md` |
-| `brainstorm` | The ideas are mostly in the author's head, or a new paper is starting: build `project_context.md` (Stage 1) | `modes/brainstorm.md` |
-| `architecture` | Section outline, claims per section, figure/table plan, page budget (Stage 2) | `modes/architecture.md` |
-| `draft <section>` | First draft of one section (Stage 3) | `modes/draft.md`, then the section's file (below) |
-| `rewrite <section>` | The section written again from a blank page, with the old version as reference: the final introduction (`rewrite intro`), or any section whose framing changed (Stage 3) | `modes/draft.md`, `modes/rewrite.md`, the section's `modes/draft-` file, then its `modes/rewrite-` file |
-| `integrate` | Consistency pass across all sections (Stage 4) | `modes/integrate.md` |
-| `compress` | Cut what the paper does not need (Stage 5) | `modes/compress.md` |
-| `submit-check` | Mechanical checks before submission | `modes/submit-check.md` |
-| `critique` | Feedback on a draft: numbered findings with severity, the principle each breaks, and a concrete rewrite | `modes/critique.md` |
-| `respond` | Responses to the venue's reviewers | `modes/respond.md` |
-| `figure spec`, `figure generate`, `figure critique` | Non-data figures (architecture diagrams, pipeline illustrations, concept diagrams). Data figures go to the data-visualization skill (`/viz`) | `modes/figure.md`, then `modes/figure-<step>.md` |
-| `loop` | Repeated audit-and-fix, one section per pass | `modes/loop.md` |
+This invocation: mode `$mode`, step `$step`.
 
-**Section files.** For `draft <section>` and `rewrite <section>`, the section's file is `modes/draft-<section>.md` (or `modes/rewrite-<section>.md`) using the section's own name in lower case with hyphens, for example `modes/draft-discussion.md`. If no file has that name, use the file for each kind of job the section does:
+Read these files with the Read tool, in full, in this order:
+
+1. `${CLAUDE_PROJECT_DIR}/.paper-writing/global.md`
+2. `${CLAUDE_SKILL_DIR}/modes/$mode.md`
+3. `${CLAUDE_PROJECT_DIR}/.paper-writing/$mode.md`
+4. `${CLAUDE_SKILL_DIR}/modes/$mode-$step.md`
+5. `${CLAUDE_PROJECT_DIR}/.paper-writing/$mode-$step.md`
+
+Skip any file that does not exist: a missing file only means nothing has been written for that case yet and is not an error. If a mode file's text is no longer in context (for example after compaction), read it again.
+
+| Mode | What it is for |
+|---|---|
+| `story` | The paper's ideas are spread across notes, drafts, code and related work: turn them into a story and outline (Stage 1) |
+| `brainstorm` | The ideas are mostly in the author's head, or a new paper is starting: build `project_context.md` (Stage 1) |
+| `architecture` | Section outline, claims per section, figure/table plan, page budget (Stage 2) |
+| `draft <section>` | First draft of one section (Stage 3) |
+| `rewrite <section>` | The section written again from a blank page, with the old version as reference: the final introduction (`rewrite intro`), or any section whose framing changed (Stage 3) |
+| `integrate` | Consistency pass across all sections (Stage 4) |
+| `compress` | Cut what the paper does not need (Stage 5) |
+| `submit-check` | Mechanical checks before submission |
+| `critique` | Feedback on a draft: numbered findings with severity, the principle each breaks, and a concrete rewrite |
+| `respond` | Responses to the venue's reviewers |
+| `figure spec`, `figure generate`, `figure critique` | Non-data figures (architecture diagrams, pipeline illustrations, concept diagrams). Data figures go to the data-visualization skill (`/viz`) |
+| `loop` | Repeated audit-and-fix, one section per pass |
+
+**Section files.** For `draft` and `rewrite`, the step is the section's own name in lower case with hyphens, for example `/paper-writing draft discussion`. If `${CLAUDE_SKILL_DIR}/modes/$mode-$step.md` does not exist, read `${CLAUDE_SKILL_DIR}/modes/$mode-<kind>.md` and `${CLAUDE_PROJECT_DIR}/.paper-writing/$mode-<kind>.md` for each kind of job the section does:
 
 - `intro`: the introduction. `draft intro` is Draft 0, written before the evaluation exists; `rewrite intro` is the final introduction, written after the evaluation is complete.
 - `design`: the paper may call this section Method, Approach or System.

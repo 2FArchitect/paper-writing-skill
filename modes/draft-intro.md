@@ -1,4 +1,4 @@
-# Draft the introduction (Draft 0: before the evaluation exists)
+# Draft the introduction
 
 @../section_rhetorical_moves/introduction.md
 
