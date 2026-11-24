@@ -39,13 +39,38 @@ fi
 # Create the skill directory
 mkdir -p "$SKILL_DIR"
 
-# Copy all skill files (everything except setup, README, .git, examples)
+# Copy all skill files (everything except setup, README, .git, examples).
+# Markdown files are installed with their @path include lines expanded (scripts/expand_includes.py),
+# so each installed file is whole; the fragment folders (rules/, faq/) are not installed themselves.
 echo "Installing skill files..."
-for item in SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates hooks; do
-    if [ -e "$SCRIPT_DIR/$item" ]; then
-        cp -r "$SCRIPT_DIR/$item" "$SKILL_DIR/$item"
-    fi
-done
+python3 - "$SCRIPT_DIR" "$SKILL_DIR" SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates hooks <<'PYEOF'
+import os, shutil, sys
+src_root, dst_root, items = sys.argv[1], sys.argv[2], sys.argv[3:]
+sys.dont_write_bytecode = True  # keep __pycache__ out of the source repo
+sys.path.insert(0, os.path.join(src_root, "scripts"))
+from expand_includes import expand
+
+def install(src, dst):
+    if src.endswith(".md"):
+        with open(dst, "w", encoding="utf-8", newline="") as f:
+            f.write(expand(src))
+    else:
+        shutil.copy(src, dst)
+
+for item in items:
+    src = os.path.join(src_root, item)
+    if not os.path.exists(src):
+        continue
+    dst = os.path.join(dst_root, item)
+    if os.path.isdir(src):
+        for dirpath, _, filenames in os.walk(src):
+            out = os.path.join(dst, os.path.relpath(dirpath, src))
+            os.makedirs(out, exist_ok=True)
+            for name in filenames:
+                install(os.path.join(dirpath, name), os.path.join(out, name))
+    else:
+        install(src, dst)
+PYEOF
 
 # Hook commands need an absolute path: Claude Code does not substitute ${CLAUDE_SKILL_DIR} in them.
 python3 - "$SKILL_DIR/SKILL.md" "$SKILL_DIR/hooks/paper_guard.py" <<'PYEOF'

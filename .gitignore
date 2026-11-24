@@ -13,3 +13,6 @@ reflections/
 *~
 .vscode/
 .idea/
+
+# Python bytecode (setup imports scripts/expand_includes.py)
+__pycache__/

@@ -1,0 +1,4 @@
+**S33. Validation detail the reader does not need moves to the cut file (MAJOR).** Ask of each sentence of method or validation detail: does the reader need it in the article to
+trust the result? Needed means cutting it would change the meaning of a printed number, remove a
+condition that bounds a claim, or leave a claim the reader cannot check. If not, flag it to be
+moved to the cut file, not reworded.
