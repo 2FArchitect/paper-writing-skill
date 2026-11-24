@@ -172,6 +172,8 @@ Every technical claim in a paper must be grounded with a citation or an explicit
 
 **Rule**: After drafting any section, scan for technical claims (failure modes, properties of algorithms, known limitations of baselines). Each must have either a citation or an explicit cross-reference to the section where the citation lives.
 
+**Exception**: Widely known facts in the community we're writing for do not need a citation. For example, "Linux is an open-source operating system kernel" is widely known and does not itself need a citation.
+
 ---
 
 ## How to Apply These Principles
