@@ -1,0 +1,13 @@
+**S9. Cross-section term-map + decomposition invariance (CRITICAL).** The same load-bearing entity,
+named abstraction, or fixed set of axes/stages/requirements gets renamed or re-counted as it
+travels abstract → intro → background → design, because sections are drafted in isolation. This
+creeps in at synthesis time and survives a per-section audit. Two artifacts, three checks:
+1. **Term-map** (a glossary in `project_context.md`): every load-bearing concept and its ONE
+   canonical name, plus key numbers as macros. Pull names FROM the term-map when drafting, never
+   from memory or a half-recalled sibling section.
+2. **Locked source of truth**: one section (usually the finalized introduction) or the term-map is
+   canonical; every other section conforms TO it, never the reverse.
+3. **Decomposition invariance**: whenever the paper breaks something into parts (N stages, N
+   concerns, N axes), every section listing them uses the same members, count, and names. A "four
+   stages" list here and "three concerns" for the same decomposition there is a defect. Check
+   member-set equality and cardinality across sections. (Greps in `gate_mechanical.md` Part C.)

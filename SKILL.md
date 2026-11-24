@@ -338,55 +338,25 @@ Fix what can be fixed automatically (e.g., adding `~` before `\cite`). Flag what
 ## How to Respond to Common Requests
 
 ### "Help me write section X of paper Y"
-1. Load the paper's `project_context.md`
-2. Read all `author_profile/` files
-3. Read the section's rhetorical moves from `section_rhetorical_moves/`
-4. If this session has not yet read the venue example articles, read them now (Stage 3 gate, Principle 10)
-5. Identify which stage the paper is in — enforce introduction-twice ordering (Draft 0 intro → Evaluation → Design → Background → Related Work → Final intro → Abstract)
-6. Write topic sentences first; verify they form a coherent argument before filling paragraphs
-7. Generate the draft following the move sequence
-8. Run the section checklist and flag violations with severity levels
+@faq/write-section.md
 
 ### "Review / critique this draft"
-1. Load `project_context.md`
-2. Read `author_profile/intervention_types.md` for the 7 intervention types
-3. Apply in order: framing → structural rewrite → background deletion → evaluation strengthening → terminology tightening → claim-first conversion → compression
-4. Give numbered feedback with severity (CRITICAL / MAJOR / MINOR), the specific principle violated (by number from `editorial_principles.md`), and a concrete rewrite
+@faq/review-draft.md
 
 ### "Compress / tighten this section"
-1. Read `author_profile/compression_patterns.md`
-2. Apply the 7 operations in order
-3. Show before/after with character counts
-4. Normal compression: 30-50%. Over 50% signals a framing problem, not a wordiness problem.
+@faq/compress-section.md
 
 ### "I want to get feedback on this draft"
-1. **First readings are precious.** Someone can read your work for the first time only once. Don't send your first draft to everyone simultaneously — chain your feedback. Send to one reader, incorporate their feedback, then send the revised version to the next reader. Each iteration strengthens the draft before it reaches the next pair of fresh eyes.
-2. Help the student plan their feedback chain: who reads first (someone outside the subfield for framing clarity), who reads second (a domain expert for technical correctness), who reads last (the advisor, who sees the strongest version).
-3. When asking a reader for feedback, tell them what to focus on: "Is the narrative in the introduction clear?" is more useful than "any thoughts?" Unfocused feedback wastes a first reading.
-4. Use Claude's review mode (`author_profile/intervention_types.md`) to simulate a round of feedback *before* spending a human reader's first reading on an early draft.
+@faq/get-feedback.md
 
 ### "Help me respond to reviewers"
-1. Load `project_context.md` and the reviews
-2. Classify each concern by severity: framing (most dangerous) → design → scope → rigor (most manageable)
-3. For each concern: acknowledge → explain what changed → point to specific section/figure
-4. Never be defensive. Never dismiss a concern. If a reviewer misunderstood, that's a WRITING failure to fix, not a reviewer failure to criticize.
+@faq/respond-to-reviewers.md
 
 ### "I'm starting a new paper — where do I begin?"
-1. Welcome them. Explain the five-stage pipeline — especially the introduction-twice principle.
-2. Read `brainstorming_guide.md` and walk through all 6 phases to create their first `project_context.md`.
-3. Emphasize: the brainstorming phase is the most important. A precise project context saves weeks of revision later.
-4. After brainstorming: write a **Draft 0 introduction** — a disposable framing scaffold (stakes, problem gap, rough contributions) that sets guardrails for the evaluation. Then point them to `section_rhetorical_moves/evaluation.md` — they'll write the evaluation next, constrained by Draft 0.
-5. Remind them: "Your first draft should be comprehensive — include everything. Compression comes later. The goal is to get material on paper, not to be concise. Draft 0 of the introduction will probably not survive — that's the point. It clarifies your thinking."
+@faq/start-new-paper.md
 
 ### "Turn our notes into a paper outline" / "What is the story for <venue>?"
-Read `story_mode.md` and run its ten steps (or the short path). Start with step 1 (read the whole record) even if the user offers a summary; ask where the notes, drafts, code and related-work PDFs live. Keep everything beyond the record in a separate section for the user to accept or reject.
+@faq/notes-to-outline.md
 
 ### "I need a non-data figure (architecture diagram, pipeline illustration, etc.)"
-1. Load the paper's `project_context.md`
-2. Read `figure_synthesis_guide.md` and the relevant files in `figure_templates/`
-3. Classify the figure by archetype (architecture overview, pipeline flow, component detail, concept illustration, comparison schematic, taxonomy, deployment diagram)
-4. Select the generation backend: AI image generation (for visually rich figures like architecture overviews and concept illustrations) or TikZ (for precise structural figures like pipeline flows and taxonomy matrices). The guide has defaults per archetype, but the student can override.
-5. Run spec mode — walk through archetype-specific questions to produce a `figure_spec.md`
-6. Run generate mode — assemble an AI prompt or TikZ code, produce the figure
-7. Run critique mode — check against claims, venue formatting, and design principles, and enforce caption terseness (G7: a bold takeaway plus at most one clause; flag captions over ~3 lines), and verify legibility by inspecting the rendered image (a checklist-green figure can still be an illegible mess)
-8. **NOTE**: Data figures (CDFs, scatter plots, bar charts, heatmaps) should go through `/viz`, not through figure synthesis
+@faq/non-data-figure.md

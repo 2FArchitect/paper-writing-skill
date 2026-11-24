@@ -18,19 +18,13 @@ counts and paste or describe the Part B rendered evidence; a mental pass is not 
 
 Compile the paper with its own build, then grep its compile log. Each rule states the ban and the fix.
 
-**A1. Compile must succeed with no fatal error.** `grep -nE '^!' <compile log>` returns nothing.
-A `Fatal error occurred, no output PDF` is a hard stop, not a warning.
+@../rules/A1-compile-succeeds.md
 
-**A2. Overfull boxes — a float or line runs past its box.** `grep -nE 'Overfull \\[hv]box' <compile log>`.
-A large `Overfull \hbox` (over ~5pt) on a figure/table page is the top signal that a float or a
-tabular is wider than its column. Fix the float (A6/A7), do not ignore it.
+@../rules/A2-overfull-boxes.md
 
-**A3. Undefined references and citations.** `grep -nE 'Warning: (Citation|Reference).*undefined' <compile log>`
-returns 0. A `??` or `[?]` in the PDF is never acceptable in a reported-done section.
+@../rules/A3-undefined-references.md
 
-**A4. Missing or unloaded assets.** `grep -niE 'File .* not found|Missing character|Undefined color' <compile log>`
-returns nothing. A reused figure that calls a color or package the new preamble does not define
-fails here (define it, do not delete the call blindly).
+@../rules/A4-missing-assets.md
 
 ---
 
@@ -39,28 +33,15 @@ fails here (define it, do not delete the call blindly).
 Render every changed page to an image and inspect it. These
 are the checks a regex cannot make.
 
-**A5. No clipped or overflowing float.** Every figure and table sits inside the column or, for a
-full-width `figure*`/`table*`, inside the text block. Nothing runs off the right margin or past the
-page edge. **This is the single most common miss.** If any cell, node, or curve is cut off, the
-float fails, even if the log looks clean.
+@../rules/A5-no-clipped-floats.md
 
-**A6. Reused float must be re-fit to this template.** A `figure*`, `tabular`, or TikZ block imported
-from another venue or paper was sized for that column geometry. Re-check its width, TikZ `scale`,
-and font size against the *current* template (a two-column ACM figure overflows a USENIX column, and
-vice versa). Reuse is not free; a reused float is not "drafted" until it fits here.
+@../rules/A6-refit-reused-floats.md
 
-**A7. Legible at print size, with units.** In-figure text (axis labels, tick labels, legends, node
-text) is readable at the rendered column width, not only when zoomed. Every axis has a unit. A
-checklist-green figure can still be an illegible mess; the render is the check.
+@../rules/A7-legible-with-units.md
 
-**A8. No color-as-only-channel.** A table or figure must not carry meaning by color alone. If cells
-are colored to mean "kept vs lost / good vs bad," add a redundant marker (bold, a symbol, or a
-dedicated column) so the artifact survives grayscale printing and red-green color blindness. State
-the encoding in the caption.
+@../rules/A8-no-color-only.md
 
-**A9. Caption terseness and float placement.** Caption is a bold takeaway plus at most one clause,
-about three lines maximum (semantic G7). The float appears near its first `\ref` and on or before
-the page that discusses it, not dumped at the end. No section heading is orphaned at a column bottom.
+@../rules/A9-caption-and-placement.md
 
 ---
 
