@@ -1,6 +1,6 @@
 ### "I need a non-data figure (architecture diagram, pipeline illustration, etc.)"
 1. Load the paper's `project_context.md`
-2. Read `figure_synthesis_guide.md` and the relevant files in `figure_templates/`
+2. Read the files for `/paper-writing figure <step>` (see **Modes** in SKILL.md) and the relevant files in `figure_templates/`
 3. Classify the figure by archetype (architecture overview, pipeline flow, component detail, concept illustration, comparison schematic, taxonomy, deployment diagram)
 4. Select the generation backend: AI image generation (for visually rich figures like architecture overviews and concept illustrations) or TikZ (for precise structural figures like pipeline flows and taxonomy matrices). The guide has defaults per archetype, but the student can override.
 5. Run spec mode — walk through archetype-specific questions to produce a `figure_spec.md`

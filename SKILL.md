@@ -44,141 +44,43 @@ The three skills create a closed loop: the literature survey reveals the gap and
 ### When This Skill Triggers, Claude MUST:
 
 1. Read this SKILL.md (already loaded)
-2. Read ALL files in `author_profile/` — these are the source of truth for editorial rules
+2. Read the files for the mode (see **Modes** below) — they hold the editorial rules for this step
 3. Ask which paper the user is working on
 4. Look for a `project_context.md` in the paper's working directory
 5. If found, read it and treat it as binding constraints
-6. If not found, decide how to create one: if the ideas already exist in notes, drafts, code and related work, run **Story Mode** (`story_mode.md`); if they are mostly in the user's head, run **Structured Brainstorming** below
+6. If not found, decide how to create one: if the ideas already exist in notes, drafts, code and related work, run `/paper-writing story`; if they are mostly in the user's head, run `/paper-writing brainstorm`
 7. Check for artifacts from sibling skills — survey paper notes with craft extractions, `exploration_log.md`, `braindump.md`, `plot_context.md`, WALTER narrations. If found, load them as reference material for the relevant pipeline stages
 8. Check for a **private overlay skill**: an installed skill whose name ends in `paper-writing-lab` (for example `~/.claude/skills/paper-writing-lab/` or `~/.claude/skills/<group>-paper-writing-lab/`). If present, read it: it carries a group's real worked cases, house rules and project records that cannot live in this public skill. Its project-specific guidance takes precedence over the defaults here; never copy its contents into this repository
 
 ---
 
-## Story Mode — From a Group's Ideas to a Paper Story and Outline
+## Modes
 
-When the ideas for a paper are scattered across meeting notes, drafts, code, chat threads and related work, read `story_mode.md` and follow its ten steps (or its short path for workshop papers and short deadlines): read the whole record, connect the dots without inventing anything, place the idea in its intellectual history, read the closest work in depth, decide one core contribution, choose one framing, write a Draft 0 introduction with the motivation and skeleton, tie each claim to an evaluation question that could refute it, converge with review rounds and a calibration spec, and fill `project_context.md` so Stage 2 starts from the result. Triggers: "turn our notes into a <venue> outline", "what is the story for <venue>", "connect the dots", `/paper-writing story`.
+Run as `/paper-writing <mode> [step]`. If the user gave no mode ask them, or select it yourself if it's obvious from their request or from the project status. Then read the mode's file(s) with the Read tool, in full, in the order given. Skip any file that does not exist: a missing file only means nothing has been written for that case yet and is not an error. If a mode file's text is no longer in context (for example after compaction), read it again.
 
----
-
-## Structured Brainstorming — The Skill's Centerpiece
-
-**The biggest obstacle for students isn't writing — it's that their ideas live as unstructured intuitions.** They know something is interesting but can't articulate what or why. The brainstorming process transforms scattered thinking into a precise project context that drives every section of the paper.
-
-### How It Works
-
-Claude MUST read `brainstorming_guide.md` and walk the student through its 6 phases interactively. The phases are:
-
-| Phase | Focus | Key outcome |
-|-------|-------|-------------|
-| 1. Problem Discovery | Who suffers, what breaks, why it breaks structurally | The opening paragraph's stakes and the Problem Gap |
-| 2. Contribution Crystallization | Core claim, headline number, key abstraction name | The identity sentence and contribution list |
-| 3. Evaluation Design | Baselines, metrics, datasets, experiment-to-claim mapping | The evaluation plan that constrains what the introduction can promise |
-| 4. Positioning and Framing | Venue fit, competitive positioning, category creation vs. competition | The Related Work positioning sentence |
-| 5. Architecture and Constraints | Design pipeline, locked decisions, open questions | The Design section's structure and the project's scope |
-| 6. Narrative Spine | Story arc, the "inevitable" moment, the tweet-length pitch | The thread connecting every section |
-
-### Rules for Running Brainstorming
-
-- **Go phase by phase.** Don't skip ahead. Phase 1 (the problem) must be clear before Phase 2 (the contribution) makes sense.
-- **"I don't know" is a valid answer.** Flag it as an open question and move on. Gaps discovered now are cheap to fix; gaps discovered during review are expensive.
-- **Push back on vague answers.** "It's faster" → "Faster for whom? By how much? On what workload?" Every answer should be specific enough to appear in the paper.
-- **Distinguish structural from quantitative.** "Existing tools aren't accurate enough" is quantitative — it motivates more experiments. "Existing tools assume stationarity, which fails on non-stationary workloads" is structural — it motivates a new approach. Papers need structural gaps.
-- **After all phases, generate `project_context.md`** using the template in `examples/project_context.md`. See `examples/example_project_context.md` for a synthetic example of what a complete project context looks like.
-
----
-
-## Voice and Editorial Rules
-
-Claude MUST read these files from this skill's directory. They contain the detailed rules with examples.
-
-| File | What it controls |
-|---|---|
-| `author_profile/editorial_principles.md` | 14 cross-paper principles with evidence (introduction-twice, named-over-vague, what→why→so-what headings, compress-after-expanding, etc.) |
-| `author_profile/craft_reference.md` | **How to write (the positive layer).** Sentence-level style (~21-word mean, claim-first, active voice, named-over-vague, no filler), composition craft, and three registers: base/terse, conceptual/position, warm/narrative. Read while drafting a paragraph. |
-| `author_profile/gate_mechanical.md` | **The single mechanical grep gate (M1–M18).** Em-dashes, antithesis, intensifiers, banned + pompous + fancy verbs, throat-clearing, passive voice, wordiness, qualifiers, term-drift — one grep script. Run on every tex edit; the passive-voice scan also runs in the base gate. |
-| `author_profile/gate_semantic.md` | **The single reader-judgment gate (every S-numbered item in the file).** Define-before-use, followability, parse-accessibility, thesis-tie, lexical + decomposition consistency, non-duplication, rigor/grounding, honest positioning, figures, and the **closure gate**. Runs in the red-team/loop pass. |
-| `author_profile/gate_artifact.md` | **The rendered-artifact gate (A1–A9).** Compile + grep the `.log` (overfull boxes, undefined refs, missing assets), then render + inspect every changed page for clipped/overflowing floats, reused-float refit, legibility, color-as-only-channel, caption terseness, and placement. Catches what a source-only pass cannot see. Run on every edit that touches a float, caption, or table. |
-| `author_profile/compression_patterns.md` | 7 compression operations with before/after examples and quantitative benchmarks |
-| `author_profile/rhetorical_moves.md` | Cross-section move sequences for introduction (6 moves), design (5 moves), evaluation (6 moves), related work (3 moves) |
-| `author_profile/intervention_types.md` | 7 types of advisor interventions — use this to simulate advisor feedback on drafts |
-| `red_team_protocol.md` | **Independent adversarial red-team** (evidence-gated): after the mechanical audit, a reviewer that did NOT write the text re-runs `gate_mechanical.md` and applies `gate_semantic.md`, and must return CLEAN before text ships. |
-| `loop_mode.md` | Resumable `/loop` audit-and-fix protocol: a disk-backed ledger, one section per iteration, self-terminating when clean. |
-
-### Quick Reference: Non-Negotiable Voice Rules
-
-These are extracted from the detailed files above. In case of conflict, the files are the source of truth.
-
-- Mean sentence length: ~21 words. Maximum: ~40 words (contribution lists only).
-- Topic sentences assert claims. Never open a paragraph with background or context.
-- Zero hedging. "We show" not "We believe." "X reduces Y by N×" not "X may help reduce Y."
-- Active voice everywhere — no exceptions. Passive voice obscures agency and weakens prose.
-- No filler adjectives: never use "novel," "significant," "state-of-the-art," "comprehensive," "robust," "substantial," "promising," "impressive." Replace with specific numbers or delete.
-- Signpost through claims: section openers may state the section's conclusion ("This section shows that X reduces Y by N×") but never use content-free placeholders ("In this section, we describe..."). The test: does the opener tell a skim-reader what the section *concludes*?
-- No exclamation marks. No rhetorical questions outside introductions.
-- Paragraphs: 3–6 sentences (design paragraphs up to 8). Every paragraph does exactly one of: make a claim, present evidence, synthesize a takeaway.
-- Headings are claims, not topics. "Mechanism M reduces error N×" not "Experimental Results."
-- Named over vague: every mechanism, baseline, metric must have a proper name. If a term could apply to any paper in the field, it doesn't belong in this paper.
-- Interpret figures, don't just cite. "Figure 3 shows that X, confirming Y" not "See Figure 3."
-- Every evaluation subsection ends with a Takeaway paragraph.
-- Every design choice justified immediately. Not "we use X" but "we use X because Y."
-
-### Venue Adaptation
-
-- **Systems venues (NSDI, SIGCOMM, CoNEXT, IMC)**: Use \smartparagraph{} labels. Systems evaluation (latency, throughput, memory). Frame contributions as operational impact. Post-evaluation related work.
-- **ML venues (NeurIPS, ICLR, ICML)**: No \smartparagraph. Colon-style subtitles. Reproducibility checklist. Frame as methodological advances. Integrated related work.
-- **Workshop/short papers (HotNets, ANRW)**: Compress everything 50%. Lead with the intellectual provocation.
-
----
-
-## Mandatory Style Audit (GATE — applies to ALL tex edits)
-
-**Before presenting or committing ANY new or modified tex content, Claude MUST run a sentence-level style audit.** This is not optional, not triggered by the user, and not limited to full section drafts — it applies to every edit, including paragraph-level changes, subsection additions, and overview rewrites.
-
-The audit checks every changed sentence against `author_profile/gate_mechanical.md`, `author_profile/compression_patterns.md`, and `author_profile/craft_reference.md`. Specifically, scan for and fix:
-
-0. **Mechanical gate (`gate_mechanical.md`) — run FIRST, with its greps.** Em-dashes (`---`, `—`, ` -- `) are BANNED. Antithesis/mirror flourishes ("X, not Y"; "whatever it is called"), editorializing closers ("the saving is the point", "is not real"), vacuous intensifiers ("in effect", "at its core"), rule-of-three decoration, throat-clearing openers ("Moreover", "Notably"), banned/pompous/fancy words, and content-free openers ("In this paper, we…") are BANNED. Target the plain, short, declarative register (`craft_reference.md`). Do NOT report the audit as passed without running the grep gate in that file.
-1. **Negation-first constructions**: "not X" or "rather than X" where the sentence should assert what something IS. Reframe positively.
-2. **Throat-clearing**: "We address this problem by", "To address this issue", "In order to", "It should be noted that", "Note that". Delete and lead with the action.
-3. **Hedging**: "can potentially", "can be expected to", "may help reduce", "it is possible that". Replace with assertive voice ("produces", "reduces", "achieves").
-4. **Generic adjectives**: "significant", "substantial", "highly desirable", "novel", "robust", "comprehensive". Replace with specific numbers or delete.
-5. **Sentence length**: Flag any sentence exceeding 40 words. Split or compress.
-6. **Passive voice**: "accuracy was achieved by X" → "X achieves". "Experiments were conducted on X" → "We evaluate on X". Active voice everywhere — no exceptions, including methods and evaluation. Run the passive-detection grep from `author_profile/gate_mechanical.md` (§Part C, M11) in this base gate; fix or justify every hit.
-7. **Missing citations**: Technical claims restated from other sections must carry forward their citations (Principle 14).
-8. **Rendered artifact (`gate_artifact.md`)**: any edit that adds or changes a float, caption, or table also runs the artifact gate — compile, grep the `.log` for overfull boxes and undefined references, then render every changed page to an image and inspect its floats for clipping/overflow, reused-float refit, legibility, color-as-only-channel, caption terseness, and placement. A source-only pass is half a gate; a figure or table is not audited until it is rendered and looked at.
-
-**Process**: After writing, (a) run the grep gate in `gate_mechanical.md` Part C and fix every hit, then (b) read the changed text line by line for the items above. Report a summary table of violations found and fixed (category, count), INCLUDING the grep counts (em-dashes, flourishes) — not just "audited". Never claim the audit passed on a mental pass alone. Then, for a section draft or non-trivial rewrite, (c) run the **independent adversarial red-team** (`red_team_protocol.md`): a reviewer that did NOT write the text re-runs `gate_mechanical.md` and applies `author_profile/gate_semantic.md` (define-before-use, followability, thesis-tie, lexical + decomposition consistency, non-duplication, mappability, honest positioning, and the closure gate) with a fresh-reader lens, returning a findings list, not a yes/no. Step (c) also includes the four lens passes of `gate_semantic.md` S29, each run by its own fresh reviewer in addition to this one. Then (d), for any edit that adds or changes a float, caption, or table, run the **artifact gate** (`author_profile/gate_artifact.md`): compile, grep the `.log` for overfull boxes and undefined references, and render every changed page to an image and inspect its floats; hand the red-team the rendered images, not only the `.tex`, so it can catch layout and float defects a source read cannot. Only text that survives (a) + (b), and (c) and (d) where they apply, with the grep output and rendered-page evidence pasted, is presented or committed. Per `gate_semantic.md`'s **closure gate** (S31), iterate the red-team after every substantive change until a final closure reviewer returns zero CRITICAL/MAJOR; never defer residual items as "done."
-
-This gate is SEPARATE from and IN ADDITION TO the structural section checklists below.
-
-**Loop mode.** When invoked via `/loop` (e.g. "apply the paper-writing skill iteratively", "audit with loop"), follow `loop_mode.md`: a resumable, ledger-backed audit → red-team → fix cycle that processes one section per iteration and stops itself when every in-scope section is clean and the final closure reviewer has signed off (`gate_semantic.md` S31). The user need not specify which checks to run or when to stop — the protocol supplies those.
-
----
-
-## Section Checklists
-
-After generating ANY section draft, Claude MUST also read the corresponding structural checklist and run it:
-
-| Section | Checklist file |
-|---|---|
-| Introduction | `writing_checklists/intro_questions.md` |
-| Evaluation | `writing_checklists/evaluation_questions.md` |
-| Design / Method | `writing_checklists/design_questions.md` |
-| Related Work | `writing_checklists/related_work_questions.md` |
-
-Flag every violation before presenting the draft. Severity levels: CRITICAL (structural — will cause rejection), MAJOR (visible to reviewers), MINOR (polish-level).
-
-## Section Rhetorical Moves
-
-For detailed guidance on move sequences within each section type, read from `section_rhetorical_moves/`:
-
-| Section | File | Key moves |
+| Mode | What it is for | Files |
 |---|---|---|
-| Introduction | `section_rhetorical_moves/introduction.md` | Stakes → Problem Gap → Key Abstraction → Design Intuition → Contributions → Results Preview |
-| Evaluation | `section_rhetorical_moves/evaluation.md` | Setup Anchoring → Head-to-Head → Deep Dive → Takeaway Synthesis → Ablation → Robustness |
-| Design | `section_rhetorical_moves/design.md` | Abstraction Introduction → Design Justification → Component Architecture → Key Design Decision → Robustness |
-| Related Work | `section_rhetorical_moves/related_work.md` | Category Clustering → Per-Category Limitation → Positioning Sentence |
+| `story` | The paper's ideas are spread across notes, drafts, code and related work: turn them into a story and outline (Stage 1) | `modes/story.md` |
+| `brainstorm` | The ideas are mostly in the author's head, or a new paper is starting: build `project_context.md` (Stage 1) | `modes/brainstorm.md` |
+| `architecture` | Section outline, claims per section, figure/table plan, page budget (Stage 2) | `modes/architecture.md` |
+| `draft <section>` | First draft of one section (Stage 3) | `modes/draft.md`, then the section's file (below) |
+| `rewrite <section>` | The section written again from a blank page, with the old version as reference: the final introduction (`rewrite intro`), or any section whose framing changed (Stage 3) | `modes/draft.md`, `modes/rewrite.md`, the section's `modes/draft-` file, then its `modes/rewrite-` file |
+| `integrate` | Consistency pass across all sections (Stage 4) | `modes/integrate.md` |
+| `compress` | Cut what the paper does not need (Stage 5) | `modes/compress.md` |
+| `submit-check` | Mechanical checks before submission | `modes/submit-check.md` |
+| `critique` | Feedback on a draft: numbered findings with severity, the principle each breaks, and a concrete rewrite | `modes/critique.md` |
+| `respond` | Responses to the venue's reviewers | `modes/respond.md` |
+| `figure spec`, `figure generate`, `figure critique` | Non-data figures (architecture diagrams, pipeline illustrations, concept diagrams). Data figures go to the data-visualization skill (`/viz`) | `modes/figure.md`, then `modes/figure-<step>.md` |
+| `loop` | Repeated audit-and-fix, one section per pass | `modes/loop.md` |
 
-These contain actionable guidance with concrete examples showing what works and what doesn't, drawn from accepted and rejected systems and ML papers.
+**Section files.** For `draft <section>` and `rewrite <section>`, the section's file is `modes/draft-<section>.md` (or `modes/rewrite-<section>.md`) using the section's own name in lower case with hyphens, for example `modes/draft-discussion.md`. If no file has that name, use the file for each kind of job the section does:
+
+- `intro`: the introduction. `draft intro` is Draft 0, written before the evaluation exists; `rewrite intro` is the final introduction, written after the evaluation is complete.
+- `design`: the paper may call this section Method, Approach or System.
+- `evaluation`: the paper may call this section Results, Experiments or Findings.
+- `related-work`: also Prior Work. A combined section such as "Background and Related Work" gets this file for its related-work part.
+
+Any other section (background, discussion, recommendations, conclusion, abstract, …) uses `draft.md` alone until a file is written for it.
 
 ---
 
@@ -188,33 +90,17 @@ Every paper goes through these stages in order. Claude identifies which stage th
 
 ### Stage 1: Structured Brainstorming → Project Context Creation
 
-**Gate**: The user must have a one-sentence identity statement and contribution claims written as results. If they don't, read `brainstorming_guide.md` and walk them through all 6 phases interactively. Don't rush — this is the most important stage. A vague project context produces a vague paper.
+**Gate**: The user must have a one-sentence identity statement and contribution claims written as results. If they don't, run the mode below. Don't rush — this is the most important stage. A vague project context produces a vague paper.
 
-After brainstorming, generate a `project_context.md` file using the template in `examples/project_context.md` and save it in the paper's working directory. See `examples/example_project_context.md` for a complete synthetic example.
-
-**Important:** After creating `project_context.md`, add it to the project's `.gitignore` (create the file if it doesn't exist). This file contains strategic framing notes and advisor commentary that should not be committed to shared repositories by default.
+**Mode**: `/paper-writing brainstorm`, or `/paper-writing story` when the ideas already exist in notes, drafts, code and related work (step 6 above).
 
 ### Stage 2: Architecture
 
 **Gate**: Section outline with claim assignments, per-section narrative arcs, figure/table plan, evaluation structure, and page budget.
 
-**Cut file**: Name a file for text cut from the article and record it in `project_context.md`.
-
-**Craft reference**: If the student has run a literature survey (using the [literature-survey-skill](https://github.com/SNL-UCSB/literature-survey-skill) or manually), check for Pass 3+ paper notes with writing craft extractions — introduction anatomy, evaluation architecture, design section structure, and figure design choices from the strongest papers in their area. Load these as reference material for the architecture. The section structure of the best paper at your target venue is a better starting point for your outline than a generic template. Reading and writing develop together: craft patterns extracted during deep reading feed directly into the architecture of your own paper.
-
-**Figure/table plan from visualization artifacts**: If the student has been working with the [data-visualization-skill](https://github.com/SNL-UCSB/data-visualization-skill), check for `plot_context.md` files and WALTER narrations. Each `plot_context.md` records the intent, variable mappings, plot type rationale, and design decisions for a figure — these are ready-made entries for the figure/table plan below. Each WALTER narration (Hypothesis → Axes → Look here → Trend → Exception → Result) maps directly to the evaluation prose that will accompany the figure. The iteration the student did in the viz skill — exploring what the data shows, forming predictions, confronting surprises — has already determined which figures carry the argument. The architecture should reflect that.
-
-Output a structured table:
-
-| Section | Pages | Key claim | Figures/Tables |
-|---------|-------|-----------|----------------|
-| ... | ... | ... | ... |
-
-**Non-data figure specs**: For each figure in the plan that is NOT a data figure (architecture diagrams, pipeline illustrations, concept diagrams, comparison schematics), read `figure_synthesis_guide.md` and run spec mode to produce a `figure_spec.md`. Data figures (CDFs, bar charts, heatmaps, scatter plots) should be routed to the [data-visualization-skill](https://github.com/SNL-UCSB/data-visualization-skill). The boundary is clear: if the figure requires experimental data to render, it goes through `/viz`; if it illustrates structure, flow, or concepts, it goes through figure synthesis.
+**Mode**: `/paper-writing architecture`.
 
 ### Stage 3: Section Drafts
-
-**Gate (once per writing session, before drafting anything)**: read 3–5 recent research articles from the target venue (Principle 10). They are the model for register, section structure and heading style, which the rules in `author_profile/` describe but do not show. Read the articles themselves, not a summary of them, in full, with the Read tool. They live in `style-examples/` in the paper's working directory; if it holds none yet, ask the user to supply them and do not draft until they arrive. Read them once per session, not on every edit.
 
 **Enforced order**: Draft 0 Introduction → Evaluation → Design/Method → Background → Related Work → Final Introduction → Abstract.
 
@@ -226,137 +112,31 @@ The introduction is written **twice**. This is the most impactful principle in t
 
 **The final introduction** is rewritten from scratch after the evaluation is complete. It promises exactly what the evidence supports — no more, no less. Draft 0 is reference material, not a starting point for editing. If the user asks to skip Draft 0 and go straight to evaluation, explain that evaluation without framing guardrails produces experiments that don't build toward a unified argument.
 
-**Per-section scaffolding**: Before writing any section's full prose, write the topic sentences first. Read them in sequence — they should form a coherent argument on their own. If the topic sentences don't flow, the paragraphs won't either. Fill in the full paragraphs only after the topic-sentence sequence holds together. In LaTeX, a practical technique is to annotate each paragraph with a purpose comment before writing prose:
-
-```latex
-\section{Introduction}
-% Stakes: who suffers and why the domain matters.
-...
-% Problem gap: structural limitation of current approaches.
-...
-% Key abstraction: named concept that captures our insight.
-...
-% Contributions: numbered, claim-first list.
-...
-```
-
-Each comment is a contract: the paragraph that follows must deliver on it. If a paragraph doesn't fit any comment, either the paragraph doesn't belong or a comment is missing.
-
-**Numbers from data**: every number computed from the paper's own data enters the text through a macro written by the analysis script that computes it (for example, the script writes `generated/<script>.tex` with one `\defval{name}{value}` per value, and the text writes `\val{name}`). Never type such a number by hand; the script does the rounding and formatting. Numbers quoted from sources stay literal, with their citations. When a script run changes a value, re-read every sentence that uses it before committing: the number updates itself, the words around it do not.
-
-**Per-section audit**: After generating a draft, read and run the appropriate checklist. Flag every violation with severity level before presenting the draft.
+**Modes**: `/paper-writing draft <section>` for each section; `/paper-writing rewrite intro` for the final introduction; `/paper-writing rewrite <section>` for any section whose framing changed.
 
 ### Stage 4: Integration
 
-Cross-section consistency pass:
-- **Terminology drift**: Is the same concept called by the same name everywhere?
-- **Claim-evidence mapping**: Does every introduction claim map to an evaluation subsection?
-- **Key abstraction propagation**: Does the named concept from Introduction Move 3 appear in Design Move 1, Evaluation setup, and Related Work positioning?
-- **Heading consistency**: Do section headings reflect the contribution order from the introduction?
-- **Identity stability**: Read the first sentence of every section — do they tell a coherent story?
-- **Flow audit**: Read the last sentence of paragraph N and the first sentence of paragraph N+1, throughout the paper. Does each transition work? Composition — the logical flow a reader can follow — is the most important aspect of technical writing. Readers forgive imperfect grammar but cannot follow broken logical progression. Structure produces flow, but structure alone doesn't guarantee it — the transitions between structural units matter.
-- **Signposting check**: Does each section open with a claim-bearing sentence that tells a skim-reader what the section concludes? Is there an outline paragraph at the end of the introduction? Are figures distributed throughout pages rather than clustered?
-- **Visual balance (landscaping)**: Check figure distribution across pages, paragraph length variation, and whitespace. Break up walls of text with signposts, figures, and paragraph headings. Avoid orphaned section headings at page bottoms.
+**Mode**: `/paper-writing integrate`: consistency pass across all sections.
 
 ### Stage 5: Compression
 
-Read `author_profile/compression_patterns.md` for the 7 specific operations. Apply in order:
-1. Sentence shortening (remove subordinate clauses, qualifiers, throat-clearing)
-2. Paragraph merging (multiple examples of same point → one best example)
-3. Generic adjective removal ("significant" → specific number or delete)
-4. Tutorial deletion and validation-detail relocation (remove explanations the venue audience already knows; move validation detail the reader does not need to the cut file)
-5. Claim-first conversion (rewrite buried paragraphs so claim leads)
-6. Takeaway insertion (add synthesis paragraphs after experiment clusters)
-7. Figure/table promotion (move dense numerical comparisons from prose to visuals)
-
-Target: 30–50% reduction from first draft. Report character count before and after.
-
-**Do not pad to fill page limits.** If the paper is under the page limit after compression, that is fine. A short paper with appropriate content is better than a padded paper that reaches the limit. Padding introduces filler that weakens the argument.
+**Mode**: `/paper-writing compress`: cut what the paper does not need.
 
 ### Pre-Submission Mechanical Checklist (Automated)
 
-After compression and before submission, Claude MUST automatically run these checks using shell commands on the paper's `.tex` and compiled `.pdf` files. Do not ask the student to run them manually — execute them and report results.
-
-**1. Page count.** Extract page count from the compiled PDF and compare against the venue's limit (from `project_context.md`). Flag whether references/appendices count — this varies by venue.
-```bash
-pdfinfo paper.pdf | grep Pages
-```
-
-**2. Broken references.** Search `.tex` source files for unresolved references that will render as `[?]` or `??` in the PDF. Also check the `.log` file for LaTeX warnings about undefined references and citations.
-```bash
-grep -n "LaTeX Warning.*undefined" paper.log
-grep -rn '\\cite{' *.tex | grep -v '%' # list all citations for cross-check
-```
-
-**3. Embedded fonts.** Verify all fonts are embedded. Non-embedded fonts cause rendering differences across machines and are rejected by some submission systems.
-```bash
-pdffonts paper.pdf | grep -v "yes"
-```
-If any font shows `no` in the `emb` column, flag it and suggest adding `\usepackage[T1]{fontenc}` or compiling with `GS_OPTIONS=-dPDFSETTINGS=/prepress`.
-
-**4. Figure quality.** Check that all included figure files are vector format (PDF/EPS) or high-resolution raster. List all figures referenced in the source and verify they exist.
-```bash
-grep -rn '\\includegraphics' *.tex  # list all figure references
-file figures/*.pdf figures/*.png 2>/dev/null  # check file types
-```
-Flag any PNG/JPG figures — these should be vector unless they are photographs or screenshots.
-
-**5. Anonymization (if double-blind).** Search all `.tex` files for author names, institution names, grant numbers, acknowledgment sections, and self-citations that could reveal identity.
-```bash
-grep -rni 'AUTHOR_NAMES_HERE\|INSTITUTION_HERE\|\\thanks\|acknowledgment' *.tex
-```
-Replace `AUTHOR_NAMES_HERE` and `INSTITUTION_HERE` with actual names from `project_context.md` before running.
-
-**6. Column balancing.** Check whether the `balance` package is loaded (for two-column formats). If not, suggest adding `\usepackage{balance}` and `\balance` before `\bibliography`.
-```bash
-grep -rn 'balance' *.tex
-```
-
-**7. Common LaTeX issues.** Scan for frequently missed mechanical problems:
-```bash
-grep -rn '\\cite{.*}' *.tex | grep -v '~\\cite'  # missing ~ before \cite (dangling references)
-grep -rn 'et al\.' *.tex | grep -v '~'  # missing ~ after "et al."
-grep -rn '\\label{' *.tex | sort | uniq -d  # duplicate labels
-```
-
-**Report format**: Run all checks, then present a single summary table:
-
-| Check | Status | Details |
-|-------|--------|---------|
-| Page count | ✓ or ✗ | N pages (limit: M) |
-| Broken refs | ✓ or ✗ | List of undefined refs |
-| Embedded fonts | ✓ or ✗ | List of non-embedded fonts |
-| Figure quality | ✓ or ✗ | List of raster figures |
-| Anonymization | ✓ or ✗ | List of leaks found |
-| Column balance | ✓ or ✗ | Package present/missing |
-| LaTeX issues | ✓ or ✗ | Count of dangling refs, duplicate labels |
-
-Fix what can be fixed automatically (e.g., adding `~` before `\cite`). Flag what requires student decision (e.g., replacing a raster figure with vector).
+**Mode**: `/paper-writing submit-check`: mechanical checks before submission.
 
 ---
 
 ## How to Respond to Common Requests
 
-### "Help me write section X of paper Y"
-@faq/write-section.md
+The answer to each request is in its own file in this skill's `faq/` folder. Read the file when the user's request matches.
 
-### "Review / critique this draft"
-@faq/review-draft.md
-
-### "Compress / tighten this section"
-@faq/compress-section.md
-
-### "I want to get feedback on this draft"
-@faq/get-feedback.md
-
-### "Help me respond to reviewers"
-@faq/respond-to-reviewers.md
-
-### "I'm starting a new paper — where do I begin?"
-@faq/start-new-paper.md
-
-### "Turn our notes into a paper outline" / "What is the story for <venue>?"
-@faq/notes-to-outline.md
-
-### "I need a non-data figure (architecture diagram, pipeline illustration, etc.)"
-@faq/non-data-figure.md
+- "Help me write section X of paper Y": `faq/write-section.md`
+- "Review / critique this draft": `faq/review-draft.md`
+- "Compress / tighten this section": `faq/compress-section.md`
+- "I want to get feedback on this draft": `faq/get-feedback.md`
+- "Help me respond to reviewers": `faq/respond-to-reviewers.md`
+- "I'm starting a new paper — where do I begin?": `faq/start-new-paper.md`
+- "Turn our notes into a paper outline" / "What is the story for <venue>?": `faq/notes-to-outline.md`
+- "I need a non-data figure (architecture diagram, pipeline illustration, etc.)": `faq/non-data-figure.md`

@@ -1,0 +1,1 @@
+**Do not pad to fill page limits.** If the paper is under the page limit after compression, that is fine. A short paper with appropriate content is better than a padded paper that reaches the limit. Padding introduces filler that weakens the argument.
