@@ -47,7 +47,7 @@ Read all of:
 
 - Is the caption interpretive (states what the figure shows and why it matters)?
 - Is it claim-first (the takeaway leads, details follow)?
-- Does it follow craft_reference.md rules (no hedging, no filler adjectives, active voice)?
+- Is it free of hedging and filler adjectives, and in active voice?
 - Is it self-contained enough for a skim-reader?
 - **Verdict**: PASS / REVISE (suggest rewrite)
 
@@ -65,7 +65,7 @@ Present results as a table:
 
 **Overall verdict:**
 - **PASS** — all checks pass. The figure is ready for inclusion.
-- **REVISE** — one or more checks failed. List the specific action items and suggest re-running generate mode with updated spec/prompt.
+- **REVISE** — one or more checks failed. List the specific action items and suggest re-running `/paper-writing figure generate` with updated spec/prompt.
 
 ### Step 4: Update the Spec
 

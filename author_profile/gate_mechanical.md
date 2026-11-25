@@ -7,8 +7,8 @@
 > justified before the edit is reported done. A mental pass is not a run.
 
 This gate holds the checks a regex can catch. Reader-judgment checks (define-before-use,
-followability, coherence, grounding) live in `gate_semantic.md`. Positive "what to write instead"
-guidance lives in `craft_reference.md`.
+followability, coherence, grounding) are the Semantic Gate's S rules, run by the reviewers. Positive
+"what to write instead" guidance is the Craft Reference, loaded for drafting.
 
 ---
 

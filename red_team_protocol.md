@@ -11,7 +11,7 @@ audit, and BEFORE the text is shown to the user or committed.
 
 ## Three gates — text must survive all three
 1. **WRITE** — the author agent produces the draft.
-2. **MECHANICAL GATE** — run ALL of `gate_mechanical.md` Part C. PASTE the raw output (hit counts
+2. **MECHANICAL GATE** — run ALL of the Mechanical Gate's Part C greps. PASTE the raw output (hit counts
    + lines). Zero unjustified hits to proceed. "Audited" without pasted output is INVALID.
 3. **INDEPENDENT RED-TEAM** — a SEPARATE reviewer that did NOT write the text. It:
 @rules/RT1-reviewer-instructions.md
@@ -29,5 +29,5 @@ checklists + the paper's controlling idea. It must NOT see the author's self-ass
 workflow this is a distinct verify stage; interactively it is a fresh Agent that reviews and returns findings.
 The author then fixes every finding and the cycle repeats until the reviewer returns clean.
 
-A finding that asks for more detail gets the `gate_semantic.md` S33 test: does the reader need this in the
+A finding that asks for more detail gets the S33 test: does the reader need this in the
 article to trust the result? If so, the detail goes into the article. If not, it moves to the cut file.

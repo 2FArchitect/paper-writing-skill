@@ -1,7 +1,7 @@
-# Self-Diagnostic: Introduction
+# Introduction checklist (run after drafting)
 
 ## Source
-Derived from introduction rhetorical move analysis across 6 papers (see `section_rhetorical_moves/introduction.md` and `author_profile/editorial_principles.md`).
+Derived from introduction rhetorical move analysis across 6 papers (the introduction move sequence and the editorial principles).
 
 ---
 

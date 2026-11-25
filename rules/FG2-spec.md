@@ -5,10 +5,10 @@
 Read `project_context.md` → "Key Figures Needed" section. For each figure listed:
 
 1. **Classify as data or non-data.** Ask: "Does this figure require experimental data to render?"
-   - Yes → route to `/viz`. Tell the student.
+   - Yes → route to `/viz`. Tell the author.
    - No → continue here.
-2. **Assign an archetype** from the table above. If ambiguous, ask the student.
-3. **Confirm the generation backend** (AI image or TikZ). State the default and let the student override.
+2. **Assign an archetype** from the table above. If ambiguous, ask the author.
+3. **Confirm the generation backend** (AI image or TikZ). State the default and let the author override.
 
 Present a summary table:
 
@@ -18,7 +18,7 @@ Present a summary table:
 
 ### Step 2: Walk Through Archetype-Specific Questions
 
-For each non-data figure, ask the questions below. Skip questions the student has already answered in `project_context.md`. Push back on vague answers — every answer should be specific enough to appear in a generation prompt.
+For each non-data figure, ask the questions below. Skip questions the author has already answered in `project_context.md`. Push back on vague answers — every answer should be specific enough to appear in a generation prompt.
 
 #### Architecture Overview Questions
 
@@ -90,17 +90,17 @@ For each non-data figure, ask the questions below. Skip questions the student ha
 
 ### Step 3: Generate the Figure Spec
 
-Read `figure_templates/figure_spec_template.md`. Fill in every field from the student's answers:
+Read `figure_templates/figure_spec_template.md`. Fill in every field from the author's answers:
 
 1. **Identity section**: figure ID, section, placement, archetype, backend.
-2. **Purpose section**: copy the claim from `project_context.md` verbatim. Write the "what it shows" and "why it exists" from the student's answers.
+2. **Purpose section**: copy the claim from `project_context.md` verbatim. Write the "what it shows" and "why it exists" from the author's answers.
 3. **Content section**: build the Components, Connections, and Groupings tables from the archetype-specific answers.
 4. **Layout section**: flow direction, hierarchy levels, symmetry constraints, size target (from `figure_templates/venue_styles.md`).
 5. **Styling section**: assign colors from the Paul Tol palette based on semantic roles. Note which component gets emphasis.
 6. **For AI backend**: assemble the generation prompt using the template from `figure_templates/prompt_templates.md`. Fill all placeholders. Append the styling block from `venue_styles.md`.
 7. **For TikZ backend**: note which skeleton from `figure_templates/tikz_skeletons.md` to start from.
-8. **Caption**: draft an interpretive caption following craft_reference.md rules — claim-first, states the takeaway.
+8. **Caption**: draft an interpretive caption: claim-first, states the takeaway.
 
 Save the completed spec as `figure_spec_[fig_id].md` in the paper's `figures/` directory (create the directory if needed).
 
-Tell the student: "Figure spec saved to `figures/figure_spec_[fig_id].md`. Run `/paper-writing figure generate` to produce the figure."
+Tell the author: "Figure spec saved to `figures/figure_spec_[fig_id].md`. Run `/paper-writing figure generate` to produce the figure."

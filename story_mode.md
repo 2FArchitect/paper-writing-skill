@@ -2,7 +2,7 @@
 
 Use this mode when the ideas for a paper already exist, scattered across meeting notes, drafts, code, chat threads, reviews of earlier submissions and related work, and you need one coherent story and a section-level outline for a target venue. It ends by writing `project_context.md`, so the rest of the pipeline in `SKILL.md` (Stage 2 onward) starts from its output.
 
-It is different from Structured Brainstorming (`brainstorming_guide.md`). Brainstorming draws ideas out of your head through questions. Story mode assembles a story from a record that already exists, and its first rule is to invent nothing. If your record is one notebook and a short reading list, Brainstorming is usually the better start: say *"read my notebook first and skip the questions it answers."*
+It is different from Structured Brainstorming (`/paper-writing brainstorm`). Brainstorming draws ideas out of your head through questions. Story mode assembles a story from a record that already exists, and its first rule is to invent nothing. If your record is one notebook and a short reading list, Brainstorming is usually the better start: say *"read my notebook first and skip the questions it answers."*
 
 **Trigger phrases:** "turn our notes into a paper outline", "what is the story for <venue>", "connect the dots for a <venue> submission", "draft the outline from what we have discussed", or `/paper-writing story`.
 
@@ -15,7 +15,7 @@ Saved in your paper repository under `story/`:
 3. `story/spec.md`: a one-page **calibration spec** (framing, facts to state carefully, terms) that every later document is checked against.
 4. `project_context.md`, filled from the three files above (step 10).
 
-These files describe unpublished work. Keep them in a private repository; if your paper repository is shared or public, add `story/` and `project_context.md` to `.gitignore` (the skill adds `project_context.md` by default).
+These files describe unpublished work. Keep them in a private repository; if your paper repository is shared or public, add `story/` and `project_context.md` to `.gitignore`.
 
 ## Before you start
 
@@ -118,7 +118,7 @@ Then: *"Rewrite around <choice> and cut everything that serves only the other fr
 **Purpose.** Turn the story into the structure reviewers read, in the pipeline's drafting order.
 
 **Request.**
-> Draft a Draft 0 introduction following `section_rhetorical_moves/introduction.md` and the venue notes below. Outline the motivation section (Section 2 in systems papers; the problem setup with a motivating failure case in ML papers) around one simple, real example from our data or experience; it is written in full at the Background stage, after the evaluation. Then give a skeleton of design, implementation, evaluation and related work with a page budget. Use existing notes as source material; the structure comes from the story. For every design choice, name the alternative and defend the choice from first principles or with a measurement.
+> Draft a Draft 0 introduction following the six moves (`/paper-writing draft intro`) and the venue notes below. Outline the motivation section (Section 2 in systems papers; the problem setup with a motivating failure case in ML papers) around one simple, real example from our data or experience; it is written in full at the Background stage, after the evaluation. Then give a skeleton of design, implementation, evaluation and related work with a page budget. Use existing notes as source material; the structure comes from the story. For every design choice, name the alternative and defend the choice from first principles or with a measurement.
 
 If a draft already exists, add: *"Rethink the structure rather than patching the old one."*
 
@@ -164,7 +164,7 @@ Stage 2 (Architecture) then refines the step 7 page map, and Stage 3 starts from
 
 ## Introduction structure by venue
 
-Every venue uses the six moves in `section_rhetorical_moves/introduction.md` (Stakes, Problem Gap, Key Abstraction, Design Intuition, Contributions, Results Preview). Story mode adds two: **why it is new** (two or three mechanism-level contrasts, one sentence each) after Design Intuition, and **limits, stated once** at the end.
+Every venue uses the six moves of `draft intro` (Stakes, Problem Gap, Key Abstraction, Design Intuition, Contributions, Results Preview). Story mode adds two: **why it is new** (two or three mechanism-level contrasts, one sentence each) after Design Intuition, and **limits, stated once** at the end.
 
 - **Systems and networking conferences (e.g., SIGCOMM).** The Problem Gap names why the problem is hard (the binding constraint, often a cost) and why existing solutions fall short (what each assumes or fixes in advance). Section 2 argues the pain point in depth and maps each difficulty to a requirement and the experiment that tests it.
 - **Systems venues with a deployment focus (e.g., NSDI).** The Problem Gap includes a deployment constraint; the Results Preview leads with performance against strong baselines.

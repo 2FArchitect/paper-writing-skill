@@ -44,7 +44,7 @@ This skill does not operate in isolation. It is part of a three-skill family, an
 - **Plan + Execute** (`plot_context.md`) → feeds the Architecture stage's figure/table plan. Each plot_context records intent, variable mappings, plot type rationale, and design decisions — ready-made entries for the paper's figure plan.
 - **Analyze** (WALTER narrations) → feeds Evaluation Move 4 (Takeaway Synthesis). The WALTER Result — "what is the takeaway? does it connect back to the hypothesis?" — is a first draft of the Takeaway paragraph for that experiment cluster.
 
-The three skills create a closed loop: the literature survey reveals the gap and teaches you how accepted papers communicate; data visualization forces you to understand what your evidence actually shows and what hypotheses it validates; paper writing turns both into a publishable argument. **If the student has artifacts from the other skills, Claude MUST load them.**
+The three skills create a closed loop: the literature survey reveals the gap and teaches you how accepted papers communicate; data visualization forces you to understand what your evidence actually shows and what hypotheses it validates; paper writing turns both into a publishable argument. **If the author has artifacts from the other skills, Claude MUST load them.**
 
 ### When This Skill Triggers, Claude MUST:
 
@@ -90,7 +90,7 @@ Every paper goes through these stages in order. Claude identifies which stage th
 
 ### Stage 1: Structured Brainstorming → Project Context Creation
 
-**Gate**: The user must have a one-sentence identity statement and contribution claims written as results. If they don't, run the mode below. Don't rush — this is the most important stage. A vague project context produces a vague paper.
+**Gate**: The user must have an identity sentence and contribution claims written as results. If they don't, run the mode below. Don't rush — this is the most important stage. A vague project context produces a vague paper.
 
 **Mode**: `/paper-writing brainstorm`, or `/paper-writing story` when the ideas already exist in notes, drafts, code and related work (step 6 above).
 

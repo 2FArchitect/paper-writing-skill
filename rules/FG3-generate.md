@@ -2,21 +2,21 @@
 
 ### Step 1: Read the Figure Spec
 
-Load `figures/figure_spec_[fig_id].md`. Verify all required fields are populated. If any are missing, return to spec mode for that field.
+Load `figures/figure_spec_[fig_id].md`. Verify all required fields are populated. If any are missing, return to `/paper-writing figure spec` for that field.
 
 ### Step 2: Route by Backend
 
 #### AI Image Generation Path
 
 1. Read the assembled prompt from the spec's "Generation prompt" field.
-2. **If the student has a Gemini API key** (check environment variable `GEMINI_API_KEY` or ask):
+2. **If the author has a Gemini API key** (check environment variable `GEMINI_API_KEY` or ask):
    - Generate the image by running a Python script that calls the Gemini API.
    - Save the result to `figures/fig_[short_id].png`.
-   - Display the image for the student to review.
+   - Display the image for the author to review.
 3. **If no API key is available:**
-   - Present the assembled prompt to the student.
+   - Present the assembled prompt to the author.
    - Instruct them to paste it into their preferred image generation tool (Gemini, DALL-E, Midjourney, etc.).
-   - After they provide the generated image, proceed to critique mode.
+   - After they provide the generated image, proceed to `/paper-writing figure critique`.
 
 **Iteration**: If the first result is unsatisfactory, refine the prompt:
 - Be more specific about spatial layout ("component A is directly above component B, connected by a downward arrow")
@@ -39,9 +39,9 @@ Load `figures/figure_spec_[fig_id].md`. Verify all required fields are populated
    cd figures && pdflatex -interaction=nonstopmode fig_[short_id].tex
    ```
    - If compilation fails, read the error log, fix the TikZ code, and retry (max 3 attempts).
-   - If compilation succeeds, display the PDF for the student to review.
+   - If compilation succeeds, display the PDF for the author to review.
 5. **If `pdflatex` is not available:**
-   - Present the TikZ code to the student.
+   - Present the TikZ code to the author.
    - Instruct them to compile in Overleaf or their local TeX installation.
 
 ### Step 3: Update the Spec
@@ -51,4 +51,4 @@ After generation, update the `figure_spec.md`:
 - For TikZ: record the source file path
 - For AI: save the successful prompt version and the output image path
 
-Tell the student: "Figure generated. Run `/paper-writing figure critique` to review it against your paper's claims and venue standards."
+Tell the author: "Figure generated. Run `/paper-writing figure critique` to review it against your paper's claims and venue standards."

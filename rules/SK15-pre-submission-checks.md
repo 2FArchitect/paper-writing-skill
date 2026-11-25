@@ -52,4 +52,4 @@ grep -rn '\\label{' *.tex | sort | uniq -d  # duplicate labels
 | Column balance | ✓ or ✗ | Package present/missing |
 | LaTeX issues | ✓ or ✗ | Count of dangling refs, duplicate labels |
 
-Fix what can be fixed automatically (e.g., adding `~` before `\cite`). Flag what requires student decision (e.g., replacing a raster figure with vector).
+Fix what can be fixed automatically (e.g., adding `~` before `\cite`). Flag what requires the author's decision (e.g., replacing a raster figure with vector).

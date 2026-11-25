@@ -9,5 +9,3 @@
 @../rules/FG1-overview.md
 
 @../rules/FG2-spec.md
-
-@../rules/FG5-pipeline-integration.md

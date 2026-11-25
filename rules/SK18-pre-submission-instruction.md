@@ -1,1 +1,1 @@
-After compression and before submission, Claude MUST automatically run these checks using shell commands on the paper's `.tex` and compiled `.pdf` files. Do not ask the student to run them manually — execute them and report results.
+After compression and before submission, Claude MUST automatically run these checks using shell commands on the paper's `.tex` and compiled `.pdf` files. Do not ask the author to run them manually — execute them and report results.

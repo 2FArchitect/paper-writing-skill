@@ -19,13 +19,13 @@ When the user asks for help with a non-data figure, assess where they are:
 | Has a generated figure and wants feedback | **Critique** |
 | Not sure what figures they need | **Spec** (start from project_context.md's Key Figures Needed) |
 
-If no `project_context.md` exists, stop. The student must run the brainstorming workflow first (`/paper-writing` → brainstorming). Figures cannot be designed in a vacuum — they serve claims, and claims live in the project context.
+If no `project_context.md` exists, stop. The author must create one first: `/paper-writing brainstorm`, or `/paper-writing story` when the ideas already exist in notes, drafts and code. Figures cannot be designed in a vacuum — they serve claims, and claims live in the project context.
 
 ---
 
 ## Seven Figure Archetypes
 
-Every non-data figure in a systems/networking paper fits one of these archetypes. The archetype determines which questions to ask in spec mode and which generation backend to use.
+Every non-data figure in a systems/networking paper fits one of these archetypes. The archetype determines which questions to ask in `figure spec` and which generation backend to use.
 
 | Archetype | What it shows | Typical section | Default backend |
 |-----------|--------------|-----------------|-----------------|
@@ -37,4 +37,4 @@ Every non-data figure in a systems/networking paper fits one of these archetypes
 | **Taxonomy / Classification** | Hierarchical or matrix organization of categories, positioning the paper | §5 Related Work, §2 Background | TikZ |
 | **Deployment / System Diagram** | Physical or logical infrastructure topology, how the system runs in practice | §4 Evaluation setup, §2 Background | AI image generation |
 
-**The student can override the default backend.** If they want TikZ for an architecture overview (for precise control) or AI generation for a taxonomy (for visual richness), respect that choice.
+**The author can override the default backend.** If they want TikZ for an architecture overview (for precise control) or AI generation for a taxonomy (for visual richness), respect that choice.

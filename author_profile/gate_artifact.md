@@ -1,6 +1,6 @@
 # Artifact Gate — compile, render, and inspect the PDF
 
-> The gates in `gate_mechanical.md` and `gate_semantic.md` audit the **source**. A paper is
+> The Mechanical Gate and the Semantic Gate audit the **source**. A paper is
 > source **plus a rendered artifact**, and figures, tables, and page layout ship in the artifact,
 > not the source. This gate catches what a text-only pass cannot see: a float that overflows the
 > column, a table that dies in grayscale, a caption that runs six lines, a `figure*` reused from
@@ -51,8 +51,8 @@ are the checks a regex cannot make.
 2. Part A: run the four log greps; fix or justify every hit. Report the counts.
 3. Part B: render every changed page; inspect each float against A5–A9. Report what you saw, with
    the rendered image as evidence, not "looks fine."
-4. Only source that passes `gate_mechanical` **and** `gate_semantic` **and** this gate is reported
-   done. If the independent red-team (`red_team_protocol.md`) runs, hand it the **rendered page
+4. Only source that passes the Mechanical Gate **and** the Semantic Gate **and** this gate is reported
+   done. If the independent red-team runs, hand it the **rendered page
    images**, not only the `.tex`, so it can catch layout and float defects a source read cannot.
 
 **Data figures** (CDFs, bar charts, heatmaps, scatter plots) are authored in the

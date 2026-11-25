@@ -10,4 +10,4 @@ creeps in at synthesis time and survives a per-section audit. Two artifacts, thr
 3. **Decomposition invariance**: whenever the paper breaks something into parts (N stages, N
    concerns, N axes), every section listing them uses the same members, count, and names. A "four
    stages" list here and "three concerns" for the same decomposition there is a defect. Check
-   member-set equality and cardinality across sections. (Greps in `gate_mechanical.md` Part C.)
+   member-set equality and cardinality across sections. (Greps in the Mechanical Gate, Part C.)

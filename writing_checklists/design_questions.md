@@ -1,7 +1,7 @@
-# Self-Diagnostic: Design Section
+# Design section checklist (run after drafting)
 
 ## Source
-Derived from design rhetorical move analysis across 6 papers (see `section_rhetorical_moves/design.md`).
+Derived from design rhetorical move analysis across 6 papers (the move sequence above).
 
 ---
 

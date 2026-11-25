@@ -4,8 +4,10 @@
 
 @../rules/MV5-cross-section-coherence-rules.md
 
-@../rules/FG4-critique.md
+## Non-data figures
 
-@../rules/FG5-pipeline-integration.md
+Run the figure critique below on every non-data figure, including the cross-figure consistency checks.
+
+@../rules/FG4-critique.md
 
 @audit.md

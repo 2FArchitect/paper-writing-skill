@@ -173,7 +173,7 @@ See `examples/example_project_context.md` for what a complete project context lo
 
 ### Then: Write Draft 0 of the Introduction
 
-Before touching the evaluation, write a **Draft 0 introduction** — a disposable framing scaffold covering Stakes, Problem Gap, Key Abstraction (placeholder name is fine), Design Intuition, and rough Contributions. Leave the Results Preview blank (you don't have results yet).
+Before touching the evaluation, write a **Draft 0 introduction** (`/paper-writing draft intro`) — a disposable framing scaffold covering Stakes, Problem Gap, Key Abstraction (placeholder name is fine), Design Intuition, and rough Contributions. Leave the Results Preview blank (you don't have results yet).
 
 Draft 0 is not the introduction. It is a thinking tool. Writing it forces you to commit your framing to concrete prose, which reveals gaps that bullet points in `project_context.md` hide. It sets guardrails for the evaluation: once you've written "This paper shows that X," you know the evaluation must demonstrate X.
 

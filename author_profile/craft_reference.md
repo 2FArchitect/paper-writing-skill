@@ -1,7 +1,7 @@
 # Craft Reference — how to write (the positive layer)
 
-> The "what to write INSTEAD" companion to the two gates. `gate_mechanical.md` and
-> `gate_semantic.md` catch defects; this file is drafting guidance. It is a reference to read while
+> The "what to write INSTEAD" companion to the two gates. The Mechanical Gate and the
+> Semantic Gate catch defects; this file is drafting guidance. It is a reference to read while
 > writing or rewriting a paragraph, not a checklist to run.
 
 The base rules below hold in every register. Three registers then flex a few of them for the
@@ -18,7 +18,7 @@ The default for a systems/ML paper that designs something and measures it.
   drafts run ~24; compress by ~12%.
 - **Claim-first topic sentences.** Lead with the assertion; cite the table or figure after. Never
   open a paragraph with background or context.
-- **Active voice, present tense, direct verbs.** No exceptions (see `gate_mechanical.md` M11).
+- **Active voice, present tense, direct verbs.** No exceptions (see M11).
 - **Plain words over Latinate.** `use` not `utilize`; `enough` not `sufficient`; `show` not
   `demonstrate`; `let` not `enable` where it fits.
 - **Verbs over nominalizations.** `we compile the query`, not `compilation of the query is
@@ -29,7 +29,7 @@ The default for a systems/ML paper that designs something and measures it.
 - **Numbers, not adjectives.** "2–4× higher savings," never "significant savings."
 - **Positive form.** Assert what IS. `not honest` → `dishonest`; `did not remember` → `forgot`.
   Use `not` only for a real factual absence, never as a rhetorical move.
-- **Omit needless words.** Every word tells (see `gate_mechanical.md` M12, `compression_patterns.md`).
+- **Omit needless words.** Every word tells (see M12).
 - **Paragraph density.** 3–6 sentences (design paragraphs up to 8). Every paragraph does exactly
   one of: make a claim, present evidence, synthesize a takeaway. No empty connector paragraphs.
 - **Signposting through claims, not placeholders.** A section may open with a preamble that states
@@ -38,7 +38,7 @@ The default for a systems/ML paper that designs something and measures it.
   opener tell a skim-reader what the section *concludes*?
 - **Calibrated confidence.** Strongly assertive; claims match evidence scope. No "we solve the
   problem of" — instead "we address [specific aspect] of [bounded problem]." Zero hedging, with the
-  one exception in `gate_semantic.md` S18 (hedge a claim that genuinely outruns its evidence).
+  one exception, S18 (hedge a claim that genuinely outruns its evidence).
 - **Contribution framing.** Numbered, labeled list, each item a bold domain label + a claim (not a
   process description): "(1) Learning problem. We formulate… (2) Design. We implement… (3)
   Evaluation. We show…". Prefer "We show" over "We propose."

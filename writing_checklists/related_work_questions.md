@@ -1,7 +1,7 @@
-# Self-Diagnostic: Related Work Section
+# Related work section checklist (run after drafting)
 
 ## Source
-Derived from related work analysis across 6 papers (see `section_rhetorical_moves/related_work.md`).
+Derived from related work analysis across 6 papers (the move sequence above).
 
 ---
 

@@ -2,7 +2,7 @@
 maps to a committed analysis script → a committed raw result file → (for reproduced prior-work
 metrics) the source it reproduces. Maintain a provenance note (claim → value → script → raw
 output). Numbers from the paper's
-own data reach the text only through script-generated macros (SKILL.md, Stage 3); a data number
+own data reach the text only through script-generated macros (the drafting rule "Numbers from data"); a data number
 typed into the prose is a finding. New analysis code is committed to the correct repository, not a
 scratch dir. If a number cannot be mapped, cut it or generate the mapping. Every technical claim
 also carries a citation or a cross-reference to the section that cites it, and the cited source

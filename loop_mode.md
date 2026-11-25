@@ -28,7 +28,7 @@ the start of every iteration.
    (the paper's controlling idea).
 2. Select the next unit of work: the highest-priority section not yet `CLEAN` through all three gates
    (respect any user scope).
-3. Run the three gates on that section (see `red_team_protocol.md`):
+3. Run the three gates, plus the craft check (c), on that section (see `red_team_protocol.md`):
    a. MECHANICAL — run ALL `author_profile/gate_mechanical.md` Part C greps; paste the counts.
    b. SEMANTIC — apply every S-numbered item in `author_profile/gate_semantic.md`: accessibility, coherence,
       consistency, rigor, honest positioning, figures.

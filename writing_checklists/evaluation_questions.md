@@ -1,7 +1,7 @@
-# Self-Diagnostic: Evaluation Section
+# Evaluation section checklist (run after drafting)
 
 ## Source
-Derived from evaluation rhetorical move analysis across 6 papers (see `section_rhetorical_moves/evaluation.md`).
+Derived from evaluation rhetorical move analysis across 6 papers (the move sequence above).
 
 ---
 

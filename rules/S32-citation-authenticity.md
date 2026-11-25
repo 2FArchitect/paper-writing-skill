@@ -1,6 +1,5 @@
 **S32. Citation authenticity and bibliographic accuracy (CRITICAL).** Numbered out of sequence to
-avoid renumbering S19–S31 elsewhere in this file and in cross-references (`README.md`, `CLAUDE.md`,
-`loop_mode.md`) — it belongs here, thematically, alongside S15–S18's grounding checks. Every `.bib`
+avoid renumbering S19–S31; it belongs here, thematically, alongside S15–S18's grounding checks. Every `.bib`
 entry names a real, verifiable source, never a plausible-sounding fabrication. For each entry
 check: (a) the paper/RFC/standard exists — a copy is saved locally, and (b)–(d) are checked against
 that copy, never from model memory alone; (b) the author list is complete, in the paper's
