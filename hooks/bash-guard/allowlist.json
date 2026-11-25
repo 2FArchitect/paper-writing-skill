@@ -1,0 +1,57 @@
+{
+  "_about": [
+    "bash-guard command lists. A command that names a protected path (or shares a pipeline with one",
+    "that does) may run only if its program is listed in read_only and none of its arguments matches",
+    "one of that program's exception patterns (Python regexes, searched in each argument with quotes",
+    "removed). Redirections into protected paths are always blocked.",
+    "A program given as an object also says which operands (non-option arguments) it writes:",
+    "write_operands 'all' or 'last'; those must not be protected paths. Options may come anywhere",
+    "(GNU style); value_options lists the options whose value is the next word, so it is not",
+    "counted as an operand. Every word after '--' is an operand.",
+    "Only programs seen in real use are listed. Add one when bash-guard blocks a command you need,",
+    "with exceptions for every way it can write, and a test in tests/synthetic.jsonl."
+  ],
+  "read_only": {
+    "cat": [], "head": [], "tail": [], "wc": [], "grep": [], "ls": [], "stat": [], "du": [],
+    "cut": [], "tr": [], "md5sum": [], "sha256sum": [], "cmp": [], "diff": [], "echo": [],
+    "printf": [], "[": [], "read": [], "basename": [],
+    "find": ["^-(delete|exec|execdir|ok|okdir|fprint|fprint0|fprintf|fls)$"],
+    "sort": ["^-[A-Za-z]*o", "^--output"],
+    "sed": [
+      "^-[A-Za-z]*i", "^--in-place",
+      "(^|[;{}\\n/0-9,$!])\\s*[wWe](\\s|$)"
+    ],
+    "awk": ["print[^;}\\n]*[>|]", "system\\s*\\(", "\\|\\s*getline", "^-i$", "^inplace$", "^--include"],
+    "git": [
+      "^(checkout|restore|switch|reset|stash|apply|am|merge|rebase|pull|cherry-pick|revert|clean|rm|mv)$",
+      "^(worktree|filter-branch|filter-repo|update-index|read-tree|checkout-index)$",
+      "^--output"
+    ],
+    "tee": {"except": [], "write_operands": "all"},
+    "uniq": {"except": [], "write_operands": "all"},
+    "cp": {"except": ["^-[A-Za-z]*[lst]", "^--(link|symbolic-link|target-directory)"],
+           "write_operands": "last", "value_options": ["-S", "--suffix"]}
+  },
+  "python": {
+    "_about": "Interpreters whose name matches 'names' are allowed when bash-guard's runtime hook is installed in them (it then guards their writes and program launches while they run). 'except' patterns are checked in the interpreter's own options, before the script, -c, -m or -.",
+    "names": "^python[0-9.]*$",
+    "except": ["^-[A-Za-z]*S"]
+  },
+  "wrappers": {
+    "_about": [
+      "Programs that run another command, described over the words shfmt splits the command into.",
+      "Prefix wrappers (timeout, xargs, ...): skip the wrapper's options (value_options take the next",
+      "word as their value unless written --opt=value), then 'positional' more words; the remaining",
+      "words are the wrapped command.",
+      "Embedded commands (find -exec): each run of words after a 'start' word, up to an 'end' word, is",
+      "a command; the program's own remaining words are then checked against its read_only entry."
+    ],
+    "timeout": {"value_options": ["-s", "--signal", "-k", "--kill-after"], "positional": 1},
+    "command": {},
+    "sudo": {"value_options": ["-u", "--user", "-g", "--group", "-C", "-D", "-h", "-p", "-r", "-t", "-U"]},
+    "xargs": {"value_options": ["-a", "--arg-file", "-d", "--delimiter", "-E", "-I", "--replace",
+                                "-L", "-n", "--max-args", "-P", "--max-procs", "-s", "--max-chars"]},
+    "find": {"start": ["-exec", "-execdir", "-ok", "-okdir"], "end": [";", "+"]}
+  },
+  "shells": ["bash", "sh"]
+}

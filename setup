@@ -57,13 +57,19 @@ def install(src, dst):
     else:
         shutil.copy(src, dst)
 
+# Not installed: bash-guard's tests (tests/local holds a user's real commands) and Python caches.
+SKIP_DIRS = {os.path.join("hooks", "bash-guard", "tests"), "__pycache__"}
+
 for item in items:
     src = os.path.join(src_root, item)
     if not os.path.exists(src):
         continue
     dst = os.path.join(dst_root, item)
     if os.path.isdir(src):
-        for dirpath, _, filenames in os.walk(src):
+        for dirpath, dirnames, filenames in os.walk(src):
+            rel = os.path.relpath(dirpath, src_root)
+            dirnames[:] = [d for d in dirnames
+                           if d not in SKIP_DIRS and os.path.join(rel, d) not in SKIP_DIRS]
             out = os.path.join(dst, os.path.relpath(dirpath, src))
             os.makedirs(out, exist_ok=True)
             for name in filenames:
@@ -73,13 +79,13 @@ for item in items:
 PYEOF
 
 # Hook commands need an absolute path: Claude Code does not substitute ${CLAUDE_SKILL_DIR} in them.
-python3 - "$SKILL_DIR/SKILL.md" "$SKILL_DIR/hooks/paper_guard.py" <<'PYEOF'
+python3 - "$SKILL_DIR/SKILL.md" "$SKILL_DIR/hooks/paper_guard.py" "$SKILL_DIR/hooks/bash-guard/install.py" <<'PYEOF'
 import sys
-path, guard = sys.argv[1], sys.argv[2]
+path, guard, bash_guard_install = sys.argv[1], sys.argv[2], sys.argv[3]
 with open(path) as f:
     text = f.read()
 with open(path, "w") as f:
-    f.write(text.replace("__PAPER_GUARD__", guard))
+    f.write(text.replace("__PAPER_GUARD__", guard).replace("__BASH_GUARD_INSTALL__", bash_guard_install))
 PYEOF
 
 # Copy examples separately (students need the templates)
@@ -94,9 +100,9 @@ echo "Installing enforcement hooks into $SETTINGS..."
 if [ -f "$SETTINGS" ]; then
     cp "$SETTINGS" "$SETTINGS.bak-paper-writing-$(date +%Y%m%d-%H%M%S)"
 fi
-python3 - "$SETTINGS" "$SKILL_DIR/hooks/paper_guard.py" <<'PYEOF'
+python3 - "$SETTINGS" "$SKILL_DIR/hooks/paper_guard.py" "$SKILL_DIR/hooks/bash-guard/pretooluse.py" <<'PYEOF'
 import json, os, sys
-settings_path, guard = sys.argv[1], sys.argv[2]
+settings_path, guard, bash_guard = sys.argv[1], sys.argv[2], sys.argv[3]
 try:
     with open(settings_path) as f:
         settings = json.load(f)
@@ -104,16 +110,21 @@ except FileNotFoundError:
     settings = {}
 
 def ours(entry):
-    return any("paper_guard.py" in h.get("command", "") for h in entry.get("hooks", []))
+    return any("paper_guard.py" in h.get("command", "") or "bash-guard/pretooluse.py" in h.get("command", "")
+               for h in entry.get("hooks", []))
 
 def hook(sub):
     # A missing script makes python3 exit 2, which Claude Code treats as "block this tool call";
     # the test keeps a removed skill from blocking every Bash and Edit call.
     return {"type": "command", "command": f'test -f "{guard}" && python3 "{guard}" {sub} || true'}
 
+# bash-guard: blocks Bash commands that may modify a project's protected files (projects opt in
+# with .paper-writing/bash-guard.json). Same missing-script test as above.
+bash_guard_hook = {"type": "command", "command": f'test -f "{bash_guard}" && python3 "{bash_guard}" || true'}
+
 wanted = {
     "PreToolUse": [
-        {"matcher": "Bash", "hooks": [hook("bash")]},
+        {"matcher": "Bash", "hooks": [hook("bash"), bash_guard_hook]},
         {"matcher": "Write|Edit|MultiEdit|NotebookEdit", "hooks": [hook("edit")]},
     ],
     "PostCompact": [{"hooks": [hook("compact")]}],
@@ -141,8 +152,17 @@ with open(tmp, "w") as f:
 os.replace(tmp, settings_path)
 PYEOF
 
+# bash-guard's Python runtime hook: a .pth file in each Python interpreter's site-packages that
+# guards Python processes started by Claude Code's Bash commands. The skill's frontmatter hook
+# re-runs this once per session, since a container rebuild removes site-packages changes.
+echo "Installing bash-guard's Python runtime hook..."
+python3 "$SKILL_DIR/hooks/bash-guard/install.py" || echo "  bash-guard: runtime hook not installed (see above)"
+
 echo ""
 echo "Installed to $SKILL_DIR"
+echo ""
+echo "To protect a project's files from shell writes, create <project>/.paper-writing/bash-guard.json,"
+echo "for example: {\"protected\": [\"../paper/source\"]}  (see hooks/bash-guard/README.md)"
 echo ""
 echo "The skill is ready to use with the SNL lab's writing rules."
 echo ""

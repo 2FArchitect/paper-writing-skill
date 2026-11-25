@@ -1,0 +1,96 @@
+{"cmd": "grep -n x paper/source/intro.tex && echo y > notes.txt", "expect": "allow", "note": "read a protected file, write elsewhere"}
+{"cmd": "sed -n 1,5p paper/source/main.tex > /tmp/out.txt", "expect": "allow", "note": "read-only sed, redirect outside"}
+{"cmd": "grep -c x paper/source/a.tex 2>&1 | head -3", "expect": "allow", "note": "fd redirect"}
+{"cmd": "sed -i s/a/b/ paper/source/main.tex", "expect": "block", "note": "sed -i"}
+{"cmd": "sed -Ei s/a/b/ paper/source/main.tex", "expect": "block", "note": "sed -i in an option cluster"}
+{"cmd": "sed --in-place=.bak s/a/b/ paper/source/main.tex", "expect": "block"}
+{"cmd": "sed -n 's/a/b/w out.txt' paper/source/main.tex", "expect": "block", "note": "sed w flag writes a file"}
+{"cmd": "cat paper/source/main.tex > paper/source/x.tex", "expect": "block", "note": "redirect into protected"}
+{"cmd": "echo hi >> data/cells.jsonl", "expect": "block", "note": "append into protected folder"}
+{"cmd": "echo hi &> paper/source/log.txt", "expect": "block"}
+{"cmd": "cd paper/source && sed -i s/a/b/ sections/*", "expect": "block", "note": "cd into protected, relative glob"}
+{"cmd": "cd paper/source && grep -rn x .", "expect": "allow", "note": "read inside protected folder"}
+{"cmd": "cd paper/source; cd ../..; sed -i s/a/b/ notes.txt", "expect": "allow", "note": "cd back out"}
+{"cmd": "grep x a.txt", "cwd": "paper/source", "expect": "allow", "note": "read with cwd inside protected"}
+{"cmd": "touch new.txt", "cwd": "paper/source", "expect": "block", "note": "write with cwd inside protected"}
+{"cmd": "find paper/source -name '*.tex' | xargs sed -i s/a/b/", "expect": "block", "note": "pipeline partner, xargs unwrapped"}
+{"cmd": "find paper/source -name '*.tex' | xargs grep -l foo", "expect": "allow", "note": "xargs read-only"}
+{"cmd": "find paper/source -name '*.tex' -exec grep -l foo {} \\;", "expect": "allow", "note": "find -exec read-only"}
+{"cmd": "find paper/source -name '*.tex' -exec sed -i s/a/b/ {} +", "expect": "block", "note": "find -exec writes"}
+{"cmd": "find paper/source -name '*.bak' -delete", "expect": "block"}
+{"cmd": "timeout 5 sed -i s/a/b/ paper/source/main.tex", "expect": "block", "note": "timeout unwrapped"}
+{"cmd": "timeout 60 grep -rn x paper/source", "expect": "allow"}
+{"cmd": "nohup sed -i s/a/b/ paper/source/main.tex &", "expect": "block", "note": "nohup is not listed; blocked either way"}
+{"cmd": "env LC_ALL=C sort -o paper/source/x.txt paper/source/y.txt", "expect": "block", "note": "env unwrapped, sort -o"}
+{"cmd": "env LC_ALL=C sort paper/source/y.txt", "expect": "block", "note": "env is not listed (not seen in real use)"}
+{"cmd": "python3 - <<'EOF'\nprint(open('paper/source/main.tex').read())\nEOF", "expect": "allow", "note": "guarded python"}
+{"cmd": "python3 -c \"print(open('paper/source/main.tex').read())\"", "expect": "allow"}
+{"cmd": "python3 -S x.py paper/source/main.tex", "expect": "block", "note": "python -S skips the runtime hook"}
+{"cmd": "python3 -IS x.py paper/source/main.tex", "expect": "block", "note": "-S in a cluster"}
+{"cmd": "python3 x.py -S paper/source/main.tex", "expect": "allow", "note": "-S after the script belongs to the script"}
+{"cmd": "python3 -S x.py notes.txt", "expect": "allow", "note": "no protected path named"}
+{"cmd": "bash -c \"sed -i s/a/b/ paper/source/main.tex\"", "expect": "block", "note": "bash -c parsed"}
+{"cmd": "sh -c 'grep x paper/source/main.tex'", "expect": "allow"}
+{"cmd": "eval \"sed -i s/a/b/ paper/source/main.tex\"", "expect": "block"}
+{"cmd": "bash <<'EOF'\nsed -i s/a/b/ paper/source/main.tex\nEOF", "expect": "block", "note": "heredoc run by a shell"}
+{"cmd": "for f in paper/source/sections/*.tex; do perl -pi -e s/a/b/ \"$f\"; done", "expect": "block", "note": "loop variable holds protected paths"}
+{"cmd": "for f in paper/source/sections/*.tex; do wc -l \"$f\"; done", "expect": "allow"}
+{"cmd": "f=paper/source/main.tex; cp /tmp/x $f", "expect": "block", "note": "variable holds protected path"}
+{"cmd": "git diff -- paper/source && git log --oneline -3", "expect": "allow"}
+{"cmd": "git checkout -- paper/source/main.tex", "expect": "block"}
+{"cmd": "git show HEAD:paper/source/main.tex > /tmp/old.tex", "expect": "allow"}
+{"cmd": "git add paper/source/main.tex && git commit -m 'edit intro'", "expect": "allow"}
+{"cmd": "awk '{print $1}' paper/source/main.tex | sort | uniq -c", "expect": "allow"}
+{"cmd": "awk '{print > \"out\"}' paper/source/main.tex", "expect": "block"}
+{"cmd": "awk '$3 > 5 {n++} END {print n}' data/cells.jsonl", "expect": "allow", "note": "comparison, not redirect"}
+{"cmd": "grep x paper/source/main.tex | tee /tmp/a.txt", "expect": "allow", "note": "tee writes outside"}
+{"cmd": "grep x notes.txt | tee paper/source/a.txt", "expect": "block", "note": "tee writes protected"}
+{"cmd": "ls data | head; wc -l data/cells.jsonl", "expect": "allow"}
+{"cmd": "echo \"$(sed -i s/a/b/ paper/source/main.tex)\"", "expect": "block", "note": "command substitution"}
+{"cmd": "diff <(sed -i s/a/b/ paper/source/main.tex) x", "expect": "block", "note": "process substitution"}
+{"cmd": "cp paper/source/main.tex /tmp/backup.tex", "expect": "allow", "note": "cp only writes its last operand"}
+{"cmd": "cp notes.txt /tmp/backup.txt && mv a b", "expect": "allow", "note": "no protected path"}
+{"cmd": "if grep -q x paper/source/main.tex; then sed -i s/a/b/ paper/source/main.tex; fi", "expect": "block"}
+{"cmd": "node -e \"require('fs').writeFileSync('paper/source/a.tex','x')\"", "expect": "block", "note": "other interpreter naming protected path"}
+{"cmd": "node -e \"console.log(1)\"", "expect": "allow"}
+{"cmd": "lualatex paper/source/main.tex", "expect": "block", "note": "not on read-only list"}
+{"cmd": "rm -f /tmp/x.txt; grep -c y paper/source/main.tex", "expect": "allow"}
+{"cmd": "sed -n 1,5p $(ls paper/source/*.tex)", "expect": "allow"}
+{"cmd": "sed -i s/a/b/ $(ls paper/source/*.tex)", "expect": "block"}
+{"cmd": "cat /workspaces/x/paper/source/a.tex", "expect": "allow", "note": "a different project's path is not protected unless it is this one"}
+{"cmd": "echo 'unterminated", "expect": "allow", "note": "parse error, no protected path"}
+{"cmd": "echo 'unterminated paper/source", "expect": "block", "note": "parse error naming protected path"}
+{"cmd": "S=/tmp/scratch; mkdir -p $S && grep x paper/source/a.tex > $S/out.txt", "expect": "allow", "note": "variable set earlier resolves outside"}
+{"cmd": "S=paper/source; echo x > $S/a.txt", "expect": "block", "note": "variable set earlier resolves inside"}
+{"cmd": "grep x paper/source/a.tex > \"$TMPDIR_UNSET_X/out.txt\"", "expect": "allow", "note": "path starting with an unknown variable"}
+{"cmd": "G(){ grep -c \"$@\" paper/source/a.tex; }; G foo; G bar", "expect": "allow", "note": "function defined and called"}
+{"cmd": "G(){ sed -i \"$1\" paper/source/a.tex; }; G s/a/b/", "expect": "block", "note": "function body writes"}
+{"cmd": "ls paper/source/*.tex | while read f; do wc -l \"$f\"; done", "expect": "allow", "note": "read builtin in a loop"}
+{"cmd": "cd paper/source && cd $UNSET_DIR_X && touch x", "expect": "block", "note": "cd to unknown keeps the last known folder"}
+{"cmd": "echo \"$PWD\" > out.txt", "cwd": "paper/source", "expect": "block", "note": "redirect target inside protected cwd"}
+{"cmd": "cp /tmp/x paper/source/a.tex", "expect": "block", "note": "cp into protected"}
+{"cmd": "cp -r /tmp/dir paper/source", "expect": "block", "note": "cp into protected folder"}
+{"cmd": "cp -l paper/source/a.tex /tmp/x", "expect": "block", "note": "hard link would let later writes reach the original"}
+{"cmd": "cp -t /tmp paper/source/a.tex", "expect": "block", "note": "-t moves the destination; not worth modelling"}
+{"cmd": "G=\"git -c safe.directory=*\"; $G diff --stat -- paper/source", "expect": "allow", "note": "unquoted variable holding a command is word-split"}
+{"cmd": "G=\"git -c safe.directory=*\"; $G checkout -- paper/source/a.tex", "expect": "block"}
+{"cmd": "cp /tmp/a.pdf /x/my-paper/sources/", "expect": "allow", "note": "'paper/sources' is not 'paper/source'"}
+{"cmd": "mkdir -p /tmp/scratch && head -c 100 cells.jsonl", "cwd": "data", "expect": "allow", "note": "working inside a protected folder, writing elsewhere"}
+{"cmd": "k=$(grep -o key paper/source/refs.bib); ./tools/fetch $k", "expect": "allow", "note": "a variable holding command output is not a path"}
+{"cmd": "for f in $(ls paper/source/*.tex); do sed -i s/a/b/ $f; done", "expect": "block", "note": "loop over command output listing protected files"}
+{"cmd": "./tools/x rfc 2>&1 | head -1 | grep -o 'file=[^ ]*'", "expect": "allow", "note": "text after = with a glob is not a path"}
+{"cmd": "S=/tmp/s; for d in new old; do rm -rf $S/$d/data/x; done", "expect": "allow", "note": "a copy elsewhere ending in data/ is not the project's data/"}
+{"cmd": "python3 -c \"open('./paper/source/a.tex','w')\" && lualatex ./paper/source/main.tex", "expect": "block", "note": "./ prefix still names the path"}
+{"cmd": "sort -u data/x.csv | uniq -c > /tmp/o", "expect": "allow"}
+{"cmd": "uniq data/x.csv paper/source/y.txt", "expect": "block", "note": "uniq writes its 2nd operand"}
+{"cmd": "cp /tmp/a.tex paper/source/a.tex -S .bak", "expect": "block", "note": "option after the operands; its value is not the destination"}
+{"cmd": "cp paper/source/a.tex /tmp/a.tex --preserve=mode", "expect": "allow", "note": "option after the operands"}
+{"cmd": "cp -- /tmp/a paper/source/-a.tex", "expect": "block", "note": "after --, a word starting with - is an operand"}
+{"cmd": "cat paper/values/../source/a.tex > /tmp/x && echo hi > paper/values/../source/b.tex", "expect": "block", "note": ".. resolved in the text"}
+{"cmd": "D=$(git rev-parse --show-toplevel)/paper/source; sed -i s/a/b/ $D/main.tex", "expect": "block", "note": "computed root plus a protected subfolder"}
+{"cmd": "sed -i s/a/b/ \"$(git rev-parse --show-toplevel)/paper/source/main.tex\"", "expect": "block", "note": "same, inline"}
+{"cmd": "D=$(git rev-parse --show-toplevel)/notes; sed -i s/a/b/ $D/x.md", "expect": "allow", "note": "computed root plus an unprotected folder"}
+{"cmd": "$UNSET_PROG_X -n x paper/source/a.tex", "expect": "block", "note": "program from an unknown variable; reason must show $\u2026 not a control character"}
+{"cmd": "awk 'NR>=s && NR<s+15 {print NR\": \"$0} NR>=s && /^x/' paper/source/a.tex", "expect": "allow", "note": "comparison after a print is not an output redirect"}
+{"cmd": "awk '{print $0 > \"paper/source/out.tex\"}' paper/source/a.tex", "expect": "block", "note": "awk print redirect"}
+{"cmd": "awk '{print $0 | \"sort\"}' paper/source/a.tex", "expect": "block", "note": "awk print to a pipe"}

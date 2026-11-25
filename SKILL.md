@@ -10,6 +10,9 @@ hooks:
         - type: command
           command: test -f "__PAPER_GUARD__" && python3 "__PAPER_GUARD__" mark || true
           once: true
+        - type: command
+          command: test -f "__BASH_GUARD_INSTALL__" && python3 "__BASH_GUARD_INSTALL__" --quiet || true
+          once: true
 ---
 
 # Paper Writing Skill

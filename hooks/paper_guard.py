@@ -4,8 +4,8 @@
 One script, one subcommand per hook event. Claude Code passes the event as JSON on stdin.
 
   mark     skill frontmatter, PreToolUse (once): records this session as a /paper-writing session
-  bash     settings, PreToolUse Bash: refuses commands that write files and name a .tex file, and
-           shell reads (cat, head, ...) of the style-example articles
+  bash     settings, PreToolUse Bash: refuses shell reads (cat, head, ...) of the style-example
+           articles. (Shell writes to protected files are bash-guard's job: hooks/bash-guard/.)
   edit     settings, PreToolUse Write|Edit|MultiEdit|NotebookEdit: guards .tex files in the project
   compact  settings, PostCompact: records that the session was compacted
 
@@ -38,31 +38,10 @@ MIN_LINE = 40  # shorter lines (headings, blank lines) are too common to prove a
 STRAY_MATCHES = 3  # found lines this few, between missing ones, are reported as one missing range
 STATE_MAX_AGE_DAYS = 30
 
-# A filename ending in .tex: a filename character, then ".tex", then not a letter or digit.
-# Matches main.tex, sections/*.tex, $f.tex; not \texttt, latex, context, .text, .texinfo, usetex.
-TEX_NAME = re.compile(r"[\w*?\]}$-]\.tex(?![A-Za-z0-9_])")
-
-# Ways a shell command writes files. Checked after quoted strings are removed, so a ">" inside a
-# grep pattern does not count. Heredocs are checked on the raw command.
-HEREDOC = re.compile(r"<<")
-HARMLESS_REDIRECTS = re.compile(r"\d*>&\d|&>\s*/dev/null|\d*>>?\s*/dev/(null|stderr|stdout)")
-WRITE_OPS = re.compile(
-    r">"                                              # > and >>
-    r"|\btee\b(?!\s+/dev/(stderr|stdout|null)\b)"
-    r"|\bsed\b[^|;&]*\s-[a-zA-Z]*i"                   # sed -i, sed -Ei, sed -n -i
-    r"|\bperl\b[^|;&]*\s-[a-zA-Z]*[ie]"               # perl -i, perl -pi, perl -e
-    r"|\b(python[\d.]*|node|ruby)\b[^|;&]*\s-[a-zA-Z]*[ce]?(\s|$)"  # python -c / python - / -I -
-    r"|\b(cp|mv|rm|truncate|dd|install|ln)\b"
-)
-
 # Programs that print a file's contents. grep, wc, ls and diff are not here: they stay allowed.
 SHELL_READERS = {"cat", "head", "tail", "less", "more", "sed", "awk", "gawk", "nl", "tac", "bat",
                  "batcat", "strings", "xxd", "od"}
 
-MSG_BASH = (
-    "A .tex filename ({name}) appears in a command that writes files. In a /paper-writing session "
-    ".tex files are changed only with the Write or Edit tool. Retry with the Write or Edit tool."
-)
 MSG_SHELL_READ = (
     "Reading {path} through the shell is blocked in a /paper-writing session: shell output over "
     "30,000 characters is cut to a short preview, so the article would not reach the context. "
@@ -209,15 +188,8 @@ def cmd_bash(event):
         return
     cmd = event.get("tool_input", {}).get("command", "")
 
-    # Rule 1: a command that writes files may not name a .tex file.
-    m = TEX_NAME.search(cmd)
-    if m:
-        name = re.search(r"[^\s'\"=<>|;&()`]*$", cmd[:m.end()]).group(0)
-        unquoted = HARMLESS_REDIRECTS.sub(" ", re.sub(r"'[^']*'|\"(\\.|[^\"\\])*\"", "''", cmd))
-        if HEREDOC.search(cmd) or WRITE_OPS.search(unquoted):
-            return deny(MSG_BASH.format(name=name))
-
-    # Rule 2: no shell reads of the style-example articles.
+    # No shell reads of the style-example articles. (Shell writes to protected files are checked
+    # by bash-guard, hooks/bash-guard/pretooluse.py.)
     style = os.path.join(project_dir(event), STYLE_DIR)
     if STYLE_DIR not in cmd and os.path.realpath(event.get("cwd", "")) != style:
         return

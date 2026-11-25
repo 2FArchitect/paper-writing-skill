@@ -16,3 +16,6 @@ reflections/
 
 # Python bytecode (setup imports scripts/expand_includes.py)
 __pycache__/
+
+# bash-guard: local test files (real commands from your own projects)
+hooks/bash-guard/tests/local/

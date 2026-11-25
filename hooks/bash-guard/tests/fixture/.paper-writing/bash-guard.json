@@ -1,0 +1,4 @@
+{
+  "protected": ["../paper/source", "../data"],
+  "writers": {"../tools/sync-bib.py": ["../paper/source/refs.bib"]}
+}
