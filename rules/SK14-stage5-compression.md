@@ -1,4 +1,4 @@
-Read `author_profile/compression_patterns.md` for the 7 specific operations. Apply in order:
+Apply the 7 operations in order:
 1. Sentence shortening (remove subordinate clauses, qualifiers, throat-clearing)
 2. Paragraph merging (multiple examples of same point → one best example)
 3. Generic adjective removal ("significant" → specific number or delete)

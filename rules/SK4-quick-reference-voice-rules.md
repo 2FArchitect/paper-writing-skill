@@ -1,3 +1,4 @@
+<!-- Not included by any mode since 2026-11-25: the bullets restate craft_reference.md and the M rules, which modes/draft.md includes in full. -->
 ### Quick Reference: Non-Negotiable Voice Rules
 
 These are extracted from the detailed files above. In case of conflict, the files are the source of truth.

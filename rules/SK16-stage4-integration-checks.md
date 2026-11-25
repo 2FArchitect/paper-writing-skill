@@ -1,7 +1,7 @@
 Cross-section consistency pass:
 - **Terminology drift**: Is the same concept called by the same name everywhere?
 - **Claim-evidence mapping**: Does every introduction claim map to an evaluation subsection?
-- **Key abstraction propagation**: Does the named concept from Introduction Move 3 appear in Design Move 1, Evaluation setup, and Related Work positioning?
+- **Key abstraction propagation**: Does the named concept from the introduction's Key Abstraction paragraph appear in the Design section's opening (Abstraction Introduction), the Evaluation setup, and the Related Work positioning sentence?
 - **Heading consistency**: Do section headings reflect the contribution order from the introduction?
 - **Identity stability**: Read the first sentence of every section — do they tell a coherent story?
 - **Flow audit**: Read the last sentence of paragraph N and the first sentence of paragraph N+1, throughout the paper. Does each transition work? Composition — the logical flow a reader can follow — is the most important aspect of technical writing. Readers forgive imperfect grammar but cannot follow broken logical progression. Structure produces flow, but structure alone doesn't guarantee it — the transitions between structural units matter.

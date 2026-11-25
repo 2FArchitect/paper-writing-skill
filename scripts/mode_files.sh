@@ -78,6 +78,19 @@ $project/$base-$n.md"; done          # then the paper's
   done <<EOF
 $list
 EOF
+
+  # A section with no file of its own gets only the general instructions; say so, so that a
+  # misspelled or mis-split section name does not fall back silently.
+  if [ "$mode" = draft ] || [ "$mode" = rewrite ]; then
+    local found=0
+    for base in $bases; do for n in $names; do
+      { [ -f "$MODES_DIR/$base-$n.md" ] || [ -f "$project/$base-$n.md" ]; } && found=1
+    done; done
+    if [ "$found" = 0 ]; then
+      echo
+      echo "No section file exists for \`$step\`, so only the general \`$mode\` instructions above apply. Section files exist for: intro (introduction); design (method, methods, methodology, approach, system); evaluation (results, experiments, findings); related-work (prior-work, background-and-related-work). If \`$step\` was meant to be one of those, invoke this skill again with that name."
+    fi
+  fi
 }
 
 main "$@"

@@ -1,3 +1,4 @@
+<!-- Not included by any mode since 2026-11-25: every line points at the section_rhetorical_moves/ files, which the draft-<section>.md mode files include. -->
 ## Section Rhetorical Moves
 
 For detailed guidance on move sequences within each section type, read from `section_rhetorical_moves/`:

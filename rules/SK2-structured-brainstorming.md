@@ -4,7 +4,7 @@
 
 ### How It Works
 
-Claude MUST read `brainstorming_guide.md` and walk the student through its 6 phases interactively. The phases are:
+Walk the author through the 6 phases interactively. The phases are:
 
 | Phase | Focus | Key outcome |
 |-------|-------|-------------|
