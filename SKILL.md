@@ -2,6 +2,7 @@
 name: paper-writing
 description: "Research paper writing assistant that enforces the SNL lab's editorial principles and voice profile (customizable) and a staged writing workflow. MANDATORY TRIGGERS: Use this skill whenever the user mentions writing a paper, drafting a section, revising a section, editing a paper, reviewing a draft, rewriting an introduction, writing an evaluation, polishing prose, compressing text, or any task involving .tex files, Overleaf, conference submissions, or paper deadlines. Also trigger when the user names their paper in a writing context. This skill should activate for ANY research writing task — sections, abstracts, rebuttals, camera-ready edits, cover letters, or response to reviewers."
 arguments: [mode, step]
+allowed-tools: Bash(${CLAUDE_SKILL_DIR}/scripts/mode_files.sh *)
 hooks:
   PreToolUse:
     - matcher: "*"
@@ -57,19 +58,11 @@ The three skills create a closed loop: the literature survey reveals the gap and
 
 ## Modes
 
-Run as `/paper-writing <mode> [step]`. If the user gave no mode ask them, or select it yourself if it's obvious from their request or from the project status, then invoke this skill again with that mode (and step).
+Run as `/paper-writing <mode> [step]`. If the user gave no mode ask them, or select it yourself if it's obvious from their request or from the project status, then invoke this skill again with that mode (and step). For `draft` and `rewrite`, the step is the section's name as the paper uses it, for example `/paper-writing draft results`. `draft intro` is Draft 0, written before the evaluation exists; `rewrite intro` is the final introduction, written after the evaluation is complete.
 
-This invocation: mode `$mode`, step `$step`.
+!`${CLAUDE_SKILL_DIR}/scripts/mode_files.sh "${CLAUDE_PROJECT_DIR}" $mode $step`
 
-Read these files with the Read tool, in full, in this order:
-
-1. `${CLAUDE_PROJECT_DIR}/.paper-writing/global.md`
-2. `${CLAUDE_SKILL_DIR}/modes/$mode.md`
-3. `${CLAUDE_PROJECT_DIR}/.paper-writing/$mode.md`
-4. `${CLAUDE_SKILL_DIR}/modes/$mode-$step.md`
-5. `${CLAUDE_PROJECT_DIR}/.paper-writing/$mode-$step.md`
-
-Skip any file that does not exist: a missing file only means nothing has been written for that case yet and is not an error. If a mode file's text is no longer in context (for example after compaction), read it again.
+If a mode file's text is no longer in context (for example after compaction), read it again.
 
 | Mode | What it is for |
 |---|---|
@@ -85,15 +78,6 @@ Skip any file that does not exist: a missing file only means nothing has been wr
 | `respond` | Responses to the venue's reviewers |
 | `figure spec`, `figure generate`, `figure critique` | Non-data figures (architecture diagrams, pipeline illustrations, concept diagrams). Data figures go to the data-visualization skill (`/viz`) |
 | `loop` | Repeated audit-and-fix, one section per pass |
-
-**Section files.** For `draft` and `rewrite`, the step is the section's own name in lower case with hyphens, for example `/paper-writing draft discussion`. If `${CLAUDE_SKILL_DIR}/modes/$mode-$step.md` does not exist, read `${CLAUDE_SKILL_DIR}/modes/$mode-<kind>.md` and `${CLAUDE_PROJECT_DIR}/.paper-writing/$mode-<kind>.md` for each kind of job the section does:
-
-- `intro`: the introduction. `draft intro` is Draft 0, written before the evaluation exists; `rewrite intro` is the final introduction, written after the evaluation is complete.
-- `design`: the paper may call this section Method, Approach or System.
-- `evaluation`: the paper may call this section Results, Experiments or Findings.
-- `related-work`: also Prior Work. A combined section such as "Background and Related Work" gets this file for its related-work part.
-
-Any other section (background, discussion, recommendations, conclusion, abstract, …) uses `draft.md` alone until a file is written for it.
 
 ---
 

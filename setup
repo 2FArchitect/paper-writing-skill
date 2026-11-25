@@ -43,7 +43,7 @@ mkdir -p "$SKILL_DIR"
 # Markdown files are installed with their @path include lines expanded (scripts/expand_includes.py),
 # so each installed file is whole; rules/ (the fragments) is not installed itself.
 echo "Installing skill files..."
-python3 - "$SCRIPT_DIR" "$SKILL_DIR" SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates hooks modes faq <<'PYEOF'
+python3 - "$SCRIPT_DIR" "$SKILL_DIR" SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates hooks modes faq scripts <<'PYEOF'
 import os, shutil, sys
 src_root, dst_root, items = sys.argv[1], sys.argv[2], sys.argv[3:]
 sys.dont_write_bytecode = True  # keep __pycache__ out of the source repo
