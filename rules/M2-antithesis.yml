@@ -1,0 +1,37 @@
+id: M2
+title: Antithesis / negation-as-rhetoric
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M2-antithesis.md
+  - author_profile/craft_reference.md:30-31   # "Positive form" (author)
+  - rules/M20-grep-script.md:11-12
+exceptions:
+  - |
+    **Keep-vs-cut test:** would the sentence lose factual content if the negation were removed and
+    rewritten positively? If yes, the negation is doing factual work — keep it. If no, it was
+    rhetorical — cut it and assert the positive.
+  - |
+    **Factual negations to KEEP:** "the parser cannot recover…" (a real capability gap), "the system
+    fails when…" (a real failure mode), "N of whom had used…" (a quantitative fact).
+grep:
+  - {pattern: ',? not [0-9A-Za-z\\]|not only .* but|rather than|less .* than|is the point|whatever it is|means nothing|more than just|not in competition with|on one hand|on the other hand', action: inspect, hint: 'keep-vs-cut test; the "not" branch matches digit/letter/\macro'}
+
+author:
+  text: |
+    **Positive form.** Assert what IS. `not honest` → `dishonest`; `did not remember` → `forgot`.
+    Use `not` only for a real factual absence, never as a rhetorical move.
+  why:
+  examples: &ex
+    good: ['measured on real studies', 'Lock contention limits throughput.']
+    bad: ['measured, not asserted', 'Lock contention, not any single slow query, limits throughput.']
+
+writing:
+  text: |
+    **M2. Antithesis / negation-as-rhetoric — BANNED as decoration.** `X, not Y` · `not X but Y` ·
+    `X rather than Y` · `less X than Y` · `not only X but` · `X is what Y does not satisfy` ·
+    `more than just X` · `not in competition with X` · `treat X as Y rather than as Z` ·
+    `on one hand … on the other hand` (when only one side is made).
+  why:
+  examples: *ex

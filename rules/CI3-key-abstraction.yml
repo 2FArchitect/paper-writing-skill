@@ -1,0 +1,22 @@
+id: CI3
+title: "Move 3: Key Abstraction"
+kind: checklist
+severity:
+applies: {"sections": ["intro"]}
+source:
+  - rules/CI3-key-abstraction.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Does the paper have a **named abstraction** — a coined term that captures the core insight?"
+    - "Is this name **memorable and citable** (e.g., \"demand-first placement\", \"staged admission control\")?"
+    - "Does the name distinguish your approach from all existing categories?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

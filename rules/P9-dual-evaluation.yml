@@ -1,0 +1,27 @@
+id: P9
+title: "Dual Evaluation for Dual Contributions"
+kind: principle
+severity:
+applies: {"sections": ["evaluation"]}
+source:
+  - rules/P9-dual-evaluation.md
+  - rules/CE1-claim-evidence-alignment.md:4   # checklist question merged
+  - rules/CE1-claim-evidence-alignment.md:5   # checklist question merged
+exceptions: []
+grep: []
+
+author:
+  text: |
+    **Rule**: Before writing the evaluation, list every claim from the introduction. Map each claim to baselines, metrics, and experiments. If two claims require different experimental designs, they belong in separate subsections.
+
+    **The test**: Can each evaluation subsection be described with a single sentence of the form "This section shows that [specific claim]"? If a subsection argues for multiple claims, it needs to be split.
+  why: |
+    If a paper makes two fundamentally different types of claims (e.g., "the system works correctly" AND "the system improves downstream performance"), the evaluation must be split into separate sections. A monolithic evaluation that mixes claim types produces confusion because each claim requires different baselines, metrics, and experimental design.
+  examples: {good: [], bad: []}
+
+writing:
+  questions:
+    - "If the paper makes **two types of claims** (e.g., system correctness + downstream improvement), are they in **separate evaluation sections**?"
+    - "Can each subsection be described as: \"This section shows that [specific claim]\"?"
+  why:
+  examples: {good: [], bad: []}

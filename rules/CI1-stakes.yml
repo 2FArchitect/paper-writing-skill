@@ -1,0 +1,23 @@
+id: CI1
+title: "Move 1: Stakes"
+kind: checklist
+severity:
+applies: {"sections": ["intro"]}
+source:
+  - rules/CI1-stakes.md
+exceptions: []
+grep: []
+notes: |
+  Moved to the rule each checks: question 1 → P7; question 3 → P7.
+
+author:
+  questions: &questions
+    - "Does the opening name **specific stakeholders** (users, ISPs, policymakers) or **specific applications** (video, gaming, cloud)?"
+    - "Would a domain expert at the target venue care about the opening sentence?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

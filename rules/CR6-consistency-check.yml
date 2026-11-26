@@ -1,0 +1,30 @@
+id: CR6
+title: "Consistency Check"
+kind: checklist
+severity:
+applies: {"sections": ["related-work"]}
+source:
+  - rules/CR6-consistency-check.md
+exceptions: []
+grep: []
+
+author:
+  questions:
+    - "Does the positioning sentence align with the **key abstraction** in the introduction?"
+    - "Are the baselines mentioned in related work the **same baselines** used in the evaluation?"
+    - "If a reviewer asks \"how is this different from X?\", does the related work **preemptively answer**?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions:
+    - "Does the positioning sentence align with the **key abstraction** in the introduction?"
+    - "If a reviewer asks \"how is this different from X?\", does the related work **preemptively answer**?"
+  why:
+  examples: {good: [], bad: []}
+
+facts:                      # reassigned 2026-11-26: whether the same baselines appear in both sections is a fact check
+  questions:
+    - "Are the baselines mentioned in related work the **same baselines** used in the evaluation?"
+  why:
+  examples: {good: [], bad: []}

@@ -1,0 +1,31 @@
+id: M18
+title: Content-free openers
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M18-content-free-openers.md
+  - author_profile/craft_reference.md:35-38   # "Signposting through claims, not placeholders" (author)
+  - rules/M20-grep-script.md:30-31
+exceptions:
+  - A venue's standard opener that states the paper's conclusion stays; inspect each grep hit.
+grep:
+  - {pattern: 'In this (paper|section), we', action: inspect, hint: "delete and lead with the claim, unless it states the conclusion"}
+
+author:
+  text: |
+    **Signposting through claims, not placeholders.** A section may open with a preamble that states
+    the section's conclusion ("This section shows that mechanism M reduces error
+    N×"). Banned: content-free preambles ("In this section, we describe our setup"). Test: does the
+    opener tell a skim-reader what the section *concludes*?
+  why:
+  examples: &ex
+    good: ['This section shows that mechanism M reduces error N×']
+    bad: ['In this section, we describe our setup', 'In this paper, we…']
+
+writing:
+  text: |
+    **M18. Content-free openers — BANNED when the sentence says nothing a skim-reader can use.** `In this paper, we…` and `In this section, we describe…`
+    Delete and lead with the claim.
+  why:
+  examples: *ex

@@ -1,0 +1,32 @@
+id: CE3
+title: "Result Presentation"
+kind: checklist
+severity:
+applies: {"sections": ["evaluation"]}
+source:
+  - rules/CE3-result-presentation.md
+exceptions: []
+grep: []
+
+author:
+  questions:
+    - "Are detailed numerical comparisons in **tables or figures**, not inline prose?"
+    - "Does prose **interpret patterns** rather than **list numbers**? (Principle: \"Table 3 shows...\" + pattern, not \"Model A: 92%, Model B: 87%...\")"
+    - "Do figures have **proper axis labels, units, and captions**?"
+    - "Does the text **match the figures** exactly? (No contradictions with table captions, no wrong time ranges)"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions:
+    - "Are detailed numerical comparisons in **tables or figures**, not inline prose?"
+    - "Does prose **interpret patterns** rather than **list numbers**? (Principle: \"Table 3 shows...\" + pattern, not \"Model A: 92%, Model B: 87%...\")"
+    - "Do figures have **proper axis labels, units, and captions**?"
+  why:
+  examples: {good: [], bad: []}
+
+facts:                      # reassigned 2026-11-26: whether the prose matches the figures' numbers is a fact check
+  questions:
+    - "Does the text **match the figures** exactly? (No contradictions with table captions, no wrong time ranges)"
+  why:
+  examples: {good: [], bad: []}

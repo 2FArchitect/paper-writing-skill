@@ -6,47 +6,47 @@ These 14 principles are distilled from systematic analysis of multiple paper rev
 
 ---
 
-@../rules/P1-introduction-twice.md
+@../rules/P1-introduction-twice.yml
 
 ---
 
-@../rules/P2-named-over-vague.md
+@../rules/P2-named-over-vague.yml
 
 ---
 
-@../rules/P3-what-why-so-what-headings.md
+@../rules/P3-what-why-so-what-headings.yml
 
 ---
 
-@../rules/P4-compress-after-expanding.md
+@../rules/P4-compress-after-expanding.yml
 
 ---
 
-@../rules/P5-structural-rewrites.md
+@../rules/P5-structural-rewrites.yml
 
 ---
 
-@../rules/P6-labeled-paragraphs.md
+@../rules/P6-labeled-paragraphs.yml
 
 ---
 
-@../rules/P7-problem-first.md
+@../rules/P7-problem-first.yml
 
 ---
 
-@../rules/P8-takeaway-paragraphs.md
+@../rules/P8-takeaway-paragraphs.yml
 
 ---
 
-@../rules/P9-dual-evaluation.md
+@../rules/P9-dual-evaluation.yml
 
 ---
 
-@../rules/P10-venue-adaptation.md
+@../rules/P10-venue-adaptation.yml
 
 ---
 
-@../rules/P11-rejection-drives-abstraction.md
+@../rules/P11-rejection-drives-abstraction.yml
 
 ---
 
@@ -79,7 +79,7 @@ These 14 principles are distilled from systematic analysis of multiple paper rev
 
 ---
 
-@../rules/P14-claims-require-citations.md
+@../rules/P14-claims-require-citations.yml
 
 ---
 

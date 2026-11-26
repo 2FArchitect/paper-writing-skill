@@ -1,0 +1,32 @@
+id: M11
+title: Passive voice
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M11-passive-voice.md
+  - author_profile/craft_reference.md:21      # "Active voice, present tense, direct verbs" (author)
+  - rules/M20-grep-script.md:8-9
+exceptions: []
+grep:
+  - {pattern: '\b(is|are|was|were|be|been|being)\s+([a-z]+ed|done|made|shown|given|taken|held|built|drawn|chosen|written|known|found|seen|set|put|sent|kept|met|run|used|based)\b', action: banned, hint: 'over-catches on purpose; every hit is fixed or explicitly justified'}
+notes: |
+  "zero exceptions" and "fixed or explicitly justified" in one rule; "or justified" needs a list
+  of acceptable reasons (logged in RESTRUCTURE.md, not changed).
+
+author:
+  text: |
+    **Active voice, present tense, direct verbs.** No exceptions.
+  why:
+  examples: &ex
+    good: ['Y achieves X', 'we evaluate', 'we collect']
+    bad: ['X was achieved by Y', 'experiments were conducted', 'data was collected']
+
+writing:
+  text: |
+    **M11. Passive voice — BANNED, zero exceptions, including methods and evaluation.** `X was
+    achieved by Y` → `Y achieves X`; `experiments were conducted` → `we evaluate`; `data was
+    collected` → `we collect`. Never generate passive technical prose. Every passive hit is fixed or
+    explicitly justified.
+  why:
+  examples: *ex

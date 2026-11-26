@@ -1,0 +1,17 @@
+id: S17
+title: "Data-integrity guard"
+kind: semantic
+severity: CRITICAL
+applies: {}
+source:
+  - rules/S17-data-integrity.md
+exceptions: []
+grep: []
+
+facts:
+  text: |
+    **S17. Data-integrity guard (CRITICAL).** Before citing a computed number, verify the input is not
+    a broken/degenerate extraction or an uncontrolled artifact (unique-row counts, variance, provenance
+    caveats). Never cite a number flagged as not-yet-validated.
+  why:
+  examples: {good: [], bad: []}

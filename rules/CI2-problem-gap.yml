@@ -1,0 +1,24 @@
+id: CI2
+title: "Move 2: Problem Gap"
+kind: checklist
+severity:
+applies: {"sections": ["intro"]}
+source:
+  - rules/CI2-problem-gap.md
+exceptions: []
+grep: []
+notes: |
+  Moved to the rule each checks: question 4 → P2.
+
+author:
+  questions: &questions
+    - "Is the gap **structural** (fundamentally limited) rather than **quantitative** (not good enough)?"
+    - "Are limitations **numbered and specific** (e.g., \"Three fundamental limitations: (i)...(ii)...(iii)...\")?"
+    - "Does each limitation map to a specific design choice in your system?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

@@ -1,0 +1,18 @@
+id: S16
+title: "Ground critiques in numbers, not assertions"
+kind: semantic
+severity: MAJOR
+applies: {}
+source:
+  - rules/S16-ground-critiques.md
+exceptions: []
+grep: []
+
+facts:
+  text: |
+    **S16. Ground critiques in numbers, not assertions (MAJOR).** "Prior work X is not enough" is weak
+    as an assertion. Make it a head-to-head: run the prior method's OWN metric on the cases it omitted
+    and show what it does and does not reveal, beside your reading. A reproducible contrast beats a
+    rhetorical one and is honest.
+  why:
+  examples: {good: [], bad: []}

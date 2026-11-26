@@ -1,0 +1,24 @@
+id: A7
+title: "Legible at print size, with units"
+kind: artifact
+severity:
+applies: {}
+source:
+  - rules/A7-legible-with-units.md
+exceptions: []
+grep: []
+
+author:
+  text: &text |
+    **A7. Legible at print size, with units.** In-figure text (axis labels, tick labels, legends, node
+    text) is readable at the rendered column width, not only when zoomed. Every axis has a unit. A
+    checklist-green figure can still be an illegible mess; the render is the check.
+  why: |
+    A checklist-green figure can still be an illegible mess; the render is the check.
+  examples: {good: [], bad: []}
+
+writing:
+  text: *text
+  why: |
+    A checklist-green figure can still be an illegible mess; the render is the check.
+  examples: {good: [], bad: []}

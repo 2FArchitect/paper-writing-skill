@@ -41,9 +41,15 @@ mkdir -p "$SKILL_DIR"
 
 # Copy all skill files (everything except setup, README, .git, examples).
 # Markdown files are installed with their @path include lines expanded (scripts/expand_includes.py),
-# so each installed file is whole; rules/ (the fragments) is not installed itself.
+# so each installed file is whole. rules/ is installed too: the review controller reads the .yml files by path.
+# The rule files (rules/*.yml) are rendered into the mode files by scripts/expand_includes.py, which needs PyYAML.
+python3 -c "import yaml" 2>/dev/null || {
+    echo "Installing PyYAML (the rule files are YAML)..."
+    python3 -m pip install --user --quiet pyyaml || { echo "setup needs PyYAML: python3 -m pip install --user pyyaml"; exit 1; }
+}
+
 echo "Installing skill files..."
-python3 - "$SCRIPT_DIR" "$SKILL_DIR" SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates hooks modes faq scripts <<'PYEOF'
+python3 - "$SCRIPT_DIR" "$SKILL_DIR" SKILL.md brainstorming_guide.md story_mode.md figure_synthesis_guide.md red_team_protocol.md loop_mode.md author_profile writing_checklists section_rhetorical_moves figure_templates hooks modes faq scripts rules <<'PYEOF'
 import os, shutil, sys
 src_root, dst_root, items = sys.argv[1], sys.argv[2], sys.argv[3:]
 sys.dont_write_bytecode = True  # keep __pycache__ out of the source repo

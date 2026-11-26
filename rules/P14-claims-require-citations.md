@@ -1,9 +1,0 @@
-## Principle 14: Technical Claims Require Citations
-
-Every technical claim in a paper must be grounded with a citation or an explicit cross-reference. When section N references content that was established with citations in section M, it must either carry forward the relevant `\cite{}` commands or use an explicit forward/backward reference (`\S\ref{}`). Uncited technical claims — no matter how well-established — read as unsupported assertions to reviewers.
-
-**Common violation**: A design section restates failure modes or properties described in the background section but drops all the citations that supported those claims. The result looks like the authors are asserting without evidence.
-
-**Rule**: After drafting any section, scan for technical claims (failure modes, properties of algorithms, known limitations of baselines). Each must have either a citation or an explicit cross-reference to the section where the citation lives.
-
-**Exception**: Widely known facts in the community we're writing for do not need a citation. For example, "Linux is an open-source operating system kernel" is widely known and does not itself need a citation.

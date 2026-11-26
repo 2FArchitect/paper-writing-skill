@@ -1,0 +1,37 @@
+id: M5
+title: Banned adjectives
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M5-banned-adjectives.md
+  - author_profile/craft_reference.md:29   # "Numbers, not adjectives"
+  - rules/M20-grep-script.md:21-22         # the M5 half of the M5/M16 grep
+exceptions:
+  - "`state-of-the-art` when naming a specific prior system."
+grep:
+  - pattern: '\bnovel\b|\bsignificant\b|\bsubstantial\b|\bimpressive\b|\bpromising\b|\bcomprehensive\b|\brobust\b|\bpowerful\b|\bparadigm\b|\bleverag|\butiliz'
+    flags: i
+    action: replace
+    hint: "a number, a named mechanism, or delete"
+notes: >
+  The combined M5/M16 grep also matches `seamless` (M4's list) and `crucial`, which no rule's text
+  names; the `state-of-the-art` exception has no grep. Not changed here.
+
+author:
+  text: >
+    **Numbers, not adjectives.** "2–4× higher savings," never "significant savings."
+  why:
+  examples:
+    good: ["2–4× higher savings"]
+    bad: ["significant savings"]
+
+writing:
+  text: >
+    **M5. Banned adjectives — BANNED (replace with a number or delete).** `novel` · `significant` ·
+    `substantial` · `impressive` · `promising` · `comprehensive` · `robust` · `powerful` ·
+    `state-of-the-art` (except when naming a specific prior system) · `paradigm` · `leverage` (verb) ·
+    `utilize`.
+  why: >
+    They assert quality without stating it.
+  examples: {good: [], bad: []}

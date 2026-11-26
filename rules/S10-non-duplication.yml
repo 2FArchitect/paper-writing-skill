@@ -1,0 +1,17 @@
+id: S10
+title: "Cross-section non-duplication"
+kind: semantic
+severity: CRITICAL
+applies: {}
+source:
+  - rules/S10-non-duplication.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S10. Cross-section non-duplication (CRITICAL).** A result, number, or argument appears ONCE, in
+    its home section. For each quantitative result, is it claimed in more than one section? Keep it
+    home; cross-reference elsewhere.
+  why:
+  examples: {good: [], bad: []}

@@ -1,0 +1,20 @@
+id: S6
+title: "Gloss once, plainly, then stop"
+kind: semantic
+severity:
+applies: {}
+source:
+  - rules/S6-gloss-once.md
+exceptions: []
+grep: []
+notes: |
+  The source said "(see S16)" after the table sentence; S24 is the rule about tables, S16 is about critiques.
+
+writing:
+  text: |
+    **S6. Gloss once, plainly, then stop.** Accessibility and de-AI pull against each other: glosses
+    aid the reader but pile up into machine prose. Gloss each term exactly once, at first use, in the
+    plainest words; never re-gloss it in later sections. Moving numbers into a table lets the prose
+    drop inline glosses.
+  why:
+  examples: {good: [], bad: []}

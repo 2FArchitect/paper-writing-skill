@@ -1,7 +1,0 @@
-## Principle 11: Rejection Drives Abstraction
-
-Rejection forces papers to a higher level of abstraction. Each rejection identifies a framing mismatch — the paper claims to be X but delivers Y. The revision process forces alignment between claim and evidence.
-
-**Observable pattern**: Papers that resolved their identity crises BEFORE submission were accepted. Papers whose identity was still evolving at submission were rejected. The number of pre-submission rewrites correlates with acceptance — not because rewrites are inherently good, but because they indicate the identity discovery happened in the writing room rather than during peer review.
-
-**Rule**: After rejection, don't just address specific reviewer comments. Ask: "What does this paper claim to be about, and does the evidence support that claim?" If not, the next submission needs a structural rewrite, not a revision.

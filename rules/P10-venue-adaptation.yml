@@ -1,0 +1,20 @@
+id: P10
+title: "Venue-Specific Structural Adaptation"
+kind: principle
+severity:
+applies: {}
+source:
+  - rules/P10-venue-adaptation.md
+exceptions: []
+grep: []
+
+author:
+  text: |
+    **Rule**: Before writing, read 3–5 recent accepted papers at the target venue. Adapt surface conventions while maintaining the underlying principles.
+  why: |
+    The same underlying principles (claim-first headings, named-over-vague, evaluation-organized-by-claim) apply everywhere, but surface conventions must adapt to venue norms.
+
+    **Systems venue conventions** (SIGCOMM, NSDI): Labeled paragraphs, "Design" section with named components, Takeaway paragraphs, post-evaluation related work, page-limit compression.
+
+    **ML venue conventions** (NeurIPS, ICLR): Method-naming sections with colon subtitles, reproducibility checklist, large appendix, method-driven headings.
+  examples: {good: [], bad: []}

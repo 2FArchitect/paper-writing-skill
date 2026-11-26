@@ -1,0 +1,22 @@
+id: CR2
+title: "Category Clustering"
+kind: checklist
+severity:
+applies: {"sections": ["related-work"]}
+source:
+  - rules/CR2-category-clustering.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Is prior work organized into **2-4 categories** (not a flat list)?"
+    - "Are categories named by **approach type** (e.g., \"Rule-based / Learned / Hybrid\"), not by individual paper?"
+    - "Does each category contain **representative examples** (not exhaustive lists)?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

@@ -1,0 +1,34 @@
+id: P2
+title: "Named Over Vague"
+kind: principle
+severity:
+applies: {}
+source:
+  - rules/P2-named-over-vague.md
+  - rules/CD4-terminology.md:4   # checklist question merged
+  - rules/CE2-setup-anchoring.md:2   # checklist question merged
+  - rules/CI2-problem-gap.md:5   # checklist question merged
+  - author_profile/craft_reference.md:26-28   # "Concrete over abstract; named over vague" (author)
+exceptions: []
+grep: []
+
+author:
+  text: |
+    **Concrete over abstract; named over vague.** Name the mechanism, the number, the system. Put an
+    agent in the subject slot, not "the existence of X." Every mechanism, baseline, and metric has a
+    proper name; if a term could apply to any paper in the field, it does not belong.
+
+    **Rule**: Every baseline, metric, and abstraction should have a proper name. If the paper introduces a new concept, NAME it — the name becomes citable.
+
+    **The test**: If a term could apply to ANY paper in the field, it doesn't belong in YOUR paper. "Data-driven approach" could describe thousands of papers. A precise statement like "We cast X as a bin-packing problem" describes exactly one.
+  why: |
+    Replace every generic term with a specific, named alternative. Generic adjectives ("significant," "substantial," "promising," "novel") are space-consuming non-information. Named mechanisms, specific numbers, and coined terminology earn their place.
+  examples: {good: [], bad: []}
+
+writing:
+  questions:
+    - "Are there any **generic terms** that should be replaced with named mechanisms?"
+    - "Are **all baselines named** (not \"prior methods\" or \"state-of-the-art\")?"
+    - "Are existing approaches **named** (not \"prior work\" or \"existing methods\")?"
+  why:
+  examples: {good: [], bad: []}

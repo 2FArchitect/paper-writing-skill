@@ -1,0 +1,32 @@
+id: M8
+title: Grandiose empty setup sentences
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M8-grandiose-setups.md
+  - rules/M20-grep-script.md:14-15            # the M8 part of the M3/M4/M8/M9 grep
+exceptions: []
+grep:
+  - {pattern: 'set(s)? .* apart|no (predecessor|one) .* (made|posed)|the key (insight|idea) is', action: banned, hint: state the insight directly}
+notes: |
+  craft_reference.md Part 4, move 6, permits "the key idea is…" in the conceptual register; M8 has
+  no register exception (logged in RESTRUCTURE.md, "Register relaxations", not changed).
+  scripts/check_rules.py: the grep is case-sensitive, so a sentence-initial "The key insight is" is missed, and
+  `no (predecessor|one) .* (made|posed)` needs a word between `predecessor` and `made`, so the rule's own example
+  "Two commitments no predecessor made" is missed. Not changed.
+
+author:
+  text: &text |
+    **M8. Grandiose empty setup sentences — BANNED.** Sentences that announce importance and defer the
+    payoff: `What sets X apart is…` · `The key insight is…` · `Two commitments no predecessor made…`.
+    State the insight directly.
+  why:
+  examples: &ex
+    good: []
+    bad: ['What sets X apart is…', 'The key insight is…', 'Two commitments no predecessor made…']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

@@ -1,0 +1,17 @@
+id: S14
+title: "Dangling modifiers"
+kind: semantic
+severity: MAJOR
+applies: {}
+source:
+  - rules/S14-dangling-modifiers.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S14. Dangling modifiers (MAJOR).** A sentence-initial participial phrase must refer to the
+    grammatical subject. "Using this dataset, accuracy improved" dangles → "Using this dataset, we
+    improved accuracy." Check every leading `-ing`/`-ed` phrase points at the subject that follows.
+  why:
+  examples: {good: [], bad: []}

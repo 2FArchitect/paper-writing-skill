@@ -6,6 +6,6 @@
 
 @../author_profile/compression_patterns.md
 
-@../rules/P4-compress-after-expanding.md
+@../rules/P4-compress-after-expanding.yml
 
 @audit.md

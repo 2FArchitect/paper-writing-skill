@@ -1,0 +1,28 @@
+id: M19
+title: Precision word pairs
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M19-precision-word-pairs.md         # gate_mechanical.md Part B
+  - rules/M20-grep-script.md:45-46
+exceptions: []
+grep:
+  - {pattern: '\bcomprised of\b|\bdata is\b|different than|\bvery unique\b|\bdue to\b|\bless (than )?[0-9]', flags: i, action: inspect, hint: inspect each hit for the wrong member of the pair}
+
+author:
+  text: &text |
+    **Precision word pairs (inspect each hit for the wrong member).** Not banned, but frequently
+    misused. Flag and check: `affect`/`effect` · `imply`/`infer` ·
+    `comprise` (avoid "is comprised of") · `data is` (data is plural) · `fewer`/`less` ·
+    `farther`/`further` · `that`/`which` (restrictive vs. nonrestrictive) · `unique` (no "very
+    unique") · `different than` (→ `different from`) · `due to` (→ `because of` in adverbial use).
+  why:
+  examples: &ex
+    good: ['different from', 'because of', 'fewer than 10', 'data are']
+    bad: ['is comprised of', 'data is', 'different than', 'very unique', 'less than 10']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

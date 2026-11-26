@@ -1,0 +1,30 @@
+id: M10
+title: Vague-mechanism / futurist hype verbs
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M10-hype-verbs.md
+  - rules/M20-grep-script.md:24-25
+exceptions: []
+grep:
+  - {pattern: 'promises to|stands? to|is poised to|opens the door to|is set to|has the potential to|keeps .* from|stands? in the way|\bunlocks?\b', flags: i, action: audit, hint: "replace with the mechanism, a named question, or a confidence-graded claim"}
+notes: |
+  `powers` has no pattern.
+
+author:
+  text: &text |
+    **M10. Vague-mechanism / futurist hype verbs — AUDIT (replace with a stated mechanism).**
+    `keeps X from Y` · `stands in the way of` · `unlocks` · `powers` · `promises to` · `stands to` ·
+    `is poised to` · `opens the door to` · `is set to` · `has the potential to`. Replace with the
+    mechanism, a named question, or a confidence-graded claim.
+  why: &why |
+    Each hides an unstated mechanism.
+  examples: &ex
+    good: []
+    bad: ['keeps X from Y', 'stands in the way of', 'unlocks', 'promises to', 'is poised to', 'has the potential to']
+
+writing:
+  text: *text
+  why: *why
+  examples: *ex

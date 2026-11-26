@@ -1,0 +1,24 @@
+id: S1
+title: "Define before use"
+kind: semantic
+severity: MAJOR
+applies: {}
+source:
+  - rules/S1-define-before-use.md
+  - rules/CD4-terminology.md:2   # checklist question merged
+exceptions: []
+grep:
+  - {pattern: "[A-Z][a-zA-Z]+×[A-Z][a-zA-Z]+|\\b[A-Z][a-z]+[A-Z][a-zA-Z]+\\b", action: "inspect", hint: "for each hit, confirm a definition precedes its first argumentative use"}
+
+writing:
+  text: |
+    **S1. Define before use (MAJOR).** Every domain term, acronym, artifact, or coined construct is
+    defined in plain language at first use, before it appears in an argument. A first-time reader in
+    the venue must be able to follow. For a cross-disciplinary audience, a gloss that is itself jargon
+    fails — gloss the gloss.
+    - Check: for each CamelCase / ×-joined / capitalized construct, is there an upstream "is / means /
+      defined as" before its first argumentative use?
+  questions:
+    - "Is every technical term **defined on first use**?"
+  why:
+  examples: {good: [], bad: []}

@@ -1,0 +1,22 @@
+id: CR1
+title: "Placement"
+kind: checklist
+severity:
+applies: {"sections": ["related-work"]}
+source:
+  - rules/CR1-placement.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Is related work placed **after the evaluation** (systems venues: SIGCOMM, NSDI)?"
+    - "Or **integrated into the introduction/background** (ML venues: NeurIPS, ICLR)?"
+    - "Is the placement choice **deliberate** and **venue-appropriate**?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

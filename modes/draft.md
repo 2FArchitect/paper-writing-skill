@@ -6,13 +6,13 @@
 
 @../author_profile/craft_reference.md
 
-@../rules/P6-labeled-paragraphs.md
+@../rules/P6-labeled-paragraphs.yml
 
-@../rules/P14-claims-require-citations.md
+@../rules/P14-claims-require-citations.yml
 
-@../rules/S9-term-map-decomposition.md
+@../rules/S9-term-map-decomposition.yml
 
-@../rules/S32-citation-authenticity.md
+@../rules/S32-citation-authenticity.yml
 
 @../rules/SK8-section-checklists.md
 

@@ -1,0 +1,37 @@
+id: S32
+title: "Citation authenticity and bibliographic accuracy"
+kind: semantic
+severity: CRITICAL
+applies: {}
+source:
+  - rules/S32-citation-authenticity.md
+exceptions: []
+grep:
+  - {pattern: "and others|et al\\.", target: "bib", action: "inspect", hint: "truncated author list"}
+  - {pattern: "@[a-z]+\\{[a-z]+([0-9]{4})[a-z]*,", target: "bib", action: "inspect", hint: "inspect each key's year against its entry's year field"}
+notes: |
+  History, from the source: first applied 2026-07-30 against a 32-entry chapter bibliography: 28 entries confirmed
+  clean via Crossref/RFC-Editor/dblp lookups, 4 real discrepancies found and fixed (a one-year-off publication
+  date, two real papers' metadata conflated under one entry, an RFC cited under the wrong number, an 11-author
+  truncation on a 21-author paper). Zero outright hallucinations.
+
+author:
+  text: &text |
+    **S32. Citation authenticity and bibliographic accuracy (CRITICAL).** Every `.bib`
+    entry names a real, verifiable source, never a plausible-sounding fabrication. For each entry
+    check: (a) the paper/RFC/standard exists — a copy is saved locally, and (b)–(d) are checked against
+    that copy, never from model memory alone; (b) the author list is complete, in the paper's
+    actual byline order (not alphabetized, not truncated with "and others"/"et al." in the `.bib`
+    itself); (c) the title matches the published title exactly, not a paraphrase; (d) the venue and
+    year are correct — watch for a paper that exists under a *different* title/venue/year than the one
+    cited, and for a citation key's year silently disagreeing with its own year field (a tell that two
+    real publications got conflated). Run this on every new `.bib` entry before it ships, and as a
+    full-bibliography audit before submission — LLM-generated citations hallucinate, misattribute
+    authors, or conflate two real papers often enough that "it sounds right" is not evidence.
+  why:
+  examples: {good: [], bad: []}
+
+facts:
+  text: *text
+  why:
+  examples: {good: [], bad: []}

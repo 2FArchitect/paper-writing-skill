@@ -1,0 +1,32 @@
+id: M12
+title: Needless words / wordiness
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M12-needless-words.md
+  - author_profile/craft_reference.md:32      # "Omit needless words" (author)
+  - rules/M20-grep-script.md:33-34
+exceptions: []
+grep:
+  - {pattern: 'the fact that|the question (as to |of )?whether|as to whether|in order to|there is no doubt but|the reason .* is because|owing to the fact that|in a [a-z]+ manner|is a (subject|man|woman) (that|who)|in the last analysis|along these lines|in terms of|one of the most', action: cut, hint: 'the fact that → cut; in order to → to; owing to the fact that → since'}
+notes: |
+  `along these lines` is in the grep and in no rule's list.
+
+author:
+  text: |
+    **Omit needless words.** Every word tells.
+  why:
+  examples: &ex
+    good: ['whether', 'to', 'no doubt', 'because', 'since', 'this subject']
+    bad: ['the fact that', 'the question as to whether', 'in order to', 'there is no doubt but that', 'the reason … is because', 'owing to the fact that', 'in a careful manner', 'this is a subject that', 'in terms of', 'one of the most', 'in the last analysis']
+
+writing:
+  text: |
+    **M12. Needless words / wordiness — CUT.** `the fact that` · `the question as to whether` →
+    `whether` · `in order to` → `to` · `there is no doubt but that` → `no doubt` · `he/she is a X who`
+    → `X` · `the reason … is because` → `because` · `owing to the fact that` → `since` ·
+    `in a <adj> manner` → `<adv>ly` · `this is a subject that` → `this subject` · `in terms of` ·
+    `one of the most` · `in the last analysis`.
+  why:
+  examples: *ex

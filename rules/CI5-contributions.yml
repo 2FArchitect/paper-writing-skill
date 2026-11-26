@@ -1,0 +1,24 @@
+id: CI5
+title: "Move 5: Contributions"
+kind: checklist
+severity:
+applies: {"sections": ["intro"]}
+source:
+  - rules/CI5-contributions.md
+exceptions: []
+grep: []
+notes: |
+  Moved to the rule each checks: question 4 → P1.
+
+author:
+  questions: &questions
+    - "Are contributions **numbered** (not prose paragraphs)?"
+    - "Does each contribution start with a **bold label** (e.g., \"Learning problem.\", \"Design.\", \"Evaluation.\")?"
+    - "Does each contribution state a **claim** (not a process: \"We show X\" not \"We propose X\")?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

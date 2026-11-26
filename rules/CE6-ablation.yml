@@ -1,0 +1,22 @@
+id: CE6
+title: "Ablation"
+kind: checklist
+severity:
+applies: {"sections": ["evaluation"]}
+source:
+  - rules/CE6-ablation.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Is there an ablation study that validates key design choices?"
+    - "Does the ablation **support** the design narrative (not undermine it)?"
+    - "If an ablation variant outperforms the full system, is this **acknowledged and explained**?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

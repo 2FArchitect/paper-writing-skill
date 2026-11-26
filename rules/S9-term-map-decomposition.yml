@@ -1,0 +1,40 @@
+id: S9
+title: "Cross-section term-map + decomposition invariance"
+kind: semantic
+severity: CRITICAL
+applies: {}
+source:
+  - rules/S9-term-map-decomposition.md
+  - rules/M20-grep-script.md:48-55   # term/decomposition drift greps
+exceptions: []
+grep:
+  - {pattern: "\\b(three|four|five|six|seven)\\b (stages|concerns|axes|requirements|dimensions|systems)", action: "inspect", hint: "do all the N <noun> counts agree across sections?"}
+notes: |
+  M20's per-term drift loop (`for t in "term A" ...; grep -rn "$t"`) takes the paper's own synonym
+  clusters as input and is not a fixed pattern; it is not in `grep`.
+
+author:
+  text: |
+    **Term-map** (a glossary in `project_context.md`): every load-bearing concept and its ONE
+    canonical name, plus key numbers as macros. Pull names FROM the term-map when drafting, never
+    from memory or a half-recalled sibling section.
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  text: |
+    **S9. Cross-section term-map + decomposition invariance (CRITICAL).** The same load-bearing entity,
+    named abstraction, or fixed set of axes/stages/requirements gets renamed or re-counted as it
+    travels abstract → intro → background → design, because sections are drafted in isolation. This
+    creeps in at synthesis time and survives a per-section audit. Two artifacts, three checks:
+    1. **Term-map** (a glossary in `project_context.md`): every load-bearing concept and its ONE
+       canonical name, plus key numbers as macros. Pull names FROM the term-map when drafting, never
+       from memory or a half-recalled sibling section.
+    2. **Locked source of truth**: one section (usually the finalized introduction) or the term-map is
+       canonical; every other section conforms TO it, never the reverse.
+    3. **Decomposition invariance**: whenever the paper breaks something into parts (N stages, N
+       concerns, N axes), every section listing them uses the same members, count, and names. A "four
+       stages" list here and "three concerns" for the same decomposition there is a defect. Check
+       member-set equality and cardinality across sections. (Greps in the Mechanical Gate, Part C.)
+  why:
+  examples: {good: [], bad: []}

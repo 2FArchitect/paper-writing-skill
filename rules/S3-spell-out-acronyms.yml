@@ -1,0 +1,16 @@
+id: S3
+title: "Spell out acronyms on first use"
+kind: semantic
+severity: MAJOR
+applies: {}
+source:
+  - rules/S3-spell-out-acronyms.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S3. Spell out acronyms on first use (MAJOR).** Every initialism is expanded at first use, then
+    abbreviated. Not every reader knows the short form, and new readers meet it fresh.
+  why:
+  examples: {good: [], bad: []}

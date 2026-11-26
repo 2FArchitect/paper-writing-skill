@@ -1,0 +1,25 @@
+id: A6
+title: "Reused float must be re-fit to this template"
+kind: artifact
+severity:
+applies: {}
+source:
+  - rules/A6-refit-reused-floats.md
+exceptions: []
+grep: []
+
+author:
+  text: &text |
+    **A6. Reused float must be re-fit to this template.** A `figure*`, `tabular`, or TikZ block imported
+    from another venue or paper was sized for that column geometry. Re-check its width, TikZ `scale`,
+    and font size against the *current* template (a two-column ACM figure overflows a USENIX column, and
+    vice versa).
+  why: |
+    Reuse is not free; a reused float is not "drafted" until it fits here.
+  examples: {good: [], bad: []}
+
+writing:
+  text: *text
+  why: |
+    Reuse is not free; a reused float is not "drafted" until it fits here.
+  examples: {good: [], bad: []}

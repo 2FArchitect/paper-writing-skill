@@ -8,4 +8,4 @@
 
 @../author_profile/gate_artifact.md
 
-@../rules/S32-citation-authenticity.md
+@../rules/S32-citation-authenticity.yml

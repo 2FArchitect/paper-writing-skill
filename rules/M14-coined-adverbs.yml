@@ -1,0 +1,25 @@
+id: M14
+title: Coined adverbs and false ordinals
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M14-coined-adverbs.md
+  - rules/M20-grep-script.md:39-40
+exceptions: []
+grep:
+  - {pattern: '\b(thusly|muchly|overly|firstly|secondly|thirdly)\b|[a-z]+wise\b', flags: i, action: fix, hint: 'first/second/third; no -wise pseudo-suffix'}
+
+author:
+  text: &text |
+    **M14. Coined adverbs and false ordinals — FIX.** No `thusly` · `muchly` · `overly` ·
+    `firstly/secondly/thirdly` (use `first/second/third`) · `-wise` pseudo-suffix (`taxwise`).
+  why:
+  examples: &ex
+    good: ['first', 'second', 'third']
+    bad: ['thusly', 'muchly', 'overly', 'firstly', 'secondly', 'thirdly', 'taxwise']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

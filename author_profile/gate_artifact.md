@@ -18,13 +18,13 @@ counts and paste or describe the Part B rendered evidence; a mental pass is not 
 
 Compile the paper with its own build, then grep its compile log. Each rule states the ban and the fix.
 
-@../rules/A1-compile-succeeds.md
+@../rules/A1-compile-succeeds.yml
 
-@../rules/A2-overfull-boxes.md
+@../rules/A2-overfull-boxes.yml
 
-@../rules/A3-undefined-references.md
+@../rules/A3-undefined-references.yml
 
-@../rules/A4-missing-assets.md
+@../rules/A4-missing-assets.yml
 
 ---
 
@@ -33,15 +33,15 @@ Compile the paper with its own build, then grep its compile log. Each rule state
 Render every changed page to an image and inspect it. These
 are the checks a regex cannot make.
 
-@../rules/A5-no-clipped-floats.md
+@../rules/A5-no-clipped-floats.yml
 
-@../rules/A6-refit-reused-floats.md
+@../rules/A6-refit-reused-floats.yml
 
-@../rules/A7-legible-with-units.md
+@../rules/A7-legible-with-units.yml
 
-@../rules/A8-no-color-only.md
+@../rules/A8-no-color-only.yml
 
-@../rules/A9-caption-and-placement.md
+@../rules/A9-caption-and-placement.yml
 
 ---
 

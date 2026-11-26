@@ -1,0 +1,23 @@
+id: M7
+title: Rule-of-three / triadic decoration
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M7-rule-of-three.md
+exceptions:
+  - Keep a triad only when all three items are distinct and load-bearing.
+grep: []                    # M20 has no grep for M7
+
+author:
+  text: &text |
+    **M7. Rule-of-three / triadic decoration — USE SPARINGLY.** Three-part parallel lists read as
+    generated when the members are near-synonyms or padding, or when `X does A, B, and C` repeats for
+    three consecutive sentences.
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  text: *text
+  why:
+  examples: {good: [], bad: []}

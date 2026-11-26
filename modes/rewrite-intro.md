@@ -2,4 +2,4 @@
 
 ## Introduction checklist, final version only (run after drafting)
 
-@../rules/CI6-results-preview.md
+@../rules/CI6-results-preview.yml

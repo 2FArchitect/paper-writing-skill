@@ -1,0 +1,26 @@
+id: M9
+title: Branded / evocative metaphor filler
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M9-metaphor-filler.md
+  - rules/M20-grep-script.md:14-15            # the M9 part of the M3/M4/M8/M9 grep
+exceptions: []
+grep:
+  - {pattern: 'the (machine|engine) that|draw(s)? .* power from|under the hood|where .* meets', action: banned, hint: use the mechanism}
+
+author:
+  text: &text |
+    **M9. Branded / evocative metaphor filler — BANNED.** Impressive-sounding metaphors with no
+    operational content: `the engine that runs any workload` · `draw their power from` · `under the hood`
+    · `X meets Y` (`where structure meets scale`). Use the mechanism.
+  why:
+  examples: &ex
+    good: []
+    bad: ['the engine that runs any workload', 'draw their power from', 'under the hood', 'where structure meets scale']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

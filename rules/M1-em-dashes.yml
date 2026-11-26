@@ -1,0 +1,30 @@
+id: M1
+title: Em-dashes
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M1-em-dashes.md
+  - rules/M20-grep-script.md:5-6
+exceptions:
+  - an em-dash inside a verbatim quotation from an external source.
+grep:
+  - {pattern: '---', action: banned, hint: "a comma, colon, parentheses, or full stop"}
+  - {pattern: '—|–', action: banned, hint: "a comma, colon, parentheses, or full stop"}
+
+author:
+  text: &text |
+    **M1. Em-dashes — BANNED, no exceptions.** No `---` (em), no ` -- ` (en used as a dash), no
+    `—`/`–` (Unicode). Replace with a comma, colon,
+    parentheses, or full stop. Parenthetical aside → parentheses; appositive → commas; dramatic
+    reveal → new sentence.
+  why: &why |
+    The single strongest machine-writing tell.
+  examples: &ex
+    good: ['One process, the scheduler, parses the request.']
+    bad: ['One process, the scheduler --- parses the request.']
+
+writing:
+  text: *text
+  why: *why
+  examples: *ex

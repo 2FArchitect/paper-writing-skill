@@ -1,0 +1,20 @@
+id: A4
+title: "Missing or unloaded assets"
+kind: artifact
+severity:
+applies: {}
+source:
+  - rules/A4-missing-assets.md
+exceptions: []
+grep:
+  - {pattern: "File .* not found|Missing character|Undefined color", flags: "i", target: "compile-log", action: "fix", hint: "fix or justify every hit; report the counts"}
+notes: |
+  Not asked of a reviewer; the author checks the compile log.
+
+author:
+  text: |
+    **A4. Missing or unloaded assets.** `grep -niE 'File .* not found|Missing character|Undefined color' <compile log>`
+    returns nothing. A reused figure that calls a color or package the new preamble does not define
+    fails here (define it, do not delete the call blindly).
+  why:
+  examples: {good: [], bad: []}

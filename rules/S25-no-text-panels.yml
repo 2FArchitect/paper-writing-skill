@@ -1,0 +1,16 @@
+id: S25
+title: "No text panels inside a figure"
+kind: semantic
+severity:
+applies: {}
+source:
+  - rules/S25-no-text-panels.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S25. No text panels inside a figure.** All prose belongs in the body or caption. A figure holds
+    structure, nodes, axes, and short data labels only.
+  why:
+  examples: {good: [], bad: []}

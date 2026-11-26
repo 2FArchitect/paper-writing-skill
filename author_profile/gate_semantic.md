@@ -14,85 +14,85 @@ Greppable checks live in `gate_mechanical.md`; positive drafting guidance in `cr
 
 ## Group 1 — Accessibility and followability
 
-@../rules/S1-define-before-use.md
+@../rules/S1-define-before-use.yml#reviewers
 
-@../rules/S2-term-introduction-order.md
+@../rules/S2-term-introduction-order.yml#reviewers
 
-@../rules/S3-spell-out-acronyms.md
+@../rules/S3-spell-out-acronyms.yml#reviewers
 
-@../rules/S4-recursive-followability.md
+@../rules/S4-recursive-followability.yml#reviewers
 
-@../rules/S5-parse-accessibility.md
+@../rules/S5-parse-accessibility.yml#reviewers
 
-@../rules/S6-gloss-once.md
+@../rules/S6-gloss-once.yml#reviewers
 
 ---
 
 ## Group 2 — Coherence and consistency
 
-@../rules/S7-thesis-tie.md
+@../rules/S7-thesis-tie.yml#reviewers
 
-@../rules/S8-lexical-consistency.md
+@../rules/S8-lexical-consistency.yml#reviewers
 
-@../rules/S9-term-map-decomposition.md
+@../rules/S9-term-map-decomposition.yml#reviewers
 
-@../rules/S10-non-duplication.md
+@../rules/S10-non-duplication.yml#reviewers
 
-@../rules/S11-referent-scan.md
+@../rules/S11-referent-scan.yml#reviewers
 
 ---
 
 ## Group 3 — Directness
 
-@../rules/S12-deliver-the-noun.md
+@../rules/S12-deliver-the-noun.yml#reviewers
 
-@../rules/S13-no-gloss-pile-ups.md
+@../rules/S13-no-gloss-pile-ups.yml#reviewers
 
-@../rules/S14-dangling-modifiers.md
+@../rules/S14-dangling-modifiers.yml#reviewers
 
 ---
 
 ## Group 4 — Rigor and grounding
 
-@../rules/S15-no-orphan-numbers.md
+@../rules/S15-no-orphan-numbers.yml#reviewers
 
-@../rules/S16-ground-critiques.md
+@../rules/S16-ground-critiques.yml#reviewers
 
-@../rules/S17-data-integrity.md
+@../rules/S17-data-integrity.yml#reviewers
 
-@../rules/S18-hedge-scan.md
+@../rules/S18-hedge-scan.yml#reviewers
 
-@../rules/S32-citation-authenticity.md
+@../rules/S32-citation-authenticity.yml#reviewers
 
 ---
 
 ## Group 5 — Structure and framing
 
-@../rules/S19-requirement-closure.md
+@../rules/S19-requirement-closure.yml#reviewers
 
-@../rules/S20-positives-first.md
+@../rules/S20-positives-first.yml#reviewers
 
-@../rules/S21-honest-positioning.md
+@../rules/S21-honest-positioning.yml#reviewers
 
-@../rules/S22-enabling-system-capability.md
+@../rules/S22-enabling-system-capability.yml#reviewers
 
-@../rules/S23-claim-first-headings.md
+@../rules/S23-claim-first-headings.yml#reviewers
 
-@../rules/S24-table-for-walls.md
+@../rules/S24-table-for-walls.yml#reviewers
 
-@../rules/S33-validation-detail-to-cut-file.md
+@../rules/S33-validation-detail-to-cut-file.yml#reviewers
 
 ---
 
 ## Group 6 — Figures (verify by looking, not by checklist)
 
-@../rules/S25-no-text-panels.md
+@../rules/S25-no-text-panels.yml#reviewers
 
-@../rules/S26-numbers-on-structure.md
+@../rules/S26-numbers-on-structure.yml#reviewers
 
-@../rules/S27-right-figure-right-section.md
+@../rules/S27-right-figure-right-section.yml#reviewers
 
-@../rules/S28-legibility-by-inspection.md
+@../rules/S28-legibility-by-inspection.yml#reviewers
 
 ---
 
@@ -100,6 +100,6 @@ Greppable checks live in `gate_mechanical.md`; positive drafting guidance in `cr
 
 @../rules/S29-distinct-lenses.md
 
-@../rules/S30-venue-calibration.md
+@../rules/S30-venue-calibration.yml#reviewers
 
 @../rules/S31-closure-gate.md

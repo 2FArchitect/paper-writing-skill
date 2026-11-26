@@ -1,0 +1,22 @@
+id: CD3
+title: "Abstraction vs. Implementation"
+kind: checklist
+severity:
+applies: {"sections": ["design"]}
+source:
+  - rules/CD3-abstraction-vs-implementation.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Does the section lead with **user-facing abstractions** (APIs, interfaces, programming model)?"
+    - "Are implementation details **subordinate to** the abstraction explanation?"
+    - "Could a reader understand the design **without reading the implementation section**?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

@@ -1,0 +1,34 @@
+id: M3
+title: Editorializing / promotional closers
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M3-editorializing-closers.md
+  - author_profile/craft_reference.md:92-93   # Part 3, 7. "Cut the last sentence" (author)
+  - rules/M20-grep-script.md:14-15            # the M3 part of the M3/M4/M8/M9 grep
+exceptions: []
+grep:
+  - {pattern: 'a testament to|the kind of .* that|exactly the kind|is the point', action: banned, hint: state the fact and trust it}
+notes: |
+  The grep covers `a testament to`, `the kind of … that` and `is the point`; `is not real`, `this is
+  the empirical content of the claim` and `a concrete demonstration of` have no pattern. `exactly
+  the kind` is in the grep and in no rule's list.
+
+author:
+  text: |
+    **Cut the last sentence.** Machine prose (and eager student prose) adds a summarizing or
+    uplifting closer to most paragraphs. Delete it unless it states a new fact.
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  text: |
+    **M3. Editorializing / promotional closers — BANNED.** Sentences whose only job is to tell the
+    reader how to feel about the previous sentence: `the saving is the point` · `is not real` ·
+    `this is the empirical content of the claim` · `a testament to X` · `the kind of Y that…` ·
+    `a concrete demonstration of`. State the fact and trust it.
+  why:
+  examples:
+    good: []
+    bad: ['the saving is the point', 'a testament to X', 'the kind of Y that…']

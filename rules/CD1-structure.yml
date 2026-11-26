@@ -1,0 +1,24 @@
+id: CD1
+title: "Structure"
+kind: checklist
+severity:
+applies: {"sections": ["design"]}
+source:
+  - rules/CD1-structure.md
+exceptions: []
+grep: []
+notes: |
+  Moved to the rule each checks: question 4 → P3.
+
+author:
+  questions: &questions
+    - "Does the section open with the **system's core abstraction** (named, defined)?"
+    - "Is there an **overview/architecture figure** early in the section?"
+    - "Does each subsection correspond to a **component in the overview figure**?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

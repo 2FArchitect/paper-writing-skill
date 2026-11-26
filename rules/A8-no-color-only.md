@@ -1,4 +1,0 @@
-**A8. No color-as-only-channel.** A table or figure must not carry meaning by color alone. If cells
-are colored to mean "kept vs lost / good vs bad," add a redundant marker (bold, a symbol, or a
-dedicated column) so the artifact survives grayscale printing and red-green color blindness. State
-the encoding in the caption.

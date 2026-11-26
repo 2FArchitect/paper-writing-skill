@@ -1,0 +1,35 @@
+id: M4
+title: Vacuous intensifiers and hype
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M4-vacuous-intensifiers.md
+  - rules/M20-grep-script.md:14-15            # the M4 part of the M3/M4/M8/M9 grep
+  - rules/M20-grep-script.md:21-22            # `seamless` and `crucial`, from the M5/M16 grep
+exceptions: []
+grep:
+  - {pattern: 'in effect|in a sense|at (its|the) (heart|core)|in essence|\btruly\b|\bgenuinely\b|\bindeed\b|\bin fact\b|precisely because', action: banned, hint: "delete, or replace with the precise referent"}
+  - {pattern: '\bseamless|\bcrucial\b', flags: i, action: banned, hint: "delete, or replace with the precise referent"}
+notes: |
+  `crucial` was in the combined M5/M16 grep and is in no rule's word list; kept here beside
+  `seamless(ly)`, which M4 lists. `simply`, `essentially`, `fundamentally`, `real(ly)`, `actually`,
+  `exactly` and `armed with` have no pattern. craft_reference.md Part 4 permits `fundamental` /
+  `in essence` / `at the core of` in the conceptual register when it marks a real reduction; M4 has
+  no register exception (logged in RESTRUCTURE.md, "Register relaxations", not changed).
+
+author:
+  text: &text |
+    **M4. Vacuous intensifiers and hype — BANNED.** `in effect` · `in a sense` · `at its core` ·
+    `at its heart` · `in essence` · `truly` · `genuinely` · `simply` · `essentially` ·
+    `fundamentally` (as filler) · `real(ly)` · `in fact` · `indeed` · `actually` · `exactly` ·
+    `precisely because` · `armed with` · `seamless(ly)`. Delete, or replace with the precise referent.
+  why:
+  examples: &ex
+    good: []
+    bad: ['in effect', 'at its core', 'in essence', 'truly', 'precisely because']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

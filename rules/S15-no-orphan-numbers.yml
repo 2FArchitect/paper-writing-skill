@@ -1,0 +1,34 @@
+id: S15
+title: "Mappability: no orphan numbers"
+kind: semantic
+severity: CRITICAL
+applies: {}
+source:
+  - rules/S15-no-orphan-numbers.md
+  - rules/SK13-stage3-drafting.md:17   # "Numbers from data" (author)
+  - rules/P14-claims-require-citations.md   # the citation sentences are P14's reviewer form
+exceptions:
+  - "Widely known facts in the community we're writing for do not need a citation. For example, \"Linux is an open-source operating system kernel\" is widely known and does not itself need a citation."
+grep: []
+notes: |
+  Carries P14's reviewer check (every technical claim cites or cross-references, and the source says what the claim says).
+
+author:
+  text: |
+    **Numbers from data**: every number computed from the paper's own data enters the text through a macro written by the analysis script that computes it (for example, the script writes `generated/<script>.tex` with one `\defval{name}{value}` per value, and the text writes `\val{name}`). Never type such a number by hand; the script does the rounding and formatting. Numbers quoted from sources stay literal, with their citations. When a script run changes a value, re-read every sentence that uses it before committing: the number updates itself, the words around it do not.
+  why:
+  examples: {good: [], bad: []}
+
+facts:
+  text: |
+    **S15. Mappability: no orphan numbers (CRITICAL).** Every number, table cell, and empirical claim
+    maps to a committed analysis script → a committed raw result file → (for reproduced prior-work
+    metrics) the source it reproduces. Maintain a provenance note (claim → value → script → raw
+    output). Numbers from the paper's
+    own data reach the text only through script-generated macros (the drafting rule "Numbers from data"); a data number
+    typed into the prose is a finding. New analysis code is committed to the correct repository, not a
+    scratch dir. If a number cannot be mapped, cut it or generate the mapping. Every technical claim
+    also carries a citation or a cross-reference to the section that cites it, and the cited source
+    says what the claim says, counts included.
+  why:
+  examples: {good: [], bad: []}

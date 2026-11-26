@@ -1,0 +1,31 @@
+id: M6
+title: Throat-clearing openers
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M6-throat-clearing-openers.md
+  - rules/M20-grep-script.md:17-18
+exceptions:
+  - |
+    Register exception: in the narrative/position register a discourse marker is kept ONLY when a
+    real logical move follows it.
+grep:
+  - {pattern: '^(Moreover|Furthermore|Additionally|Notably|Importantly|Indeed|Ultimately|Crucially|In turn|That said)', action: banned, hint: start with the claim}
+notes: |
+  `It is worth noting that` and `It should be noted that` are in the list and not in the grep.
+
+author:
+  text: &text |
+    **M6. Throat-clearing openers — BANNED.** A sentence starting with `Moreover` · `Furthermore` ·
+    `Additionally` · `Notably` · `Importantly` · `Indeed` · `Ultimately` · `Crucially` · `In turn` ·
+    `That said` · `It is worth noting that` · `It should be noted that`. Start with the claim.
+  why:
+  examples: &ex
+    good: []
+    bad: ['Moreover, the cache hit rate rises.', 'Notably, the cache hit rate rises.']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

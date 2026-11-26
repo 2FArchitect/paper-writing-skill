@@ -1,0 +1,22 @@
+id: CR4
+title: "Positioning Sentence"
+kind: checklist
+severity:
+applies: {"sections": ["related-work"]}
+source:
+  - rules/CR4-positioning-sentence.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Is there a clear sentence that says: \"Unlike X, our approach provides Y while maintaining Z\"?"
+    - "Does the positioning sentence **name your key abstraction**?"
+    - "Is the positioning **honest** — does it acknowledge what you DON'T do?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

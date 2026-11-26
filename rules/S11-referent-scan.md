@@ -1,4 +1,0 @@
-**S11. Referent and conflation scan (MAJOR).** Paper-wide sweep: flag every vague "it / this /
-these / that <noun>" and vague subject ("a subset / some / you / a second") and name the antecedent
-or actor. Disambiguate thing-vs-process ("generating the data", not "the data") and
-abstract-vs-concrete ("cost = engineer time").

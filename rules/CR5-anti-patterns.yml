@@ -1,0 +1,23 @@
+id: CR5
+title: "Anti-Patterns"
+kind: checklist
+severity:
+applies: {"sections": ["related-work"]}
+source:
+  - rules/CR5-anti-patterns.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Is the section **under 10K chars**? (If longer, it's a survey, not a positioning section.)"
+    - "Are there **no tutorial paragraphs** (explaining what TCP is to a SIGCOMM audience)?"
+    - "Is the section a **limitation argument**, not a **literature review**?"
+    - "Does every cited work serve the purpose of **positioning your contribution** (not padding the bibliography)?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

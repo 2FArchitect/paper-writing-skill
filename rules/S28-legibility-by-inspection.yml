@@ -1,0 +1,19 @@
+id: S28
+title: "Legibility by inspection"
+kind: semantic
+severity:
+applies: {}
+source:
+  - rules/S28-legibility-by-inspection.md
+exceptions: []
+grep: []
+notes: |
+  The figure rules S25–S28 are also in FG4 (figure critique) and the Artifact Gate (A7) in other words.
+
+writing:
+  text: |
+    **S28. Legibility by inspection.** Schematic figures follow the venue TikZ conventions and the
+    data-viz checklist (aspect ratio, data-ink, no chartjunk). "Clean" requires a rendered-image
+    inspection, not a checklist pass — a checklist-green figure can still be an illegible mess.
+  why:
+  examples: {good: [], bad: []}

@@ -4,7 +4,7 @@
 
 @venue.md
 
-@../rules/P9-dual-evaluation.md
+@../rules/P9-dual-evaluation.yml
 
 @../rules/FG1-overview.md
 

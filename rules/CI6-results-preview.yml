@@ -1,0 +1,23 @@
+id: CI6
+title: "Move 6: Results Preview"
+kind: checklist
+severity:
+applies: {"sections": ["intro"]}
+source:
+  - rules/CI6-results-preview.md
+exceptions: []
+grep: []
+notes: |
+  Final introduction only (`rewrite intro`); Draft 0 leaves the Results Preview blank.
+
+author:
+  questions: &questions
+    - "Is there a **headline number** (e.g., \"2-4x improvement\")?"
+    - "Does the introduction reference a **headline figure** (first 2 pages)?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

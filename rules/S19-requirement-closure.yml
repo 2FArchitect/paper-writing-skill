@@ -1,0 +1,17 @@
+id: S19
+title: "Requirement ↔ closure"
+kind: semantic
+severity: CRITICAL
+applies: {}
+source:
+  - rules/S19-requirement-closure.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S19. Requirement ↔ closure (CRITICAL).** Every requirement stated in motivation/background has an
+    explicit closure (which design choice satisfies it) in the design section. Build the requirement →
+    design-choice table; every requirement row has a design answer.
+  why:
+  examples: {good: [], bad: []}

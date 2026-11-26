@@ -1,0 +1,29 @@
+id: M15
+title: Exclamation marks and stray rhetorical questions
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M15-exclamation-marks.md
+  - rules/M20-grep-script.md:42-43
+exceptions:
+  - Rhetorical questions only in an introduction, at most one.
+grep:
+  - {pattern: '!', action: banned, hint: no exclamation marks in technical prose}
+notes: |
+  craft_reference.md Part 4 allows question-titled sections in the conceptual register (logged in
+  RESTRUCTURE.md, "Register relaxations", not changed).
+
+author:
+  text: &text |
+    **M15. Exclamation marks and stray rhetorical questions — BANNED.** No `!` in technical prose.
+    Rhetorical questions only in an introduction, at most one.
+  why:
+  examples: &ex
+    good: []
+    bad: ['The cache hit rate doubled!']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

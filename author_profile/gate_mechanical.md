@@ -16,46 +16,51 @@ followability, coherence, grounding) are the Semantic Gate's S rules, run by the
 
 Each rule states the ban, then a wrong→right example.
 
-@../rules/M1-em-dashes.md
+@../rules/M1-em-dashes.yml
 
-@../rules/M2-antithesis.md
+@../rules/M2-antithesis.yml
 
-@../rules/M3-editorializing-closers.md
+@../rules/M3-editorializing-closers.yml
 
-@../rules/M4-vacuous-intensifiers.md
+@../rules/M4-vacuous-intensifiers.yml
 
-@../rules/M5-banned-adjectives.md
+@../rules/M5-banned-adjectives.yml
 
-@../rules/M6-throat-clearing-openers.md
+@../rules/M6-throat-clearing-openers.yml
 
-@../rules/M7-rule-of-three.md
+@../rules/M7-rule-of-three.yml
 
-@../rules/M8-grandiose-setups.md
+@../rules/M8-grandiose-setups.yml
 
-@../rules/M9-metaphor-filler.md
+@../rules/M9-metaphor-filler.yml
 
-@../rules/M10-hype-verbs.md
+@../rules/M10-hype-verbs.yml
 
-@../rules/M11-passive-voice.md
+@../rules/M11-passive-voice.yml
 
-@../rules/M12-needless-words.md
+@../rules/M12-needless-words.yml
 
-@../rules/M13-weak-qualifiers.md
+@../rules/M13-weak-qualifiers.yml
 
-@../rules/M14-coined-adverbs.md
+@../rules/M14-coined-adverbs.yml
 
-@../rules/M15-exclamation-marks.md
+@../rules/M15-exclamation-marks.yml
 
-@../rules/M16-pompous-words.md
+@../rules/M16-pompous-words.yml
 
-@../rules/M17-fancy-verbs.md
+@../rules/M17-fancy-verbs.yml
 
-@../rules/M18-content-free-openers.md
-
----
-
-@../rules/M19-precision-word-pairs.md
+@../rules/M18-content-free-openers.yml
 
 ---
 
-@../rules/M20-grep-script.md
+@../rules/M19-precision-word-pairs.yml
+
+---
+
+## Part C — The grep script (RUN THIS; do not eyeball)
+
+@@grep-script
+
+Report the per-category hit counts in the audit summary. "Clean" means every hit fixed or
+justified, with the counts shown.

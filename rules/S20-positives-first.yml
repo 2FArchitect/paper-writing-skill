@@ -1,0 +1,17 @@
+id: S20
+title: "Positives-first"
+kind: semantic
+severity: MAJOR
+applies: {"sections": ["abstract", "intro", "conclusion"]}
+source:
+  - rules/S20-positives-first.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S20. Positives-first (MAJOR).** Abstract, Introduction, and Conclusion carry the positive
+    contribution, not the limitations. State each limitation once, in proportion to its effect; put
+    methodological lessons in a Discussion paragraph.
+  why:
+  examples: {good: [], bad: []}

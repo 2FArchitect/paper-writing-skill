@@ -1,0 +1,18 @@
+id: S30
+title: "Calibrate the intro/abstract to the venue's review process"
+kind: semantic
+severity:
+applies: {}
+source:
+  - rules/S30-venue-calibration.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S30. Calibrate the intro/abstract to the venue's review process.** Find how the venue actually
+    reviews (e.g. some venues decide read-on vs. desk-reject from the abstract + introduction alone).
+    Strengthen the section that gate depends on so it carries the contribution and the provocation in
+    the first read.
+  why:
+  examples: {good: [], bad: []}

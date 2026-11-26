@@ -1,0 +1,25 @@
+id: M13
+title: Weak qualifiers
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M13-weak-qualifiers.md
+  - rules/M20-grep-script.md:36-37
+exceptions: []
+grep:
+  - {pattern: '\b(rather|very|pretty|little|quite|somewhat|fairly|certainly)\b', flags: i, action: delete, hint: use an inherently strong word instead}
+
+author:
+  text: &text |
+    **M13. Weak qualifiers — DELETE.** `rather` · `very` · `pretty` · `little` (as intensifier) ·
+    `quite` · `somewhat` · `fairly` · `certainly` (as emphasis). Use an inherently strong word instead.
+  why:
+  examples: &ex
+    good: []
+    bad: ['rather', 'very', 'quite', 'somewhat', 'fairly']
+
+writing:
+  text: *text
+  why:
+  examples: *ex

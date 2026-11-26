@@ -1,3 +1,0 @@
-**S2. Term-introduction order (MAJOR).** In a concept chain (abstraction → interface → implementation), each
-term is introduced and connected before it is leaned on. List coined terms by first appearance;
-each must be defined at or before that point.

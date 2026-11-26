@@ -1,0 +1,16 @@
+id: S26
+title: "Put the numbers ON the structure"
+kind: semantic
+severity:
+applies: {}
+source:
+  - rules/S26-numbers-on-structure.md
+exceptions: []
+grep: []
+
+writing:
+  text: |
+    **S26. Put the numbers ON the structure.** For a data-on-structure figure (a tree, a graph), values
+    belong on the nodes/edges, not in a side table.
+  why:
+  examples: {good: [], bad: []}

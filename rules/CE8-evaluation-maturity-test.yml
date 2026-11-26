@@ -1,0 +1,33 @@
+id: CE8
+title: The Evaluation Maturity Test
+kind: checklist
+severity:
+applies: {"sections": ["evaluation"]}
+source:
+  - rules/CE8-evaluation-maturity-test.md      # deleted 2026-11-26; see git history
+  - section_rhetorical_moves/evaluation.md     # the guide's copy of the table, removed 2026-11-26
+exceptions: []
+grep: []
+notes: |
+  A self-rating, not a question list. The guide's copy of this table (section_rhetorical_moves/evaluation.md)
+  was removed 2026-11-26; this is the one copy. SK8: the author runs it after drafting; review.py asks it as
+  part of `checklist:evaluation`.
+
+author:
+  text: &text |
+    Rate your evaluation on this scale:
+    | Level | Description | Missing element |
+    |-------|-------------|----------------|
+    | 1 | Lab notebook | Results without interpretation |
+    | 2 | Technical report | Comprehensive but unfocused |
+    | 3 | Conference paper | Results organized by claims |
+    | 4 | Systems narrative | Labeled paragraphs + Takeaways + claim-first headings |
+
+    Target: Level 4.
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  text: *text
+  why:
+  examples: {good: [], bad: []}

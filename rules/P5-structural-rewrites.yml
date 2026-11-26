@@ -1,0 +1,16 @@
+id: P5
+title: "Structural Rewrites Over Incremental Editing"
+kind: principle
+severity:
+applies: {}
+source:
+  - rules/P5-structural-rewrites.md
+exceptions: []
+grep: []
+
+author:
+  text: |
+    **Rule**: When creating a new major version, start from a blank page. The previous version is reference material, not a starting point.
+  why: |
+    The writing process is iterative reconceptualization, not polishing. Each major version should be written from scratch with the SAME underlying results but a DIFFERENT narrative. Attempting to polish an early draft into a final version produces mediocre results because the framing decisions are baked into the sentence structure.
+  examples: {good: [], bad: []}

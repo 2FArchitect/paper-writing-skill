@@ -1,0 +1,22 @@
+id: CD2
+title: "Design Justification"
+kind: checklist
+severity:
+applies: {"sections": ["design"]}
+source:
+  - rules/CD2-design-justification.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "For every major design choice, is there a **\"why\" argument**?"
+    - "Does the section explain **why alternatives were rejected** (not just what was chosen)?"
+    - "Is the justification grounded in **empirical observation** or **requirement analysis**, not just intuition?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

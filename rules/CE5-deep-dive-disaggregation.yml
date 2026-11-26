@@ -1,0 +1,22 @@
+id: CE5
+title: "Deep Dive / Disaggregation"
+kind: checklist
+severity:
+applies: {"sections": ["evaluation"]}
+source:
+  - rules/CE5-deep-dive-disaggregation.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Are results **disaggregated** by relevant conditions (e.g., by load level, input size, region)?"
+    - "Do disaggregated results reveal **where the system helps most** and **where it helps least**?"
+    - "If aggregate results are \"surprising,\" is there a **distribution-level analysis** explaining why?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

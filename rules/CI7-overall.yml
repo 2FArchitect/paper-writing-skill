@@ -1,0 +1,22 @@
+id: CI7
+title: "Overall"
+kind: checklist
+severity:
+applies: {"sections": ["intro"]}
+source:
+  - rules/CI7-overall.md
+exceptions: []
+grep: []
+notes: |
+  Moved to the rule each checks: question 1 → P3; question 3 → P1.
+
+author:
+  questions: &questions
+    - "If you removed every sentence except the first sentence of each \\smartparagraph block, would the argument still be clear?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

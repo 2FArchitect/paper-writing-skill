@@ -1,0 +1,41 @@
+id: M17
+title: Fancy / showy / figurative verbs
+kind: mechanical
+severity:
+applies: {}
+source:
+  - rules/M17-fancy-verbs.md
+  - author_profile/craft_reference.md:84      # Part 2, "Avoid fancy words, foreign flourishes, and offbeat jargon" (author)
+  - rules/M20-grep-script.md:27-28
+exceptions:
+  - |
+    Keep the fancy verb ONLY when it is precise domain jargon with no plain equivalent (`amortize` a
+    cost, `traverse` a graph, `spawn` a process).
+  - |
+    Polysemous words (`bind`, `surface`, `run`, `chip`) are JUDGE-only: read for the flavor sense; do
+    not blanket-replace.
+grep:
+  - {pattern: '\b(pit(s|ted|ting)?|dispatch(es|ed|ing)?|chip(s|ped|ping)? (away )?at|marshal(s|led|ling)?|orchestrat(e|es|ed|ing)|wrangl(e|es|ed|ing)|harness(es|ed|ing)?|forge[sd]?|weav(e|es|ed|ing)|delv(e|es|ed|ing) into|usher(s|ed)? in|grappl(e|es|ed|ing) with|anew|afresh)\b', flags: i, action: audit, hint: 'inspect each; keep only precise domain jargon like "amortize"'}
+notes: |
+  `surface` (v.) and `unpack` (fig.) are in the list and not in the grep (judge-only words).
+
+author:
+  text: |
+    **Avoid fancy words, foreign flourishes, and offbeat jargon.** Prefer the short, standard word.
+  why:
+  examples: &ex
+    good: ['run', 'send', 'narrow', 'gather', 'coordinate', 'manage', 'use', 'build', 'combine', 'start', 'examine', 'address', 'reveal', 'explain', 'again']
+    bad: ['pit X against Y', 'dispatch', 'chip away at', 'marshal', 'orchestrate', 'wrangle', 'harness', 'forge', 'weave', 'usher in', 'delve into', 'grapple with', 'anew', 'afresh']
+
+writing:
+  text: |
+    **M17. Fancy / showy / figurative verbs — AUDIT (prefer the plain word).** When a plain verb
+    exists, a colorful one reads as authorial performance.
+    - `pit (X against Y)` → `run` · `dispatch` → `send` · `chip away at` → `narrow`/`reduce` ·
+      `marshal` → `gather` · `orchestrate` → `coordinate`/`run` · `wrangle` → `manage` · `harness` →
+      `use` · `forge` → `build` · `weave` → `combine` · `usher in` → `start` · `delve into` →
+      `examine` · `grapple with` → `address` · `surface` (v.) → `reveal` · `unpack` (fig.) → `explain`
+      · `anew`/`afresh` → `again`.
+  why: |
+    When a plain verb exists, a colorful one reads as authorial performance.
+  examples: *ex

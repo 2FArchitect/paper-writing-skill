@@ -1,0 +1,22 @@
+id: CR3
+title: "Per-Category Limitation"
+kind: checklist
+severity:
+applies: {"sections": ["related-work"]}
+source:
+  - rules/CR3-per-category-limitation.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "For each category, is there a **specific limitation** stated?"
+    - "Is the limitation **structural** (fundamentally unable to do X) rather than **quantitative** (doesn't do X well enough)?"
+    - "Does the limitation connect to a **feature of your system** that addresses it?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

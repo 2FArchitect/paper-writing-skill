@@ -1,0 +1,21 @@
+id: CE7
+title: "Robustness"
+kind: checklist
+severity:
+applies: {"sections": ["evaluation"]}
+source:
+  - rules/CE7-robustness.md
+exceptions: []
+grep: []
+
+author:
+  questions: &questions
+    - "Are results tested under **conditions not in the training set** (concept drift, new data, edge cases)?"
+    - "Is the deployment overhead or scalability addressed?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

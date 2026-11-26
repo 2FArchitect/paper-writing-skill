@@ -1,0 +1,19 @@
+id: A1
+title: "Compile must succeed with no fatal error"
+kind: artifact
+severity:
+applies: {}
+source:
+  - rules/A1-compile-succeeds.md
+exceptions: []
+grep:
+  - {pattern: "^!", target: "compile-log", action: "fix", hint: "fix or justify every hit; report the counts"}
+notes: |
+  Not asked of a reviewer; the author checks the compile log.
+
+author:
+  text: |
+    **A1. Compile must succeed with no fatal error.** `grep -nE '^!' <compile log>` returns nothing.
+    A `Fatal error occurred, no output PDF` is a hard stop, not a warning.
+  why:
+  examples: {good: [], bad: []}

@@ -1,0 +1,30 @@
+id: S18
+title: Hedge scan
+kind: semantic
+severity: MAJOR
+applies: {}
+source:
+  - rules/S18-hedge-scan.md
+  - author_profile/craft_reference.md:39-41  # "Calibrated confidence" (author)
+  - rules/SK6-mandatory-style-audit.md:10    # audit item 3, Hedging (the bad examples)
+exceptions: []
+grep: []
+
+author:
+  text: |
+    **Calibrated confidence.** Strongly assertive; claims match evidence scope. No "we solve the
+    problem of" — instead "we address [specific aspect] of [bounded problem]." Zero hedging, with the
+    one exception, S18 (hedge a claim that genuinely outruns its evidence).
+  why:
+  examples:
+    good: []
+    bad: ["can potentially", "can be expected to", "may help reduce", "it is possible that"]
+
+facts:
+  text: |
+    **S18. Hedge scan (MAJOR).** Paper-wide: flag every empirical or causal universal ("X takes / means
+    / is Y") and ask "always, or typically/often?" Add the calibrated hedge where the claim outruns the
+    evidence.
+  why: |
+    This is the one place hedging is ADDED — everywhere else the base rule is zero hedging.
+  examples: {good: [], bad: []}

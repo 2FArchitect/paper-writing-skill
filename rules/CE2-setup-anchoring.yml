@@ -1,0 +1,24 @@
+id: CE2
+title: "Setup Anchoring"
+kind: checklist
+severity:
+applies: {"sections": ["evaluation"]}
+source:
+  - rules/CE2-setup-anchoring.md
+exceptions: []
+grep: []
+notes: |
+  Moved to the rule each checks: question 1 → P2.
+
+author:
+  questions: &questions
+    - "Are baselines **described precisely enough** for the reader to understand what they are?"
+    - "Are **metrics defined** and **justified** (why these metrics for these claims)?"
+    - "Is the dataset described (size, source, time period, any biases)?"
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  questions: *questions
+  why:
+  examples: {good: [], bad: []}

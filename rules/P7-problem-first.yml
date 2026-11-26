@@ -1,0 +1,27 @@
+id: P7
+title: "Problem-First, Not Method-First"
+kind: principle
+severity:
+applies: {"sections": ["intro"]}
+source:
+  - rules/P7-problem-first.md
+  - rules/CI1-stakes.md:2   # checklist question merged
+  - rules/CI1-stakes.md:4   # checklist question merged
+exceptions: []
+grep: []
+
+author:
+  text: |
+    **Rule**: The first sentence should describe the PROBLEM or DOMAIN, not the TECHNOLOGY. ML/AI should appear no earlier than the third paragraph.
+  why: |
+    Student drafts frequently lead with the ML/AI technology. The advisor's intervention shifts the opening to lead with the PROBLEM the technology solves. The ML/AI component becomes the METHOD, not the MESSAGE.
+
+    **Why this matters**: Method-first openings position the paper as "another ML application" — competing against every other ML-for-X paper. Problem-first openings position the paper as solving a domain problem — competing against other solutions to that specific problem. The latter is a smaller, more winnable competitive frame.
+  examples: {good: [], bad: []}
+
+writing:
+  questions:
+    - "Does the first sentence name a **specific domain problem**, not a technology?"
+    - "Is ML/AI absent from the first two paragraphs? (If present, consider moving it later.)"
+  why:
+  examples: {good: [], bad: []}

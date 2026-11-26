@@ -1,0 +1,27 @@
+id: S23
+title: "Claim-first, one-line headings and paragraph labels"
+kind: semantic
+severity: MAJOR
+applies: {}
+source:
+  - rules/S23-claim-first-headings.md
+  - author_profile/craft_reference.md:45-47   # "Headings" (author)
+exceptions: []
+grep: []
+
+author:
+  text: |
+    **Headings.** Claim-first, one typeset line, consistent capitalization across the document, no
+    terminal punctuation on section titles. "Mechanism M reduces error N×," not
+    "Experimental Results."
+  why:
+  examples: {good: [], bad: []}
+
+writing:
+  text: |
+    **S23. Claim-first, one-line headings and paragraph labels (MAJOR).** Headings and `\smartparagraph`
+    labels are claims, not topics, and short (3–6 words, one line). "Batching halves tail
+    latency," not "Batching: grouping requests into one disk write reduces queueing, so tail latency
+    falls by half under load." Audit every label for verbosity and every heading for wrapping.
+  why:
+  examples: {good: [], bad: []}

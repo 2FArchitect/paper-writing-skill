@@ -22,6 +22,8 @@ This copies skill files into `~/.claude/skills/paper-writing/`. Always edit file
 - The mandatory style audit gate (runs on every tex edit)
 - Section checklist and rhetorical move dispatch tables
 
+**rules/** holds one YAML file per rule (`rules/SCHEMA.md`): the rule's text per actor (`author`, `writing`, `facts`, …), why, examples, exceptions and greps. `scripts/expand_includes.py` renders them into the mode files and the `author_profile/` parents at install time; `scripts/check_rules.py` validates them. Edit the YAML, not the rendered files.
+
 **author_profile/** contains the editorial rules (source of truth for all style enforcement). The
 style layer is organized into three files by mechanism — one mechanical gate, one semantic gate,
 one positive craft reference:
