@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Check rules/*.yml: parse, required keys, actor shape, and that each rule's bad examples match its
+"""Check rules/*.yml (or the folder given, e.g. a project's .paper-writing/rules): parse, required keys, actor shape, and that each rule's bad examples match its
 grep patterns while its good examples do not (examples double as regex tests). Exit 1 on any error."""
 import glob, os, re, sys
 import yaml
 
-META = {"id", "title", "kind", "severity", "applies", "merged", "source", "exceptions", "grep", "notes"}
-KINDS = {"mechanical", "semantic", "artifact", "principle", "checklist"}
+META = {"id", "title", "severity", "applies", "merged", "source", "exceptions", "grep", "grep_hits_only", "notes"}
 ACTOR_KEYS = {"text", "questions", "why", "examples"}
-root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rules")
+root = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rules")
 errors, warnings = [], []
 
 def compile_greps(rule):
@@ -29,8 +28,6 @@ for path in sorted(glob.glob(os.path.join(root, "*.yml"))):
     rid = rule.get("id")
     if not rid or not name.startswith(rid + "-"):
         errors.append(f"{name}: id {rid!r} does not match the file name")
-    if rule.get("kind") not in KINDS:
-        errors.append(f"{name}: kind {rule.get('kind')!r} not in {sorted(KINDS)}")
     if not rule.get("source"):
         errors.append(f"{name}: no source")
     actors = {k: v for k, v in rule.items() if k not in META}

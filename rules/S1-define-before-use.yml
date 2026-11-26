@@ -1,6 +1,5 @@
 id: S1
 title: "Define before use"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

@@ -1,6 +1,5 @@
 id: S5
 title: "Parse-accessibility"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

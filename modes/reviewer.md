@@ -10,16 +10,22 @@ by ID; until then this file is where reviewer text is collected. Two groups: rev
 
 @../author_profile/gate_semantic.md
 
+## Principle 1: Introduction-Twice (Draft 0 → Evaluation → Final Introduction)
 @../rules/P1-introduction-twice.yml#reviewers
 
+## Principle 2: Named Over Vague
 @../rules/P2-named-over-vague.yml#reviewers
 
+## Principle 3: The What → Why → So-What Heading Progression
 @../rules/P3-what-why-so-what-headings.yml#reviewers
 
+## Principle 7: Problem-First, Not Method-First
 @../rules/P7-problem-first.yml#reviewers
 
+## Principle 8: Takeaway paragraphs in evaluation
 @../rules/P8-takeaway-paragraphs.yml#reviewers
 
+## Principle 9: Dual Evaluation for Dual Contributions
 @../rules/P9-dual-evaluation.yml#reviewers
 
 ## Both the author and the reviewer

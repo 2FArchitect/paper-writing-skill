@@ -1,6 +1,5 @@
 id: S17
 title: "Data-integrity guard"
-kind: semantic
 severity: CRITICAL
 applies: {}
 source:

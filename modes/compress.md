@@ -6,6 +6,7 @@
 
 @../author_profile/compression_patterns.md
 
+## Principle 4: Compress After Expanding
 @../rules/P4-compress-after-expanding.yml
 
 @audit.md

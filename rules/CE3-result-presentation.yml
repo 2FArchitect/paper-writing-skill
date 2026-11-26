@@ -1,6 +1,5 @@
 id: CE3
 title: "Result Presentation"
-kind: checklist
 severity:
 applies: {"sections": ["evaluation"]}
 source:

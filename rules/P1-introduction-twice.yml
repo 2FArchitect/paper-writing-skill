@@ -1,6 +1,5 @@
 id: P1
-title: "Introduction-Twice (Draft 0 → Evaluation → Final Introduction)"
-kind: principle
+title: "Principle 1: Introduction-Twice (Draft 0 → Evaluation → Final Introduction)"
 severity:
 applies: {"sections": ["intro"]}
 source:
@@ -29,7 +28,7 @@ writing:
   questions:
     - "Can you list **every claim** the introduction makes?"
     - "Does each claim have a **dedicated evaluation subsection**?"
-    - "Does each contribution have a matching **evaluation subsection**? In Draft 0, a planned one in `project_context.md`'s Section Architecture."
-    - "Does the introduction promise **exactly** what the evaluation delivers — no more, no less? In Draft 0, what the evaluation plan in `project_context.md` covers."
+    - "Does each contribution have a matching **evaluation subsection**? In Draft 0, the planned Section Architecture will be passed to you on startup."
+    - "Does the introduction promise **exactly** what the evaluation delivers — no more, no less? In Draft 0, what the planned Section Architecture (passed to you on startup) covers."
   why:
   examples: {good: [], bad: []}

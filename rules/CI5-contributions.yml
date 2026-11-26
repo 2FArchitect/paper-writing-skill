@@ -1,6 +1,5 @@
 id: CI5
 title: "Move 5: Contributions"
-kind: checklist
 severity:
 applies: {"sections": ["intro"]}
 source:

@@ -1,6 +1,5 @@
 id: S33
 title: "Validation detail the reader does not need moves to the cut file"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

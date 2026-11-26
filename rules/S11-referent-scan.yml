@@ -1,6 +1,5 @@
 id: S11
 title: "Referent and conflation scan"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

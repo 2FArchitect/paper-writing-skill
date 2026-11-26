@@ -1,6 +1,5 @@
 id: CR2
 title: "Category Clustering"
-kind: checklist
 severity:
 applies: {"sections": ["related-work"]}
 source:

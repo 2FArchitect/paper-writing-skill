@@ -1,6 +1,5 @@
 id: S20
 title: "Positives-first"
-kind: semantic
 severity: MAJOR
 applies: {"sections": ["abstract", "intro", "conclusion"]}
 source:

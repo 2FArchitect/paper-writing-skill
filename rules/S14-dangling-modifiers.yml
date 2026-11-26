@@ -1,6 +1,5 @@
 id: S14
 title: "Dangling modifiers"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

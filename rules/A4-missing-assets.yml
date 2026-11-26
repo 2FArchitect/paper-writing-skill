@@ -1,6 +1,5 @@
 id: A4
 title: "Missing or unloaded assets"
-kind: artifact
 severity:
 applies: {}
 source:

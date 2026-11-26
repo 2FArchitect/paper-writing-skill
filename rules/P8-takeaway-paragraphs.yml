@@ -1,6 +1,5 @@
 id: P8
-title: Takeaway paragraphs in evaluation
-kind: principle
+title: "Principle 8: Takeaway paragraphs in evaluation"
 severity:
 applies: {sections: [evaluation]}
 merged: [CE4]               # the checklist group was this rule's reviewer form

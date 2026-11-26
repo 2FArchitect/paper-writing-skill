@@ -1,6 +1,5 @@
 id: A7
 title: "Legible at print size, with units"
-kind: artifact
 severity:
 applies: {}
 source:

@@ -1,6 +1,5 @@
 id: M16
 title: Pompous / vague single words
-kind: mechanical
 severity:
 applies: {}
 source:
@@ -25,7 +24,7 @@ author:
 
 writing:
   text: |
-    **M16. Pompous / vague single words — AUDIT (see also M5).** `finalize` · `-oriented` · `factor` ·
+    **M16. Pompous / vague single words — AUDIT.** `finalize` · `-oriented` · `factor` ·
     `feature` · `meaningful` · `insightful` · `prestigious` · `possess` (→ `have`) · `impact` (verb;
     prefer `affect`) · `contact` (verb) · `currently` (redundant with present tense).
   why:

@@ -36,7 +36,7 @@ import sys
 
 INCLUDE = re.compile(r"^\s*@((?:\\ |\S)+)\s*$")
 FENCE = re.compile(r"^\s*(```|~~~)")
-META = {"id", "title", "kind", "severity", "applies", "merged", "source", "exceptions", "grep", "notes"}
+META = {"id", "title", "severity", "applies", "merged", "source", "exceptions", "grep", "grep_hits_only", "notes"}
 
 
 def load_rule(path):
@@ -55,12 +55,6 @@ def render_block(rule, actor):
     if not block:
         return ""
     out = []
-    kind = rule.get("kind")
-    if kind == "principle":
-        n = re.sub(r"\D", "", rule["id"])
-        out.append(f"## Principle {n}: {rule['title']}\n")
-    elif kind == "checklist":
-        out.append(f"## {rule['title']}\n")
     text = (block.get("text") or "").rstrip()
     if text:
         out.append(text + "\n")

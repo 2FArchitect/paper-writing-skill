@@ -1,6 +1,5 @@
 id: CD5
 title: "Audience Calibration"
-kind: checklist
 severity:
 applies: {"sections": ["design"]}
 source:

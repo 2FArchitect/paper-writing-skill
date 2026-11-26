@@ -1,6 +1,5 @@
 id: CR4
 title: "Positioning Sentence"
-kind: checklist
 severity:
 applies: {"sections": ["related-work"]}
 source:

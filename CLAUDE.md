@@ -24,6 +24,8 @@ This copies skill files into `~/.claude/skills/paper-writing/`. Always edit file
 
 **rules/** holds one YAML file per rule (`rules/SCHEMA.md`): the rule's text per actor (`author`, `writing`, `facts`, …), why, examples, exceptions and greps. `scripts/expand_includes.py` renders them into the mode files and the `author_profile/` parents at install time; `scripts/check_rules.py` validates them. Edit the YAML, not the rendered files.
 
+**agents/** holds the two reviewer agents and **scripts/review.py** (with `scripts/agent-interview.py`) runs them, one rule per question; `review_process.md` (included in SKILL.md) is how the author runs a review. setup installs the agents into `~/.claude/agents/`; `review.py` sends a paper's `.paper-writing/agents/<actor>.md` in the reviewer's opening message when it exists, and runs the writing reviewer's greps itself.
+
 **author_profile/** contains the editorial rules (source of truth for all style enforcement). The
 style layer is organized into three files by mechanism — one mechanical gate, one semantic gate,
 one positive craft reference:

@@ -12,7 +12,6 @@ rule and not asked about it; do not write empty actor blocks.
 ```yaml
 id: M5                     # the existing ID
 title: Banned adjectives
-kind: mechanical           # mechanical | semantic | artifact | principle | checklist
 severity: MAJOR            # only when the source states one (S rules); reviewers grade findings themselves
 applies:                   # the rule's scope, only when the source says so; it is the rule's, not an actor's
   sections: [evaluation]   # section kinds: intro, design, evaluation, related-work, abstract, conclusion, ...
@@ -24,6 +23,7 @@ source:                    # file:line of every sentence used
 exceptions: []             # the rule's own exception clauses; a property of the rule, shared by every actor
 grep:                      # shared tool; the author runs it in the audit, the writing reviewer as question M
   - {pattern: '...', flags: i, action: replace, hint: '...'}
+grep_hits_only: true       # reviewers are asked this rule only when its greps match the text under review
 notes:                     # things noticed, not changed
 
 author:                    # the Claude session writing the paper
@@ -34,8 +34,8 @@ author:                    # the Claude session writing the paper
 writing:                   # reviewer-writing (how it reads); facts: reviewer-facts; logic: the logic reviewer; ...
 ```
 
-Metadata keys: `id`, `title`, `kind`, `severity`, `applies`, `merged`, `source`, `exceptions`, `grep`,
-`notes`. Everything else is an actor.
+Metadata keys: `id`, `title`, `severity`, `applies`, `merged`, `source`, `exceptions`, `grep`,
+`grep_hits_only`, `notes`. Everything else is an actor.
 
 ## One rule, one file
 
@@ -57,9 +57,9 @@ file of the rule it checks, under the actor that performs it, and the absorbed I
 @@grep-script                                  a bash block of every text grep in rules/ (the Mechanical Gate's Part C)
 ```
 
-A rule with no block for the requested actor renders nothing. Render order inside a block: a heading
-(`## Principle N: title` for principles, `## title` for checklists), text, `- [ ] question` lines, why,
-exceptions, examples (`- ✗ bad → ✓ good` pairs when the lists are the same length, otherwise two lines).
+A rule with no block for the requested actor renders nothing. The compiler adds no heading; a file that
+wants one writes it on the line above the include. Render order inside a block: text,
+`- [ ] question` lines, why, exceptions, examples (`- ✗ bad → ✓ good` pairs when the lists are the same length, otherwise two lines).
 The Markdown twins of converted rules were deleted on 2026-11-26; `source` lines that name them point at
 git history. `scripts/check_rules.py` validates every file (run it before `setup`).
 
@@ -76,6 +76,11 @@ git history. `scripts/check_rules.py` validates every file (run it before `setup
 - Which mode shows a rule to the author is not in the rule file: the mode files (`modes/*.md`)
   list rules in order with `@rules/<ID>-*.yml` lines, as they list Markdown fragments. The mode file
   is the only place that decides membership and order.
+- The reviewers' questions are not in the mode files: `scripts/review.py` asks each reviewer every rule
+  that has its actor block (`facts`, `writing`), filtered by `applies.sections`, one rule per question.
+  For the writing reviewer `review.py` runs the rule's
+  text greps on the text under review and puts each match (line number, about ten words either side) in the question; with no matches the
+  rule is asked without them, or skipped when the rule has `grep_hits_only: true`.
 - A project can override a rule: `<project>/.paper-writing/rules/<ID>-*.yml` with the same `id`
-  replaces the skill's file for that project. A project file with no actor blocks switches the rule
+  replaces the skill's file for that project (`scripts/review.py` reads them; the install-time mode files do not). A project file with no actor blocks switches the rule
   off. Project-only rules use the same format.

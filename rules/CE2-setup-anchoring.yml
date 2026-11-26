@@ -1,6 +1,5 @@
 id: CE2
 title: "Setup Anchoring"
-kind: checklist
 severity:
 applies: {"sections": ["evaluation"]}
 source:

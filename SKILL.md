@@ -140,3 +140,7 @@ The answer to each request is in its own file in this skill's `faq/` folder. Rea
 - "I'm starting a new paper — where do I begin?": `faq/start-new-paper.md`
 - "Turn our notes into a paper outline" / "What is the story for <venue>?": `faq/notes-to-outline.md`
 - "I need a non-data figure (architecture diagram, pipeline illustration, etc.)": `faq/non-data-figure.md`
+
+---
+
+@review_process.md

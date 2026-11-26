@@ -1,6 +1,5 @@
 id: A8
 title: "No color-as-only-channel"
-kind: artifact
 severity:
 applies: {}
 source:

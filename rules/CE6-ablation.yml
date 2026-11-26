@@ -1,6 +1,5 @@
 id: CE6
 title: "Ablation"
-kind: checklist
 severity:
 applies: {"sections": ["evaluation"]}
 source:

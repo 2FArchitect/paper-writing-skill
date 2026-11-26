@@ -1,6 +1,5 @@
 id: CD1
 title: "Structure"
-kind: checklist
 severity:
 applies: {"sections": ["design"]}
 source:

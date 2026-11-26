@@ -1,6 +1,5 @@
 id: A5
 title: "No clipped or overflowing float"
-kind: artifact
 severity:
 applies: {}
 source:

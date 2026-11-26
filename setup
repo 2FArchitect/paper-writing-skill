@@ -94,6 +94,16 @@ with open(path, "w") as f:
     f.write(text.replace("__PAPER_GUARD__", guard).replace("__BASH_GUARD_INSTALL__", bash_guard_install))
 PYEOF
 
+# Reviewer agents (agents/*.md), run by scripts/review.py. Claude Code finds agents in ~/.claude/agents/.
+# A project's additions (.paper-writing/agents/<actor>.md) are not merged here: review.py lists them in
+# the reviewer's opening message. A same-named agent in a project's .claude/agents/ takes precedence there.
+AGENTS_DIR="$HOME/.claude/agents"
+echo "Installing reviewer agents into $AGENTS_DIR..."
+mkdir -p "$AGENTS_DIR"
+for f in "$SCRIPT_DIR"/agents/*.md; do
+    cp "$f" "$AGENTS_DIR/$(basename "$f")"
+done
+
 # Copy examples separately (students need the templates)
 mkdir -p "$SKILL_DIR/examples"
 cp -r "$SCRIPT_DIR/examples/"* "$SKILL_DIR/examples/"

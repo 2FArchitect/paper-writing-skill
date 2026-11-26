@@ -1,6 +1,5 @@
 id: P7
-title: "Problem-First, Not Method-First"
-kind: principle
+title: "Principle 7: Problem-First, Not Method-First"
 severity:
 applies: {"sections": ["intro"]}
 source:

@@ -1,6 +1,5 @@
 id: CI3
 title: "Move 3: Key Abstraction"
-kind: checklist
 severity:
 applies: {"sections": ["intro"]}
 source:

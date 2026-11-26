@@ -1,6 +1,5 @@
 id: P9
-title: "Dual Evaluation for Dual Contributions"
-kind: principle
+title: "Principle 9: Dual Evaluation for Dual Contributions"
 severity:
 applies: {"sections": ["evaluation"]}
 source:

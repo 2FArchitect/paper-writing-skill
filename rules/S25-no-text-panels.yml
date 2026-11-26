@@ -1,6 +1,5 @@
 id: S25
 title: "No text panels inside a figure"
-kind: semantic
 severity:
 applies: {}
 source:

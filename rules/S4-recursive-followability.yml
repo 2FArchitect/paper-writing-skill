@@ -1,6 +1,5 @@
 id: S4
 title: "Recursive followability"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

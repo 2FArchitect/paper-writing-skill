@@ -1,6 +1,5 @@
 id: CR3
 title: "Per-Category Limitation"
-kind: checklist
 severity:
 applies: {"sections": ["related-work"]}
 source:

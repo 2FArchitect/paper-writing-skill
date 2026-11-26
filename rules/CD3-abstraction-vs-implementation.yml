@@ -1,6 +1,5 @@
 id: CD3
 title: "Abstraction vs. Implementation"
-kind: checklist
 severity:
 applies: {"sections": ["design"]}
 source:

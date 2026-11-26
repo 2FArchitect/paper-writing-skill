@@ -1,6 +1,5 @@
 id: S16
 title: "Ground critiques in numbers, not assertions"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

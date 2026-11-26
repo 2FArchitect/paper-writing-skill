@@ -7,4 +7,4 @@ Apply the 7 operations in order:
 6. Takeaway insertion (add synthesis paragraphs after experiment clusters)
 7. Figure/table promotion (move dense numerical comparisons from prose to visuals)
 
-Cut until every remaining paragraph passes P4's test. Report character count before and after. From a comprehensive first draft the cut is normally 30–50%: below 15%, show that the test was applied to every paragraph; above 50%, stop and report, because the framing has changed (Intensity Guide).
+Cut until every remaining paragraph passes Principle 4's test. Report character count before and after. From a comprehensive first draft the cut is normally 30–50%: below 15%, show that the test was applied to every paragraph; above 50%, stop and report, because the framing has changed (Intensity Guide).

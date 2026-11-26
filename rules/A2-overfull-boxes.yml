@@ -1,6 +1,5 @@
 id: A2
 title: "Overfull boxes — a float or line runs past its box"
-kind: artifact
 severity:
 applies: {}
 source:

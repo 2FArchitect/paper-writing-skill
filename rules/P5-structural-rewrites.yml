@@ -1,6 +1,5 @@
 id: P5
-title: "Structural Rewrites Over Incremental Editing"
-kind: principle
+title: "Principle 5: Structural Rewrites Over Incremental Editing"
 severity:
 applies: {}
 source:

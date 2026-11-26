@@ -1,6 +1,5 @@
 id: CE5
 title: "Deep Dive / Disaggregation"
-kind: checklist
 severity:
 applies: {"sections": ["evaluation"]}
 source:

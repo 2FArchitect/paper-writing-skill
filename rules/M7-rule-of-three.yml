@@ -1,6 +1,5 @@
 id: M7
 title: Rule-of-three / triadic decoration
-kind: mechanical
 severity:
 applies: {}
 source:

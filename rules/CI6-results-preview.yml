@@ -1,6 +1,5 @@
 id: CI6
 title: "Move 6: Results Preview"
-kind: checklist
 severity:
 applies: {"sections": ["intro"]}
 source:

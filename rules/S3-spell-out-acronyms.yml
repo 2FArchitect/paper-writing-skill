@@ -1,6 +1,5 @@
 id: S3
 title: "Spell out acronyms on first use"
-kind: semantic
 severity: MAJOR
 applies: {}
 source:

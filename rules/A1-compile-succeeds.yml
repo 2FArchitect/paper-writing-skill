@@ -1,6 +1,5 @@
 id: A1
 title: "Compile must succeed with no fatal error"
-kind: artifact
 severity:
 applies: {}
 source:

@@ -1,6 +1,5 @@
 id: CR5
 title: "Anti-Patterns"
-kind: checklist
 severity:
 applies: {"sections": ["related-work"]}
 source:

@@ -1,6 +1,5 @@
 id: CI4
 title: "Move 4: Design Intuition"
-kind: checklist
 severity:
 applies: {"sections": ["intro"]}
 source:

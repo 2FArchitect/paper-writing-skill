@@ -6,46 +6,57 @@ These 14 principles are distilled from systematic analysis of multiple paper rev
 
 ---
 
+## Principle 1: Introduction-Twice (Draft 0 → Evaluation → Final Introduction)
 @../rules/P1-introduction-twice.yml
 
 ---
 
+## Principle 2: Named Over Vague
 @../rules/P2-named-over-vague.yml
 
 ---
 
+## Principle 3: The What → Why → So-What Heading Progression
 @../rules/P3-what-why-so-what-headings.yml
 
 ---
 
+## Principle 4: Compress After Expanding
 @../rules/P4-compress-after-expanding.yml
 
 ---
 
+## Principle 5: Structural Rewrites Over Incremental Editing
 @../rules/P5-structural-rewrites.yml
 
 ---
 
+## Principle 6: Labeled Paragraphs as Narrative Contracts
 @../rules/P6-labeled-paragraphs.yml
 
 ---
 
+## Principle 7: Problem-First, Not Method-First
 @../rules/P7-problem-first.yml
 
 ---
 
+## Principle 8: Takeaway paragraphs in evaluation
 @../rules/P8-takeaway-paragraphs.yml
 
 ---
 
+## Principle 9: Dual Evaluation for Dual Contributions
 @../rules/P9-dual-evaluation.yml
 
 ---
 
+## Principle 10: Venue-Specific Structural Adaptation
 @../rules/P10-venue-adaptation.yml
 
 ---
 
+## Principle 11: Rejection Drives Abstraction
 @../rules/P11-rejection-drives-abstraction.yml
 
 ---
@@ -79,6 +90,7 @@ These 14 principles are distilled from systematic analysis of multiple paper rev
 
 ---
 
+## Principle 14: Technical Claims Require Citations
 @../rules/P14-claims-require-citations.yml
 
 ---

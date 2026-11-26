@@ -1,6 +1,5 @@
 id: CI1
 title: "Move 1: Stakes"
-kind: checklist
 severity:
 applies: {"sections": ["intro"]}
 source:

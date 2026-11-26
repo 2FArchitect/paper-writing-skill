@@ -1,6 +1,5 @@
 id: A6
 title: "Reused float must be re-fit to this template"
-kind: artifact
 severity:
 applies: {}
 source:

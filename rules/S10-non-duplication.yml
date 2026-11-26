@@ -1,6 +1,5 @@
 id: S10
 title: "Cross-section non-duplication"
-kind: semantic
 severity: CRITICAL
 applies: {}
 source:

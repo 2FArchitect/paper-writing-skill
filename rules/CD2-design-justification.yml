@@ -1,6 +1,5 @@
 id: CD2
 title: "Design Justification"
-kind: checklist
 severity:
 applies: {"sections": ["design"]}
 source:

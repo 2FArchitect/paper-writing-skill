@@ -1,6 +1,5 @@
 id: P11
-title: "Rejection Drives Abstraction"
-kind: principle
+title: "Principle 11: Rejection Drives Abstraction"
 severity:
 applies: {}
 source:

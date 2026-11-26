@@ -1,6 +1,5 @@
 id: CI7
 title: "Overall"
-kind: checklist
 severity:
 applies: {"sections": ["intro"]}
 source:

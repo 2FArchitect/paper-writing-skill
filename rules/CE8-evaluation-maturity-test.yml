@@ -1,6 +1,5 @@
 id: CE8
 title: The Evaluation Maturity Test
-kind: checklist
 severity:
 applies: {"sections": ["evaluation"]}
 source:

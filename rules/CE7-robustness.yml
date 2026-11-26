@@ -1,6 +1,5 @@
 id: CE7
 title: "Robustness"
-kind: checklist
 severity:
 applies: {"sections": ["evaluation"]}
 source:

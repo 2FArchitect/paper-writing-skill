@@ -4,6 +4,7 @@
 
 @venue.md
 
+## Principle 9: Dual Evaluation for Dual Contributions
 @../rules/P9-dual-evaluation.yml
 
 @../rules/FG1-overview.md

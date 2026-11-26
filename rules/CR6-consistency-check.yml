@@ -1,6 +1,5 @@
 id: CR6
 title: "Consistency Check"
-kind: checklist
 severity:
 applies: {"sections": ["related-work"]}
 source:

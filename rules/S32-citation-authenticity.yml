@@ -1,13 +1,13 @@
 id: S32
 title: "Citation authenticity and bibliographic accuracy"
-kind: semantic
 severity: CRITICAL
 applies: {}
 source:
   - rules/S32-citation-authenticity.md
+  - rules/S32-citation-authenticity.md:14   # grep caveat, restored 2026-11-26 into the first grep's hint
 exceptions: []
 grep:
-  - {pattern: "and others|et al\\.", target: "bib", action: "inspect", hint: "truncated author list"}
+  - {pattern: "and others|et al\\.", target: "bib", action: "inspect", hint: "truncated author list (catches truncation outright; everything else needs a real lookup, not a pattern match)"}
   - {pattern: "@[a-z]+\\{[a-z]+([0-9]{4})[a-z]*,", target: "bib", action: "inspect", hint: "inspect each key's year against its entry's year field"}
 notes: |
   History, from the source: first applied 2026-07-30 against a 32-entry chapter bibliography: 28 entries confirmed

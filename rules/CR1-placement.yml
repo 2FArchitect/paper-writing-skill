@@ -1,6 +1,5 @@
 id: CR1
 title: "Placement"
-kind: checklist
 severity:
 applies: {"sections": ["related-work"]}
 source:
