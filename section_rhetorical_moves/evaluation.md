@@ -92,21 +92,6 @@ Target: Stage v3. Get there by writing comprehensively first (v2), then compress
 
 ---
 
-## The Evaluation Maturity Test
-
-Rate your evaluation:
-
-| Level | Description | Missing element |
-|-------|-------------|----------------|
-| 1 | Lab notebook | Results without interpretation |
-| 2 | Technical report | Comprehensive but unfocused |
-| 3 | Conference paper | Results organized by claims |
-| 4 | Systems narrative | Labeled paragraphs + Takeaways + claim-first headings |
-
-Target: Level 4.
-
----
-
 ## Learning Evaluation Craft from Papers You Read
 
 The six-move sequence tells you what an evaluation must accomplish. To learn *how* the best authors in your area accomplish it, analyze the evaluation sections of 2–3 strong papers at your target venue during deep reading (Pass 3+ in the [literature-survey-skill](https://github.com/SNL-UCSB/literature-survey-skill)). Extract: How do they structure Setup Anchoring — one paragraph or a full subsection? How many baselines do they name, and how do they justify each? Where do Takeaway paragraphs appear — after every experiment, or only after clusters? How do they handle ablation — separate section or integrated? What does their evaluation's heading structure look like — claim-first or descriptive?

@@ -50,7 +50,7 @@ The three skills create a closed loop: the literature survey reveals the gap and
 
 1. Read this SKILL.md (already loaded)
 2. Read the files for the mode (see **Modes** below) — they hold the editorial rules for this step
-3. Ask which paper the user is working on
+3. Find the paper: the project folder is the paper's working directory. If it holds more than one paper, ask which one
 4. Look for a `project_context.md` in the paper's working directory
 5. If found, read it and treat it as binding constraints
 6. If not found, decide how to create one: if the ideas already exist in notes, drafts, code and related work, run `/paper-writing story`; if they are mostly in the user's head, run `/paper-writing brainstorm`
@@ -112,7 +112,7 @@ The introduction is written **twice**. This is the most impactful principle in t
 
 **The final introduction** is rewritten from scratch after the evaluation is complete. It promises exactly what the evidence supports — no more, no less. Draft 0 is reference material, not a starting point for editing. If the user asks to skip Draft 0 and go straight to evaluation, explain that evaluation without framing guardrails produces experiments that don't build toward a unified argument.
 
-**Modes**: `/paper-writing draft <section>` for each section; `/paper-writing rewrite intro` for the final introduction; `/paper-writing rewrite <section>` for any section whose framing changed.
+**Modes**: `/paper-writing draft <section>` for each section; `/paper-writing rewrite intro` for the final introduction; `/paper-writing rewrite <section>` for any section whose framing changed. Polish or rewrite: if the paper's identity (what it claims to be about) is stable, polish; if the identity needs to change, rewrite from scratch (Principle 5: structural rewrites over incremental editing). The signal that a rewrite is needed: the introduction promises something the evaluation doesn't deliver.
 
 ### Stage 4: Integration
 

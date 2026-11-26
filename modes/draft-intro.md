@@ -4,10 +4,6 @@
 
 @../rules/MV1-introduction.md
 
-@../rules/P1-introduction-twice.md
-
-@../rules/P7-problem-first.md
-
 ## Introduction checklist (run after drafting)
 
 @../rules/CI1-stakes.md

@@ -48,7 +48,7 @@ Read all of:
 - Is the caption interpretive (states what the figure shows and why it matters)?
 - Is it claim-first (the takeaway leads, details follow)?
 - Is it free of hedging and filler adjectives, and in active voice?
-- Is it self-contained enough for a skim-reader?
+- Is it self-contained enough for a skim-reader, within A9's length (a bold takeaway plus at most one clause)?
 - **Verdict**: PASS / REVISE (suggest rewrite)
 
 ### Step 3: Produce Critique Report

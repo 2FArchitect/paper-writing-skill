@@ -66,7 +66,7 @@ The design section answers "How should the reader think about this system?" befo
 
 ---
 
-## The What → Why → So-What Test (Principle 3)
+## The What → Why → So-What Test (Principle 3: headings state the conclusion)
 
 For each subsection, check which level the heading achieves:
 

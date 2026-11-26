@@ -42,7 +42,7 @@ An effective introduction follows a 6-move sequence. Each move has a specific fu
 
 **How to do it**: Coin a term that captures your core insight. Make it a compound noun phrase, ideally with an architectural metaphor. Examples of the pattern (invented for illustration): "demand-first placement," "staged admission control," "lease-based eviction."
 
-**Critical insight**: The key abstraction appears ONLY in final versions of papers. It is discovered through writing, not planned in advance. If you don't have one yet, that's normal — it will emerge as you write the evaluation and design sections.
+**Critical insight**: The key abstraction's final name usually appears only in the final version. It is discovered through writing, not planned in advance. In Draft 0 a placeholder name is fine; the name sharpens as you write the evaluation and design sections.
 
 **Test**: Is the name memorable? Would other researchers cite it? Does it distinguish your approach from ALL existing categories?
 
@@ -66,7 +66,7 @@ An effective introduction follows a 6-move sequence. Each move has a specific fu
 - Always numbered or bulleted
 - Each item starts with a **bold label** (e.g., "Learning problem.", "Design.", "Evaluation.")
 - Each item states a CLAIM, not a process: "We show that X" not "We propose X"
-- Each item has a matching evaluation subsection (Principle 1)
+- Each item has a matching evaluation subsection (Principle 1: the introduction promises what the evaluation shows)
 
 **Test**: Does each contribution have evidence you can point to? If not, it's an aspiration, not a contribution.
 

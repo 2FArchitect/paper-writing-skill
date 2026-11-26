@@ -62,7 +62,7 @@ Late-stage compression is a universal part of the writing process. This document
 
 **Before (descriptive)**: "Experimental Results" / "System Architecture"
 
-**After (claim-first)**: "System X outperforms all baselines by 2–4×" / "Why do linear approaches fail?"
+**After (claim-first)**: "System X outperforms all baselines by 2–4×" / "Linear approaches fail at scale"
 
 **Operation**: Rewrite headings so they contain the section's conclusion, not just its topic. Rewrite paragraph openings so the claim comes first and evidence follows.
 

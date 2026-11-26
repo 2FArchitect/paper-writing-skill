@@ -5,4 +5,4 @@ After every experiment or group of related experiments, insert a Takeaway paragr
 **Before**: "Model A: 92%, Model B: 87%, Model C: 84%, Model D: 91%."
 **After**: "Takeaway. Our system outperforms all baselines, with the largest margins in challenging conditions."
 
-**Rule**: Every evaluation subsection ends with a Takeaway paragraph. It should be interpretable without reading the detailed results — it is the skim-reader's entry point.
+**Rule**: Every experiment cluster ends with a Takeaway paragraph. It should be interpretable without reading the detailed results — it is the skim-reader's entry point.
